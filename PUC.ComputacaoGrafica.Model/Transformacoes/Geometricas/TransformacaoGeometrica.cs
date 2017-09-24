@@ -1,4 +1,5 @@
 ﻿using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
+using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.DirecaoObj;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using System;
 

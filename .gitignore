@@ -1,1 +1,6 @@
 /.vs/
+/PUC.ComputacaoGrafica.Model/obj
+/PUC.ComputacaoGrafica.Testes.Unidade/obj
+/PUC.ComputacaoGrafica.Infraestrutura/obj
+/bin/Debug
+/bin/Debug
