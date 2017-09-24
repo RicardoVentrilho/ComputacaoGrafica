@@ -3,7 +3,7 @@ using System;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas
 {
-    public class TransformacaoProjetiva
+    public class TransformacaoProjetivaDoPoliedro
     {
         public Poliedro ProjeteUmAxiomaIsometrico()
         {

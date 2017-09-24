@@ -5,6 +5,8 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+using System;
+
 namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.MatrizObj
 {
     /// <summary>
@@ -14,7 +16,7 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.MatrizObj
     {
         public void AssineRegraDeCriacaoDeMatriz(int[][] matriz)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
