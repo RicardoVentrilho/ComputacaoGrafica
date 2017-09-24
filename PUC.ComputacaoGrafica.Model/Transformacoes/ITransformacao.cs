@@ -4,6 +4,6 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes
 {
     public interface ITransformacao
     {
-        Ponto Calcule(Ponto ponto);
+        Ponto Calcule(out Ponto ponto);
     }
 }

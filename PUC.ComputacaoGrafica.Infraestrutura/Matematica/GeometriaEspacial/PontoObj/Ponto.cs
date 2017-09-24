@@ -1,6 +1,6 @@
 ﻿namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj
 {
-    public struct Ponto
+    public class Ponto
     {
         public int X { get; set; }
 
@@ -28,6 +28,11 @@
             }
 
             return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return X * 6553 + Y * 7993;
         }
     }
 }

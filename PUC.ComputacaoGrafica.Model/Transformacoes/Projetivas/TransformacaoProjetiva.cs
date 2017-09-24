@@ -1,17 +1,16 @@
-﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
+﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
 using System;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas
 {
     public class TransformacaoProjetiva
     {
-        public Ponto ProjeteUmAxiomaIsometrico()
+        public Poliedro ProjeteUmAxiomaIsometrico()
         {
             throw new NotImplementedException();
         }
 
-        public Ponto ProjeteUmPlanarPerspectivo()
+        public Poliedro ProjeteUmPlanarPerspectivo()
         {
             throw new NotImplementedException();
         }

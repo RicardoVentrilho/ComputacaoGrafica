@@ -5,13 +5,15 @@ using System.Collections.Generic;
 
 namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj
 {
-    public class Poliedro
+    public partial class Poliedro
     {
-        private ValidacoesPoliedro _Validacoes;
+        public ValidacoesPoliedro Validacoes { get; private set; }
 
         public Poliedro(IList<Ponto> vertices, IList<Aresta> arestas, IList<Face> faces)
         {
-            _Validacoes.AssineRegraDeCriacao(vertices, arestas, faces);
+            Validacoes = new ValidacoesPoliedro();
+
+            Validacoes.AssineRegraDeCriacao(vertices, arestas, faces);
 
             Vertices = vertices;
             Arestas = arestas;

@@ -10,7 +10,17 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Poli
     {
         public void AssineRegraDeCriacao(IList<Ponto> vertices, IList<Aresta> arestas, IList<Face> faces)
         {
+            AssineRegraDosVertices(vertices);
             AssineRegraDeEuler(vertices, arestas, faces);
+        }
+
+        private void AssineRegraDosVertices(IList<Ponto> vertices)
+        {
+            var quantidadeDeVertices = vertices.Count;
+
+            if (quantidadeDeVertices > 3) { }
+
+            throw new NotImplementedException();
         }
 
         private void AssineRegraDeEuler(IList<Ponto> vertices, IList<Aresta> arestas, IList<Face> faces)

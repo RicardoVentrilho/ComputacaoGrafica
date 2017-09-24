@@ -3,7 +3,7 @@ using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.DirecaoO
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using System;
 
-namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
+namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.CisalhamentoObj
 {
     public class Cisalhamento : ITransformacao
     {
@@ -26,7 +26,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
             return _Instancia;
         }
 
-        public Ponto Calcule(Ponto ponto)
+        public Ponto Calcule(out Ponto ponto)
         {
             throw new NotImplementedException();
         }

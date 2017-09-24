@@ -1,7 +1,7 @@
 ﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using System;
 
-namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
+namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj
 {
     public class Translacao : ITransformacao
     {
@@ -15,7 +15,9 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
         }
 
         public int DeslocamentoX { get; set; }
+
         public int DeslocamentoY { get; set; }
+
         public int DeslocamentoZ { get; set; }
 
         public static Translacao ObtenhaInstancia(int deslocamentoX, int deslocamentoY, int deslocamentoZ)
@@ -27,7 +29,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
             return _Instancia;
         }
 
-        public Ponto Calcule(Ponto ponto)
+        public Ponto Calcule(out Ponto ponto)
         {
             throw new NotImplementedException();
         }

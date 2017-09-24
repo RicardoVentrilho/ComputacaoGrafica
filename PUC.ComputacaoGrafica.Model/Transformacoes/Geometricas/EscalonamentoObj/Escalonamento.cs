@@ -1,7 +1,7 @@
 ﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using System;
 
-namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
+namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.EscalonamentoObj
 {
     public class Escalonamento : ITransformacao
     {
@@ -27,7 +27,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
             return _Instancia;
         }
 
-        public Ponto Calcule(Ponto ponto)
+        public Ponto Calcule(out Ponto ponto)
         {
             throw new NotImplementedException();
         }
