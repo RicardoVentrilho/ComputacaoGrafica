@@ -1,28 +1,29 @@
 ﻿using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.DirecaoObj;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.Interfaces;
 using System;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
 {
-    public static class TransformacaoGeometricaDoPoliedro
+    public class TransformacaoGeometricaDoPoliedro : ITransformacaoGeometrica<Poliedro>
     {
-        public static Poliedro Translade(this Poliedro poliedro, int deslocamentoX, int deslocamentoY, int deslocamentoZ)
+        public Poliedro Translade(Poliedro poliedro, int deslocamentoX, int deslocamentoY, int deslocamentoZ)
         {
             throw new NotImplementedException();
         }
 
-        public static Poliedro Escalone(this Poliedro poliedro, int escalonamentoX, int escalonamentoY, int escalonamentoZ)
+        public Poliedro Escalone(Poliedro poliedro, int escalonamentoX, int escalonamentoY, int escalonamentoZ)
         {
             throw new NotImplementedException();
         }
 
-        public static Poliedro Rotacione(this Poliedro poliedro)
+        public Poliedro Rotacione(Poliedro poliedro)
         {
             throw new NotImplementedException();
         }
 
-        public static Poliedro Cisalhe(this Poliedro poliedro, Direcao direcao, EnumCoordenadas proporcao)
+        public Poliedro Cisalhe(Poliedro poliedro, Direcao direcao, EnumCoordenadas proporcao)
         {
             throw new NotImplementedException();
         }

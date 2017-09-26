@@ -1,9 +1,10 @@
 ﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
 using System;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj
 {
-    public class Translacao : ITransformacao
+    public class Translacao : ITransformacao<Ponto>
     {
         private static readonly Translacao _Instancia = new Translacao(0, 0, 0);
 
@@ -29,7 +30,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj
             return _Instancia;
         }
 
-        public Ponto Calcule(out Ponto ponto)
+        public Ponto Calcule(Ponto conceito)
         {
             throw new NotImplementedException();
         }

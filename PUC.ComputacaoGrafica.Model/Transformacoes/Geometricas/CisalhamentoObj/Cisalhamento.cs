@@ -1,11 +1,12 @@
 ﻿using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.DirecaoObj;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
 using System;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.CisalhamentoObj
 {
-    public class Cisalhamento : ITransformacao
+    public class Cisalhamento : ITransformacao<Ponto>
     {
         private static readonly Cisalhamento _Instancia = new Cisalhamento(null, EnumCoordenadas.X);
 
@@ -26,7 +27,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.CisalhamentoObj
             return _Instancia;
         }
 
-        public Ponto Calcule(out Ponto ponto)
+        public Ponto Calcule(Ponto conceito)
         {
             throw new NotImplementedException();
         }

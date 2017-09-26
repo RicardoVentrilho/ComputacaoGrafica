@@ -1,33 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PUC.ComputacaoGrafica.Controller.Controladores;
+using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
+using PUC.ComputacaoGrafica.Model.Interfaces.Tela;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 namespace PUC.ComputacaoGrafica.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, ITelaTransformacao
     {
         public MainWindow()
         {
+            Controlador = new ControladorTransformacao(this);
+
             InitializeComponent();
         }
 
+        public ControladorTransformacao Controlador { get; private set; }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Olá Mundo véi!");
+            var poliedro = new Poliedro(null, null, null);
+
+            Controlador.Desenhe(poliedro);
         }
     }
 }

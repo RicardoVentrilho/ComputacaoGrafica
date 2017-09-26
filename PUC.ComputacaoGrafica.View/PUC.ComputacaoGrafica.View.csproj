@@ -8,11 +8,12 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>PUC.ComputacaoGrafica.View</RootNamespace>
     <AssemblyName>PUC.ComputacaoGrafica.View</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -92,6 +93,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PUC.ComputacaoGrafica.Controller.cs\PUC.ComputacaoGrafica.Controller.cs.csproj">
+      <Project>{b5bf9517-93c2-4906-912c-f869f95dffa2}</Project>
+      <Name>PUC.ComputacaoGrafica.Controller.cs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PUC.ComputacaoGrafica.Infraestrutura.cs\PUC.ComputacaoGrafica.Infraestrutura.cs.csproj">
+      <Project>{3334620f-c8bc-4f99-9e84-605d9fe7876b}</Project>
+      <Name>PUC.ComputacaoGrafica.Infraestrutura.cs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PUC.ComputacaoGrafica.Model\PUC.ComputacaoGrafica.Model.csproj">
+      <Project>{07170b28-dfcc-4796-9743-d79a683300be}</Project>
+      <Name>PUC.ComputacaoGrafica.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

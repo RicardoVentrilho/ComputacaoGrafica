@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj
 {
-    public partial class Poliedro
+    public class Poliedro
     {
         public ValidacoesPoliedro Validacoes { get; private set; }
 

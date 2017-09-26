@@ -1,9 +1,10 @@
 ﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.Interfaces;
 using System;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas
 {
-    public class TransformacaoProjetivaDoPoliedro
+    public class TransformacaoProjetivaDoPoliedro : ITransformacaoProjetiva<Poliedro>
     {
         public Poliedro ProjeteUmAxiomaIsometrico()
         {
