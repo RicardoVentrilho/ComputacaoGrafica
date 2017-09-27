@@ -1,6 +1,8 @@
 ﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
 using System;
+using MathNet.Numerics.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra.Double;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj
 {
@@ -27,11 +29,21 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj
             _Instancia.DeslocamentoY = deslocamentoY;
             _Instancia.DeslocamentoZ = deslocamentoZ;
 
+
+
             return _Instancia;
         }
 
         public Ponto Calcule(Ponto conceito)
         {
+            Matrix<double> M = DenseMatrix.OfArray(new double[,]
+            {
+                {2, 2},
+                {2, 2}
+            });
+
+            var resultado = M * M;
+
             throw new NotImplementedException();
         }
     }
