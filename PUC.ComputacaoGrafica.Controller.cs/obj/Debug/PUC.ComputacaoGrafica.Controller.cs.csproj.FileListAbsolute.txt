@@ -1,5 +1,0 @@
-C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\bin\Debug\PUC.ComputacaoGrafica.Controller.cs.dll
-C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\bin\Debug\PUC.ComputacaoGrafica.Controller.cs.pdb
-C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Controller.cs\obj\Debug\PUC.ComputacaoGrafica.Controller.cs.csprojResolveAssemblyReference.cache
-C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Controller.cs\obj\Debug\PUC.ComputacaoGrafica.Controller.cs.dll
-C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Controller.cs\obj\Debug\PUC.ComputacaoGrafica.Controller.cs.pdb

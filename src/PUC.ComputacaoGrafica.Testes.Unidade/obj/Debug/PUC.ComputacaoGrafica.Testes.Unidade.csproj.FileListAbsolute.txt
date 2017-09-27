@@ -1,0 +1,10 @@
+C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\bin\Debug\PUC.ComputacaoGrafica.Testes.Unidade.dll
+C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\bin\Debug\PUC.ComputacaoGrafica.Testes.Unidade.pdb
+C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Testes.Unidade\obj\Debug\PUC.ComputacaoGrafica.Testes.Unidade.csprojResolveAssemblyReference.cache
+C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Testes.Unidade\obj\Debug\PUC.ComputacaoGrafica.Testes.Unidade.dll
+C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Testes.Unidade\obj\Debug\PUC.ComputacaoGrafica.Testes.Unidade.pdb
+C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\src\PUC.ComputacaoGrafica.Testes.Unidade\obj\Debug\PUC.ComputacaoGrafica.Testes.Unidade.csprojResolveAssemblyReference.cache
+C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\src\PUC.ComputacaoGrafica.Testes.Unidade\obj\Debug\PUC.ComputacaoGrafica.Testes.Unidade.dll
+C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\src\PUC.ComputacaoGrafica.Testes.Unidade\obj\Debug\PUC.ComputacaoGrafica.Testes.Unidade.pdb
+C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\src\bin\Debug\PUC.ComputacaoGrafica.Testes.Unidade.dll
+C:\Users\jose.ventrilho\Documents\Visual Studio 2015\Projects\ComputacaoGrafica\src\bin\Debug\PUC.ComputacaoGrafica.Testes.Unidade.pdb
