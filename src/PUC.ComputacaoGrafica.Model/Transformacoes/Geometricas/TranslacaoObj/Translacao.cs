@@ -1,8 +1,8 @@
 ﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
-using System;
 using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Double;
+using PUC.ComputacaoGrafica.Infraestrutura.cs;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj
 {
@@ -17,11 +17,13 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj
             DeslocamentoZ = deslocamentoZ;
         }
 
-        public int DeslocamentoX { get; set; }
+        public int DeslocamentoX { get; private set; }
 
-        public int DeslocamentoY { get; set; }
+        public int DeslocamentoY { get; private set; }
 
-        public int DeslocamentoZ { get; set; }
+        public int DeslocamentoZ { get; private set; }
+
+        public Matrix<double> MatrizParaTranslacao { get; private set; }
 
         public static Translacao ObtenhaInstancia(int deslocamentoX, int deslocamentoY, int deslocamentoZ)
         {
@@ -29,22 +31,26 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj
             _Instancia.DeslocamentoY = deslocamentoY;
             _Instancia.DeslocamentoZ = deslocamentoZ;
 
-
+            _Instancia.MatrizParaTranslacao = DenseMatrix.OfArray(new double[,] 
+            {
+                { 1, 0, 0, deslocamentoX },
+                { 0, 1, 0, deslocamentoY },
+                { 0, 0, 1, deslocamentoZ },
+                { 0, 0, 0, 1 }
+            });
 
             return _Instancia;
         }
 
-        public Ponto Calcule(Ponto conceito)
+        public Ponto Calcule(Ponto elemento)
         {
-            Matrix<double> M = DenseMatrix.OfArray(new double[,]
-            {
-                {2, 2},
-                {2, 2}
-            });
+            var pontoComoMatriz = elemento.ConvertaParaMatriz();
 
-            var resultado = M * M;
+            var resultado = MatrizParaTranslacao * pontoComoMatriz;
 
-            throw new NotImplementedException();
+            var ponto = resultado.ConvertaParaPonto();
+
+            return ponto;
         }
     }
 }

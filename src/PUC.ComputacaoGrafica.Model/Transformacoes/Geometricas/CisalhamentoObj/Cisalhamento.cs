@@ -1,14 +1,17 @@
-﻿using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
+﻿using MathNet.Numerics.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra.Double;
+using PUC.ComputacaoGrafica.Infraestrutura.cs;
+using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.DirecaoObj;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
-using System;
+using static PUC.ComputacaoGrafica.Infraestrutura.Enumeradores.EnumCoordenadas;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.CisalhamentoObj
 {
     public class Cisalhamento : ITransformacao<Ponto>
     {
-        private static readonly Cisalhamento _Instancia = new Cisalhamento(null, EnumCoordenadas.X);
+        private static readonly Cisalhamento _Instancia = new Cisalhamento(default(Direcao), EnumCoordenadas.X);
 
         public Cisalhamento(Direcao direcao, EnumCoordenadas proporcao)
         {
@@ -16,20 +19,35 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.CisalhamentoObj
             Proporcao = proporcao;
         }
 
-        public Direcao Direcao { get; set; }
-        public EnumCoordenadas Proporcao { get; set; }
+        public Matrix<double> MatrizParaCisalhamento { get; private set; }
+
+        public Direcao Direcao { get; private set; }
+
+        public EnumCoordenadas Proporcao { get; private set; }
 
         public static Cisalhamento ObtenhaInstancia(Direcao direcao, EnumCoordenadas proporcao)
         {
             _Instancia.Direcao = direcao;
             _Instancia.Proporcao = proporcao;
 
+            _Instancia.MatrizParaCisalhamento = DenseMatrix.CreateIdentity(3);
+
+            _Instancia.MatrizParaCisalhamento[(int)proporcao, (int)X] = direcao.X;
+            _Instancia.MatrizParaCisalhamento[(int)proporcao, (int)Y] = direcao.Y;
+            _Instancia.MatrizParaCisalhamento[(int)proporcao, (int)Z] = direcao.Z;
+
             return _Instancia;
         }
 
-        public Ponto Calcule(Ponto conceito)
+        public Ponto Calcule(Ponto elemento)
         {
-            throw new NotImplementedException();
+            var pontoComoMatriz = elemento.ConvertaParaMatriz();
+
+            var resultado = MatrizParaCisalhamento * pontoComoMatriz;
+
+            var ponto = resultado.ConvertaParaPonto();
+
+            return ponto;
         }
     }
 }

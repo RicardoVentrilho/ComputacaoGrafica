@@ -20,7 +20,7 @@ namespace PUC.ComputacaoGrafica.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var poliedro = new Poliedro(null, null, null);
+            var poliedro = new Poliedro(null, null);
 
             Controlador.Desenhe(poliedro);
         }

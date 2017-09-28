@@ -31,11 +31,6 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             throw new NotImplementedException();
         }
 
-        public Poliedro Rotacione(Poliedro poliedro)
-        {
-            throw new NotImplementedException();
-        }
-
         public Poliedro Translade(Poliedro poliedro, int deslocamentoX, int deslocamentoY, int deslocamentoZ)
         {
             throw new NotImplementedException();
@@ -47,6 +42,11 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
         }
 
         public Poliedro ProjeteUmPlanarPerspectivo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Poliedro Rotacione(Poliedro poliedro, EnumCoordenadas eixo, double angulo)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,6 @@
-﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
+﻿using MathNet.Numerics.LinearAlgebra.Double;
+using PUC.ComputacaoGrafica.Infraestrutura.cs;
+using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
 using System;
 
@@ -15,9 +17,13 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.EscalonamentoOb
             EscalonamentoZ = escalonamentoZ;
         }
 
-        public int EscalonamentoX { get; set; }
-        public int EscalonamentoY { get; set; }
-        public int EscalonamentoZ { get; set; }
+        public int EscalonamentoX { get; private set; }
+
+        public int EscalonamentoY { get; private set; }
+
+        public int EscalonamentoZ { get; private set; }
+
+        public DenseMatrix MatrizParaEscalonamento { get; private set; }
 
         public static Escalonamento ObtenhaInstancia(int escalonamentoX, int escalonamentoY, int escalonamentoZ)
         {
@@ -25,12 +31,26 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.EscalonamentoOb
             _Instancia.EscalonamentoY = escalonamentoY;
             _Instancia.EscalonamentoZ = escalonamentoZ;
 
+            _Instancia.MatrizParaEscalonamento = DenseMatrix.OfArray(new double[,]
+            {
+                { escalonamentoX, 0, 0, 0 },
+                { 0, escalonamentoY, 0, 0 },
+                { 0, 0, escalonamentoZ, 0 },
+                { 0, 0, 0, 1 }
+            });
+
             return _Instancia;
         }
 
-        public Ponto Calcule(Ponto conceito)
+        public Ponto Calcule(Ponto elemento)
         {
-            throw new NotImplementedException();
+            var pontoComoMatriz = elemento.ConvertaParaMatriz();
+
+            var resultado = MatrizParaEscalonamento * pontoComoMatriz;
+
+            var ponto = resultado.ConvertaParaPonto();
+
+            return ponto;
         }
     }
 }

@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug\</OutputPath>
+    <OutputPath>..\..\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -53,10 +53,13 @@
     <Compile Include="Transformacoes\Geometricas\CisalhamentoObj\Cisalhamento.cs" />
     <Compile Include="Transformacoes\Geometricas\EscalonamentoObj\Escalonamento.cs" />
     <Compile Include="Transformacoes\Geometricas\Interfaces\ITransformacaoGeometrica.cs" />
+    <Compile Include="Transformacoes\Geometricas\RotacionamentoObj\FabricaDeRotacionamento.cs" />
+    <Compile Include="Transformacoes\Geometricas\RotacionamentoObj\Rotacionamento.cs" />
     <Compile Include="Transformacoes\Geometricas\TransformacaoGeometricaDoPoliedro.cs" />
     <Compile Include="Transformacoes\Geometricas\TranslacaoObj\Translacao.cs" />
     <Compile Include="Transformacoes\Interfaces\ITransformacao.cs" />
     <Compile Include="Transformacoes\Projetivas\Interfaces\ITransformacaoProjetiva.cs" />
+    <Compile Include="Transformacoes\Projetivas\ParalelaAxiometricaObj\ParalelaAxiometrica.cs" />
     <Compile Include="Transformacoes\Projetivas\TransformacaoProjetivaDoPoliedro.cs" />
   </ItemGroup>
   <ItemGroup>

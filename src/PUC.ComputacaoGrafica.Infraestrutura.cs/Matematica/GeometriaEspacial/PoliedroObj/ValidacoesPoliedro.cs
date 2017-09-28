@@ -8,10 +8,10 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Poli
 {
     public class ValidacoesPoliedro
     {
-        public void AssineRegraDeCriacao(IList<Ponto> vertices, IList<Aresta> arestas, IList<Face> faces)
+        public void AssineRegraDeCriacao(IList<Ponto> vertices, IList<Aresta> arestas)
         {
             AssineRegraDosVertices(vertices);
-            AssineRegraDeEuler(vertices, arestas, faces);
+            AssineRegraDeEuler(vertices, arestas);
         }
 
         private void AssineRegraDosVertices(IList<Ponto> vertices)
@@ -19,16 +19,10 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Poli
             var quantidadeDeVertices = vertices.Count;
 
             if (quantidadeDeVertices > 3) { }
-
-            throw new NotImplementedException();
         }
 
-        private void AssineRegraDeEuler(IList<Ponto> vertices, IList<Aresta> arestas, IList<Face> faces)
+        private void AssineRegraDeEuler(IList<Ponto> vertices, IList<Aresta> arestas)
         {
-            var quantidadeDeVertices = vertices.Count;
-            var quantidadeDeArestas = arestas.Count;
-            var quantidadeDeFaces = faces.Count;
-
             throw new NotImplementedException();
         }
     }

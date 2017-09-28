@@ -9,21 +9,18 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Poli
     {
         public ValidacoesPoliedro Validacoes { get; private set; }
 
-        public Poliedro(IList<Ponto> vertices, IList<Aresta> arestas, IList<Face> faces)
+        public Poliedro(List<Ponto> vertices, List<Aresta> arestas)
         {
             Validacoes = new ValidacoesPoliedro();
 
-            Validacoes.AssineRegraDeCriacao(vertices, arestas, faces);
+            Validacoes.AssineRegraDeCriacao(vertices, arestas);
 
             Vertices = vertices;
             Arestas = arestas;
-            Faces = faces;
         }
 
         public IList<Ponto> Vertices { get; private set; }
 
         public IList<Aresta> Arestas { get; private set; }
-
-        public IList<Face> Faces { get; private set; }
     }
 }

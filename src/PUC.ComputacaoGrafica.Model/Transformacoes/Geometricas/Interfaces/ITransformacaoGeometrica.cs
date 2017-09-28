@@ -9,7 +9,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.Interfaces
 
         T Escalone(T poliedro, int escalonamentoX, int escalonamentoY, int escalonamentoZ);
 
-        T Rotacione(T poliedro);
+        T Rotacione(T poliedro, EnumCoordenadas eixo, double angulo);
 
         T Cisalhe(T poliedro, Direcao direcao, EnumCoordenadas proporcao);
     }

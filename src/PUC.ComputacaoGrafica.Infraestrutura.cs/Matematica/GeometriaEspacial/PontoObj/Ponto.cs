@@ -1,15 +1,21 @@
-﻿namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj
+﻿using MathNet.Numerics.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra.Double;
+
+namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj
 {
     public class Ponto
     {
-        public int X { get; set; }
+        public double X { get; set; }
 
-        public int Y { get; set; }
+        public double Y { get; set; }
 
-        public Ponto(int x, int y)
+        public double Z { get; set; }
+
+        public Ponto(double x, double y, double z)
         {
             X = x;
             Y = y;
+            Z = z;
         }
 
         public static bool operator ==(Ponto primeiroPonto, Ponto segundoPonto) =>
@@ -24,7 +30,7 @@
             {
                 var ponto = (Ponto)obj;
 
-                return ponto.X == X && ponto.Y == Y;
+                return ponto.X == X && ponto.Y == Y && ponto.Z == Z;
             }
 
             return false;
@@ -32,7 +38,14 @@
 
         public override int GetHashCode()
         {
-            return X * 6553 + Y * 7993;
+            return (int)X * 6553 + (int)Y * 7993;
+        }
+
+        public Matrix<double> ConvertaParaMatriz()
+        {
+            var matriz = DenseMatrix.OfArray(new double[,] { { X, Y, Z } });
+
+            return matriz;
         }
     }
 }
