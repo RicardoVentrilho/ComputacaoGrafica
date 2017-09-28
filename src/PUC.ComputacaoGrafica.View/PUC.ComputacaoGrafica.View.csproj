@@ -55,6 +55,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Transformacoes\Geometricas\Cisalhamento.xaml.cs">
+      <DependentUpon>Cisalhamento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transformacoes\Geometricas\Escalonamento.xaml.cs">
+      <DependentUpon>Escalonamento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transformacoes\Geometricas\Rotacao.xaml.cs">
+      <DependentUpon>Rotacao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transformacoes\Geometricas\Translacao.xaml.cs">
+      <DependentUpon>Translacao.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Matematica\Aresta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,12 +79,38 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Matematica\Aresta.xaml.cs">
+      <DependentUpon>Aresta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Matematica\Ponto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transformacoes\Geometricas\Cisalhamento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transformacoes\Geometricas\Escalonamento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transformacoes\Geometricas\Rotacao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transformacoes\Geometricas\Translacao.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Matematica\Ponto.xaml.cs">
+      <DependentUpon>Ponto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -108,5 +150,6 @@
       <Name>PUC.ComputacaoGrafica.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,21 +3,35 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PUC.ComputacaoGrafica.View"
+        xmlns:matematica="clr-namespace:PUC.ComputacaoGrafica.View.Matematica"
+        xmlns:geometricas="clr-namespace:PUC.ComputacaoGrafica.View.Transformacoes.Geometricas"
         mc:Ignorable="d"
         Title="Transformacoes" 
         Height="500" 
         Width="500"
         MaxHeight="500"
         MinHeight="500"
-        MaxWidth="500"
-        MinWidth="500">
-    <Grid Margin="0,0,0,0">
-        <Grid HorizontalAlignment="Left" Height="375" Margin="10,10,0,0" VerticalAlignment="Top" Width="472" RenderTransformOrigin="0.52,0.454">
-
+        MaxWidth="800"
+        MinWidth="800">
+    <Grid Margin="0,0,2,0">
+        <Grid HorizontalAlignment="Left" Height="323" VerticalAlignment="Top" Width="625" RenderTransformOrigin="0.52,0.454"/>
+        <Grid HorizontalAlignment="Left" Height="147" Margin="0,323,0,0" VerticalAlignment="Top" Width="625" >
+            <geometricas:Translacao>
+                
+            </geometricas:Translacao>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="70" Margin="10,390,0,0" VerticalAlignment="Top" Width="472" >
-            <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="200,27,0,0" VerticalAlignment="Top" Width="75" />
+        <Grid HorizontalAlignment="Left" Height="460" Margin="625,0,0,0" VerticalAlignment="Top" Width="165">
+            <matematica:Ponto Margin="10,10,10,329">
+            </matematica:Ponto>
+            <matematica:Aresta Margin="18,126,10,20">
+            </matematica:Aresta>
         </Grid>
     </Grid>
 </Window>
+
+
+
+
+
+
+

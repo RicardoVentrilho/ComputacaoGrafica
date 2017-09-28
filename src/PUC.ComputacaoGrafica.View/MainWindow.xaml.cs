@@ -2,6 +2,7 @@
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
 using PUC.ComputacaoGrafica.Model.Interfaces.Tela;
 using System.Windows;
+
 namespace PUC.ComputacaoGrafica.View
 {
     /// <summary>
@@ -17,12 +18,5 @@ namespace PUC.ComputacaoGrafica.View
         }
 
         public ControladorTransformacao Controlador { get; private set; }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var poliedro = new Poliedro(null, null);
-
-            Controlador.Desenhe(poliedro);
-        }
     }
 }
