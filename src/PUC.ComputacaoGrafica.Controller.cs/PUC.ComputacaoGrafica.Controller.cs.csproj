@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controladores\ControladorPoliedro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controladores\ControladorTransformacaoGeometrica.cs" />
+    <Compile Include="Controladores\ControladorTransformacao.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PUC.ComputacaoGrafica.Infraestrutura.cs\PUC.ComputacaoGrafica.Infraestrutura.cs.csproj">

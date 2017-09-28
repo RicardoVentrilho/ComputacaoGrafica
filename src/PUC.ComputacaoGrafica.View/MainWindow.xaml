@@ -21,7 +21,7 @@
             </geometricas:Translacao>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="460" Margin="625,0,0,0" VerticalAlignment="Top" Width="165">
-            <matematica:Ponto Margin="10,10,10,329">
+            <matematica:Ponto x:Name="PontoWindow"  Margin="10,10,10,329" Loaded="AdicionePonto">
             </matematica:Ponto>
             <matematica:Aresta Margin="18,126,10,20">
             </matematica:Aresta>

@@ -36,6 +36,11 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             throw new NotImplementedException();
         }
 
+        public void Translade(int v1, int v2, int v3)
+        {
+            throw new NotImplementedException();
+        }
+
         public Poliedro ProjeteUmAxiomaIsometrico()
         {
             throw new NotImplementedException();
@@ -47,6 +52,16 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
         }
 
         public Poliedro Rotacione(Poliedro poliedro, EnumCoordenadas eixo, double angulo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AdicionePonto(double d, double d1, double d2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AdicioneAresta()
         {
             throw new NotImplementedException();
         }
