@@ -5,7 +5,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.Interfaces
 {
     public interface ITransformacaoGeometrica<T>
     {
-        T Translade(T poliedro, int deslocamentoX, int deslocamentoY, int deslocamentoZ);
+        T Translade(T poliedro, double deslocamentoX, double deslocamentoY, double deslocamentoZ);
 
         T Escalone(T poliedro, int escalonamentoX, int escalonamentoY, int escalonamentoZ);
 

@@ -9,6 +9,8 @@ using PUC.ComputacaoGrafica.Persistencia.Repositorio;
 using System.Collections.Generic;
 using PUC.ComputacaoGrafica.Persistencia.Repositorios;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.Interfaces;
 
 namespace PUC.ComputacaoGrafica.Controller.Controladores
 {
@@ -19,30 +21,23 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             Tela = tela;
 
             Poliedro = new Poliedro();
+
+            TransformacoesGeometricas = new TransformacaoGeometricaDoPoliedro();
         }
+
+        public ITransformacaoGeometrica<Poliedro> TransformacoesGeometricas { get; private set; }
 
         public Poliedro Poliedro { get; private set; }
 
         public ITelaTransformacao Tela { get; private set; }
 
-        public Poliedro Cisalhe(Poliedro poliedro, Direcao direcao, EnumCoordenadas proporcao)
+        public void Translade(double deslocamentoX, double deslocamentoY, double deslocamentoZ)
         {
-            throw new NotImplementedException();
-        }
+            Poliedro = TransformacoesGeometricas.Translade(Poliedro, deslocamentoX, deslocamentoY, deslocamentoZ);
 
-        public Poliedro Escalone(Poliedro poliedro, int escalonamentoX, int escalonamentoY, int escalonamentoZ)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Poliedro Translade(Poliedro poliedro, int deslocamentoX, int deslocamentoY, int deslocamentoZ)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Translade(int v1, int v2, int v3)
-        {
-            throw new NotImplementedException();
+            Tela.AtualizePlanoCartesiano(Poliedro);
+            Tela.AtualizePontos(Poliedro);
+            Tela.AtualizeArestas(Poliedro);
         }
 
         public void AdicioneAresta(Ponto primeiroPonto, Ponto ultimoPonto)
@@ -77,22 +72,7 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             Tela.AtualizePlanoCartesiano(Poliedro);
         }
 
-        public Poliedro ProjeteUmAxiomaIsometrico()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Poliedro ProjeteUmPlanarPerspectivo()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Poliedro Rotacione(Poliedro poliedro, EnumCoordenadas eixo, double angulo)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<Ponto> ObtenhaPonto()
+        public IList<Ponto> ObtenhaPontos()
         {
             return Poliedro.Vertices;
         }

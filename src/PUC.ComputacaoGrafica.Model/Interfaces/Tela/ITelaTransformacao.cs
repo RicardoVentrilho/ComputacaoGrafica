@@ -11,5 +11,9 @@ namespace PUC.ComputacaoGrafica.Model.Interfaces.Tela
         void AdicioneAresta(Aresta aresta);
 
         void AtualizePlanoCartesiano(Poliedro poliedro);
+
+        void AtualizePontos(Poliedro poliedro);
+
+        void AtualizeArestas(Poliedro poliedro);
     }
 }

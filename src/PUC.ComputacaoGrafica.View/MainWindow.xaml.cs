@@ -5,6 +5,7 @@ using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj;
 using PUC.ComputacaoGrafica.View.Adaptadores;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
+using System;
 
 namespace PUC.ComputacaoGrafica.View
 {
@@ -68,12 +69,31 @@ namespace PUC.ComputacaoGrafica.View
             Controlador.AdicioneAresta(primeiroPonto, ultimoPonto);
         }
 
+        private void Translade(object sender, RoutedEventArgs e)
+        {
+            var deslocamentoX = double.Parse(deslocamentoXTextBox.Text);
+            var deslocamentoY = double.Parse(deslocamentoYTextBox.Text);
+            var deslocamentoZ = double.Parse(deslocamentoZTextBox.Text);
+
+            Controlador.Translade(deslocamentoX, deslocamentoY, deslocamentoZ);
+        }
+
         #endregion
 
         #region "MÉTODOS PRIVADOS"
 
         private void LimpaPlanoCartesiano()
         {
+        }
+
+        public void AtualizePontos(Poliedro poliedro)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AtualizeArestas(Poliedro poliedro)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

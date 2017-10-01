@@ -10,7 +10,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
 {
     public class TransformacaoGeometricaDoPoliedro : ITransformacaoGeometrica<Poliedro>
     {
-        public Poliedro Translade(Poliedro poliedro, int deslocamentoX, int deslocamentoY, int deslocamentoZ)
+        public Poliedro Cisalhe(Poliedro poliedro, Direcao direcao, EnumCoordenadas proporcao)
         {
             throw new NotImplementedException();
         }
@@ -20,17 +20,13 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
             throw new NotImplementedException();
         }
 
-        public Poliedro Cisalhe(Poliedro poliedro, Direcao direcao, EnumCoordenadas proporcao)
+        public Poliedro Rotacione(Poliedro poliedro, EnumCoordenadas eixo, double angulo)
         {
-            var cisalhamento = Cisalhamento.ObtenhaInstancia(direcao, proporcao);
-
             throw new NotImplementedException();
         }
 
-        public Poliedro Rotacione(Poliedro poliedro, EnumCoordenadas eixo, double angulo)
+        public Poliedro Translade(Poliedro poliedro, double deslocamentoX, double deslocamentoY, double deslocamentoZ)
         {
-            var rotacionamento = Rotacionamento.ObtenhaInstancia(eixo, angulo);
-
             throw new NotImplementedException();
         }
     }
