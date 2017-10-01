@@ -13,33 +13,65 @@
         MaxWidth="850"
         MinWidth="850">
     <Grid Background="LightBlue" HorizontalAlignment="Left" Width="840">
-            <Viewport3D x:Name="planoCartesiano" Margin="10,10,296,210">
-                <Viewport3D.Camera x:Uid="perspectivaCamera">
-                    <PerspectiveCamera Position="20,20,20" LookDirection="-1,-1,-1" UpDirection="0,1,0"/>
-                </Viewport3D.Camera>
+        
+        <!-- PLANO CARTESIANO -->
+        <Viewport3D x:Name="planoCartesiano" Margin="10,10,296,210">
+            <!-- CAMERA -->
+            <Viewport3D.Camera x:Uid="perspectivaCamera">
+                <PerspectiveCamera Position="20,20,20" LookDirection="-1,-1,-1" UpDirection="0,1,0"/>
+            </Viewport3D.Camera>
 
-                <tool3d:ScreenSpaceLines3D Points="0,0,0 15,0,0" Color="Red"/>
-                <tool3d:ScreenSpaceLines3D Points="0,0,0 0,15,0" Color="Green"/>
-                <tool3d:ScreenSpaceLines3D Points="0,0,0 0,0,15" Color="Blue"/>
-            </Viewport3D>
+            <!-- EIXOS -->
+            <tool3d:ScreenSpaceLines3D Points="0,0,0 15,0,0" Color="Red"/>
+            <tool3d:ScreenSpaceLines3D Points="0,0,0 0,15,0" Color="Green"/>
+            <tool3d:ScreenSpaceLines3D Points="0,0,0 0,0,15" Color="Blue"/>
+        </Viewport3D>
 
+        <!-- PONTOS -->
         <Grid HorizontalAlignment="Left" Height="449" Margin="549,10,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.351,0.489">
-            <TextBox x:Name="caixaDeTextoX" HorizontalAlignment="Left" Height="22" Margin="10,28,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94"/>
-            <TextBox x:Name="caixaDeTextoZ" HorizontalAlignment="Left" Height="22" Margin="10,0,0,345" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" Width="94"/>
-            <TextBox x:Name="caixaDeTextoY" HorizontalAlignment="Left" Height="22" Margin="10,55,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94"/>
-
-            <Button x:Name="botaoAdicionar" Content="Adicionar" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="94" Click="AdicionePonto"/>
+            <!-- DESCRIÇÃO -->
             <Label Content="Ponto&#xD;&#xA;" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
+            
+            <!-- COORDENADAS -->
+            <TextBox x:Name="caixaDeTextoX" HorizontalAlignment="Left" Height="22" Margin="10,28,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94"/>
+            <TextBox x:Name="caixaDeTextoY" HorizontalAlignment="Left" Height="22" Margin="10,55,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94"/>
+            <TextBox x:Name="caixaDeTextoZ" HorizontalAlignment="Left" Height="22" Margin="10,0,0,345" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" Width="94"/>
 
+            <!-- BOTÃO -->
+            <Button x:Name="botaoAdicionar" Content="Adicionar" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="94" Click="AdicionePonto"/>
+
+            <!-- LIST BOX -->
             <ListBox x:Name="pontosListBox" HorizontalAlignment="Left" Height="130" Margin="10,149,0,0" VerticalAlignment="Top" Width="94" />
             <ListBox x:Name="pontosSecundariosListBox" HorizontalAlignment="Left" Height="130" Margin="10,309,0,0" VerticalAlignment="Top" Width="94" />
 
+            <!-- FORMAR ARESTA -->
             <Button Content="Formar Aresta" HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="94" Click="AdicioneAresta"/>
         </Grid>
 
+        <!-- ARESTA -->
         <Grid HorizontalAlignment="Left" Height="449" Margin="663,10,0,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.351,0.489">
+            <!-- DESCRIÇÃO -->
             <Label Content="Arestas&#xA;" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
+            
+            <!-- LIST BOX -->
             <ListBox x:Name="arestasListBox" HorizontalAlignment="Left" Height="411" Margin="10,28,0,0" VerticalAlignment="Top" Width="147"/>
+        </Grid>
+        
+        <!-- TRANSFORMAÇÕES -->
+        <Grid HorizontalAlignment="Left" Height="195" Margin="10,464,0,0" VerticalAlignment="Top" Width="820">
+            <!-- TRANSLAÇÃO -->
+            <Grid HorizontalAlignment="Left" Height="195" VerticalAlignment="Top" Width="106">
+                <!-- DESCRIÇÃO -->
+                <Label Content="Translação" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="86"/>
+                
+                <!-- DESLOCAMENTO -->
+                <TextBox x:Name="deslocamentoXTextBox" HorizontalAlignment="Left" Height="22" Margin="10,41,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="86"/>
+                <TextBox x:Name="deslocamentoYTextBox" HorizontalAlignment="Left" Height="22" Margin="10,68,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="86"/>
+                <TextBox x:Name="deslocamentoZTextBox" HorizontalAlignment="Left" Height="22" Margin="10,95,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="86"/>
+                
+                <!-- BOTÃO CALCULAR -->
+                <Button Content="CALCULE" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="86"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
