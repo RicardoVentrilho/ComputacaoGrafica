@@ -44,11 +44,11 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.EscalonamentoOb
 
         public Ponto Calcule(Ponto elemento)
         {
-            var pontoComoMatriz = elemento.ConvertaParaMatriz();
+            var pontoComoMatriz = elemento.ConvertaParaMatrizVertical();
 
             var resultado = MatrizParaEscalonamento * pontoComoMatriz;
 
-            var ponto = resultado.ConvertaParaPonto();
+            var ponto = resultado.ConvertaHorizontalParaPonto();
 
             return ponto;
         }

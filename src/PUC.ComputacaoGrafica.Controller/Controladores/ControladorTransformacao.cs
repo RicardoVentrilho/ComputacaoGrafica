@@ -33,7 +33,7 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
 
         public void Translade(double deslocamentoX, double deslocamentoY, double deslocamentoZ)
         {
-            Poliedro = TransformacoesGeometricas.Translade(Poliedro, deslocamentoX, deslocamentoY, deslocamentoZ);
+            TransformacoesGeometricas.Translade(Poliedro, deslocamentoX, deslocamentoY, deslocamentoZ);
 
             Tela.AtualizePlanoCartesiano(Poliedro);
             Tela.AtualizePontos(Poliedro);

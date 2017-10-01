@@ -88,12 +88,28 @@ namespace PUC.ComputacaoGrafica.View
 
         public void AtualizePontos(Poliedro poliedro)
         {
-            throw new NotImplementedException();
+            var pontos = poliedro.Vertices;
+
+            pontosListBox.Items.Clear();
+            pontosSecundariosListBox.Items.Clear();
+
+            foreach (var ponto in pontos)
+            {
+                pontosListBox.Items.Add(ponto);
+                pontosSecundariosListBox.Items.Add(ponto);
+            }
         }
 
         public void AtualizeArestas(Poliedro poliedro)
         {
-            throw new NotImplementedException();
+            var arestas = poliedro.Arestas;
+
+            arestasListBox.Items.Clear();
+
+            foreach (var aresta in arestas)
+            {
+                arestasListBox.Items.Add(aresta);
+            }
         }
 
         #endregion

@@ -18,9 +18,9 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Poli
             Arestas = new List<Aresta>();
         }
 
-        public IList<Ponto> Vertices { get; private set; }
+        public IList<Ponto> Vertices { get; set; }
 
-        public IList<Aresta> Arestas { get; private set; }
+        public IList<Aresta> Arestas { get; set; }
 
         public void AdicionePonto(Ponto ponto)
         {
@@ -42,6 +42,16 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Poli
         public void AdicioneAresta(Aresta aresta)
         {
             Arestas.Add(aresta);
+        }
+
+        public void LimpeArestas()
+        {
+            Arestas.Clear();
+        }
+
+        public void LimpeVertices()
+        {
+            Vertices.Clear();
         }
     }
 }

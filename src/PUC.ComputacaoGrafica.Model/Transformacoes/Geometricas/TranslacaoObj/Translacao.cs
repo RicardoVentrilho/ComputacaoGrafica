@@ -1,8 +1,8 @@
 ﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
-using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
 using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Double;
 using PUC.ComputacaoGrafica.Infraestrutura.Extensoes;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj
 {
@@ -10,22 +10,22 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj
     {
         private static readonly Translacao _Instancia = new Translacao(0, 0, 0);
 
-        private Translacao(int deslocamentoX, int deslocamentoY, int deslocamentoZ)
+        private Translacao(double deslocamentoX, double deslocamentoY, double deslocamentoZ)
         {
             DeslocamentoX = deslocamentoX;
             DeslocamentoY = deslocamentoY;
             DeslocamentoZ = deslocamentoZ;
         }
 
-        public int DeslocamentoX { get; private set; }
+        public double DeslocamentoX { get; private set; }
 
-        public int DeslocamentoY { get; private set; }
+        public double DeslocamentoY { get; private set; }
 
-        public int DeslocamentoZ { get; private set; }
+        public double DeslocamentoZ { get; private set; }
 
         public Matrix<double> MatrizParaTranslacao { get; private set; }
 
-        public static Translacao ObtenhaInstancia(int deslocamentoX, int deslocamentoY, int deslocamentoZ)
+        public static Translacao ObtenhaInstancia(double deslocamentoX, double deslocamentoY, double deslocamentoZ)
         {
             _Instancia.DeslocamentoX = deslocamentoX;
             _Instancia.DeslocamentoY = deslocamentoY;
@@ -44,11 +44,11 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj
 
         public Ponto Calcule(Ponto elemento)
         {
-            var pontoComoMatriz = elemento.ConvertaParaMatriz();
+            var pontoComoMatriz = elemento.ConvertaParaMatrizVertical();
 
             var resultado = MatrizParaTranslacao * pontoComoMatriz;
 
-            var ponto = resultado.ConvertaParaPonto();
+            var ponto = resultado.ConvertaVerticalParaPonto();
 
             return ponto;
         }

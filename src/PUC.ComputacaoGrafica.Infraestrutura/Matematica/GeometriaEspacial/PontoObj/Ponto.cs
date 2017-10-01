@@ -42,9 +42,22 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Pont
             return (int)X * 6553 + (int)Y * 7993 + (int)Z * 6553;
         }
 
-        public Matrix<double> ConvertaParaMatriz()
+        public Matrix<double> ConvertaParaMatrizVertical()
         {
-            var matriz = DenseMatrix.OfArray(new double[,] { { X, Y, Z } });
+            var matriz = DenseMatrix.OfArray(new double[,] 
+            {
+                { X },
+                { Y },
+                { Z },
+                { 1 }
+            });
+
+            return matriz;
+        }
+
+        public Matrix<double> ConvertaParaMatrizHorizontal()
+        {
+            var matriz = DenseMatrix.OfArray(new double[,] { { X, Y, Z, 1 } });
 
             return matriz;
         }

@@ -35,11 +35,11 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.RotacionamentoO
 
         public Ponto Calcule(Ponto elemento)
         {
-            var pontoComoMatriz = elemento.ConvertaParaMatriz();
+            var pontoComoMatriz = elemento.ConvertaParaMatrizVertical();
 
             var resultado = MatrizParaRotacionamento * pontoComoMatriz;
 
-            var ponto = resultado.ConvertaParaPonto();
+            var ponto = resultado.ConvertaHorizontalParaPonto();
 
             return ponto;
         }
