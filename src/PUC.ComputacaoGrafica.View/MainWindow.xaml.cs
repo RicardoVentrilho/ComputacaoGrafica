@@ -1,11 +1,10 @@
 ﻿using PUC.ComputacaoGrafica.Controller.Controladores;
 using PUC.ComputacaoGrafica.Model.Interfaces.Tela;
 using System.Windows;
-using System;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
-using System.Windows.Input;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj;
 using PUC.ComputacaoGrafica.View.Adaptadores;
+using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
 
 namespace PUC.ComputacaoGrafica.View
 {
@@ -23,15 +22,7 @@ namespace PUC.ComputacaoGrafica.View
 
         public ControladorTransformacao Controlador { get; private set; }
 
-        private void Translade(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AtualizeTela()
-        {
-            throw new NotImplementedException();
-        }
+        #region "MÉTODOS PÚBLICOS"
 
         public void AdicionePonto(Ponto ponto)
         {
@@ -43,6 +34,22 @@ namespace PUC.ComputacaoGrafica.View
         {
             arestasListBox.Items.Add(aresta);
         }
+
+        public void AtualizePlanoCartesiano(Poliedro poliedro)
+        {
+            LimpaPlanoCartesiano();
+
+            var linhas = ScreenSpaceLines3DAdapter.Adapte(poliedro);
+
+            foreach (var linha in linhas)
+            {
+                planoCartesiano.Children.Add(linha);
+            }
+        }
+
+        #endregion
+
+        #region "EVENTOS"
 
         private void AdicionePonto(object sender, RoutedEventArgs e)
         {
@@ -61,18 +68,14 @@ namespace PUC.ComputacaoGrafica.View
             Controlador.AdicioneAresta(primeiroPonto, ultimoPonto);
         }
 
-        private void PlanoCartesianoClique(object sender, MouseEventArgs e)
+        #endregion
+
+        #region "MÉTODOS PRIVADOS"
+
+        private void LimpaPlanoCartesiano()
         {
-            var posicao = e.GetPosition(planoCartesiano);
         }
 
-        private void ArestasListBoxDuploClique(object sender, MouseButtonEventArgs e)
-        {
-            var aresta = (Aresta)arestasListBox.SelectedItem;
-
-            var linha = ScreenSpaceLines3DAdapter.Adapte(aresta);
-
-            planoCartesiano.Children.Add(linha);
-        }
+        #endregion
     }
 }

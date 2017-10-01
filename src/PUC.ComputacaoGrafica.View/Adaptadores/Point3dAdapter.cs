@@ -1,15 +1,10 @@
-﻿using System;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
+﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using System.Windows.Media.Media3D;
 
 namespace PUC.ComputacaoGrafica.View.Adaptadores
 {
-    public class Point3dAdapter
+    public static class Point3dAdapter
     {
-        public Point3dAdapter()
-        {
-        }
-
         public static Point3D Adapte(Ponto ponto)
         {
             var x = ponto.X;

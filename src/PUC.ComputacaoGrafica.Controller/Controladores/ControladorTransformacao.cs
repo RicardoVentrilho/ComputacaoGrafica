@@ -25,11 +25,6 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
 
         public ITelaTransformacao Tela { get; private set; }
 
-        public void Desenhe()
-        {
-            Tela.AtualizeTela();
-        }
-
         public Poliedro Cisalhe(Poliedro poliedro, Direcao direcao, EnumCoordenadas proporcao)
         {
             throw new NotImplementedException();
@@ -62,6 +57,24 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
 
                 Tela.AdicioneAresta(aresta);
             }
+
+            Tela.AtualizePlanoCartesiano(Poliedro);
+        }
+
+        public void AdicionePonto(double x, double y, double z)
+        {
+            using (var persistencia = RepositorioPonto.ObtenhaInstancia())
+            {
+                var ponto = new Ponto(x, y, z);
+
+                Poliedro.AdicionePonto(ponto);
+
+                persistencia.Cadastre(ponto);
+
+                Tela.AdicionePonto(ponto);
+            }
+
+            Tela.AtualizePlanoCartesiano(Poliedro);
         }
 
         public Poliedro ProjeteUmAxiomaIsometrico()
@@ -77,20 +90,6 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
         public Poliedro Rotacione(Poliedro poliedro, EnumCoordenadas eixo, double angulo)
         {
             throw new NotImplementedException();
-        }
-
-        public void AdicionePonto(double x, double y, double z)
-        {
-            using (var persistencia = RepositorioPonto.ObtenhaInstancia())
-            {
-                var ponto = new Ponto(x, y, z);
-
-                Poliedro.AdicionePonto(ponto);
-
-                persistencia.Cadastre(ponto);
-
-                Tela.AdicionePonto(ponto);
-            }
         }
 
         public IList<Ponto> ObtenhaPonto()

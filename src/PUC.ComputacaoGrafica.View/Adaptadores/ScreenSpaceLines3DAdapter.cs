@@ -1,7 +1,8 @@
-﻿using System;
-using _3DTools;
+﻿using _3DTools;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj;
 using System.Windows.Media;
+using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
+using System.Collections.Generic;
 
 namespace PUC.ComputacaoGrafica.View.Adaptadores
 {
@@ -18,8 +19,24 @@ namespace PUC.ComputacaoGrafica.View.Adaptadores
             linha.Points.Add(ultimoPonto);
 
             linha.Color = Colors.Black;
+            linha.Thickness = 2;
 
             return linha;
+        }
+
+        public static IList<ScreenSpaceLines3D> Adapte(Poliedro poliedro)
+        {
+            var arestas = poliedro.Arestas;
+            var linhas = new List<ScreenSpaceLines3D>();
+
+            foreach (var aresta in arestas)
+            {
+                var linha = Adapte(aresta);
+
+                linhas.Add(linha);
+            }
+
+            return linhas;
         }
     }
 }
