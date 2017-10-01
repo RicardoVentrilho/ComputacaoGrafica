@@ -10,21 +10,19 @@
         Width="500"
         MaxHeight="700"
         MinHeight="700"
-        MaxWidth="800"
-        MinWidth="800">
-    <Grid Background="LightBlue" HorizontalAlignment="Left" Width="790">
-        <Grid Margin="10,10,246,210">
-                <Viewport3D x:Name="planoCartesiano" Margin="-1,-1,0,0">
-                    <Viewport3D.Camera>
-                        <PerspectiveCamera Position="20,20,20" LookDirection="-1,-1,-1" UpDirection="0,1,0"/>
-                    </Viewport3D.Camera>
+        MaxWidth="850"
+        MinWidth="850">
+    <Grid Background="LightBlue" HorizontalAlignment="Left" Width="840">
+        <Grid Margin="10,10,296,210" MouseEnter="PlanoCartesianoClique">
+            <Viewport3D x:Name="planoCartesiano" Margin="0,-1,0,0">
+                <Viewport3D.Camera>
+                    <PerspectiveCamera Position="20,20,20" LookDirection="-1,-1,-1" UpDirection="0,1,0"/>
+                </Viewport3D.Camera>
 
-                    <tool3d:ScreenSpaceLines3D Points="0,0,0 15,0,0" Color="Red"/>
-                    <tool3d:ScreenSpaceLines3D Points="0,0,0 0,15,0" Color="Green"/>
-                    <tool3d:ScreenSpaceLines3D Points="0,0,0 0,0,15" Color="Blue"/>
-                    
-                    <tool3d:ScreenSpaceLines3D Points="15,10,5 0,0,10" Color="Black" Thickness="2"/>
-                </Viewport3D>
+                <tool3d:ScreenSpaceLines3D Points="0,0,0 15,0,0" Color="Red"/>
+                <tool3d:ScreenSpaceLines3D Points="0,0,0 0,15,0" Color="Green"/>
+                <tool3d:ScreenSpaceLines3D Points="0,0,0 0,0,15" Color="Blue"/>
+            </Viewport3D>
         </Grid>
 
         <Grid HorizontalAlignment="Left" Height="449" Margin="549,10,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.351,0.489">
@@ -35,15 +33,15 @@
             <Button x:Name="botaoAdicionar" Content="Adicionar" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="94" Click="AdicionePonto"/>
             <Label Content="Ponto&#xD;&#xA;" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
 
-            <ListBox x:Name="pontos" HorizontalAlignment="Left" Height="130" Margin="10,149,0,0" VerticalAlignment="Top" Width="94" SelectionChanged="RemovePontoDaListBoxPontosSecundarios"/>
-            <ListBox x:Name="pontosSecundarios" HorizontalAlignment="Left" Height="130" Margin="10,309,0,0" VerticalAlignment="Top" Width="94" SelectionChanged="RemovePontoDaListBoxPontos"/>
-            
+            <ListBox x:Name="pontosListBox" HorizontalAlignment="Left" Height="130" Margin="10,149,0,0" VerticalAlignment="Top" Width="94" />
+            <ListBox x:Name="pontosSecundariosListBox" HorizontalAlignment="Left" Height="130" Margin="10,309,0,0" VerticalAlignment="Top" Width="94" />
+
             <Button Content="Formar Aresta" HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="94" Click="AdicioneAresta"/>
         </Grid>
-        
-        <Grid HorizontalAlignment="Left" Height="449" Margin="663,10,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.351,0.489">
-            <Label Content="Aresta&#xA;" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
-            <ListBox HorizontalAlignment="Left" Height="411" Margin="10,28,0,0" VerticalAlignment="Top" Width="94"/>
+
+        <Grid HorizontalAlignment="Left" Height="449" Margin="663,10,0,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.351,0.489">
+            <Label Content="Arestas&#xA;" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
+            <ListBox x:Name="arestasListBox" HorizontalAlignment="Left" Height="411" Margin="10,28,0,0" VerticalAlignment="Top" Width="147" MouseDoubleClick="ArestasListBoxDuploClique"/>
         </Grid>
     </Grid>
 </Window>

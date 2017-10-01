@@ -2,7 +2,7 @@
 using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
 using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Double;
-using PUC.ComputacaoGrafica.Infraestrutura.cs;
+using PUC.ComputacaoGrafica.Infraestrutura.Extensoes;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj
 {

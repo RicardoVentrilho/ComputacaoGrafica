@@ -1,9 +1,0 @@
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Persistencia\obj\Debug\PUC.ComputacaoGrafica.Persistencia.csprojResolveAssemblyReference.cache
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Persistencia\bin\Debug\PUC.ComputacaoGrafica.Persistencia.dll
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Persistencia\bin\Debug\PUC.ComputacaoGrafica.Persistencia.pdb
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Persistencia\bin\Debug\PUC.ComputacaoGrafica.Infraestrutura.cs.dll
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Persistencia\bin\Debug\MathNet.Numerics.dll
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Persistencia\bin\Debug\PUC.ComputacaoGrafica.Infraestrutura.cs.pdb
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Persistencia\bin\Debug\MathNet.Numerics.xml
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Persistencia\obj\Debug\PUC.ComputacaoGrafica.Persistencia.dll
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\PUC.ComputacaoGrafica.Persistencia\obj\Debug\PUC.ComputacaoGrafica.Persistencia.pdb

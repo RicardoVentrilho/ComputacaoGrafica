@@ -62,6 +62,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Adaptadores\Point3dAdapter.cs" />
+    <Compile Include="Adaptadores\ScreenSpaceLines3DAdapter.cs" />
     <Page Include="Matematica\Aresta.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -116,11 +118,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PUC.ComputacaoGrafica.Controller.cs\PUC.ComputacaoGrafica.Controller.csproj">
+    <ProjectReference Include="..\PUC.ComputacaoGrafica.Controller\PUC.ComputacaoGrafica.Controller.csproj">
       <Project>{b5bf9517-93c2-4906-912c-f869f95dffa2}</Project>
       <Name>PUC.ComputacaoGrafica.Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PUC.ComputacaoGrafica.Infraestrutura.cs\PUC.ComputacaoGrafica.Infraestrutura.csproj">
+    <ProjectReference Include="..\PUC.ComputacaoGrafica.Infraestrutura\PUC.ComputacaoGrafica.Infraestrutura.csproj">
       <Project>{3334620f-c8bc-4f99-9e84-605d9fe7876b}</Project>
       <Name>PUC.ComputacaoGrafica.Infraestrutura</Name>
     </ProjectReference>

@@ -48,7 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PUC.ComputacaoGrafica.Infraestrutura.cs\PUC.ComputacaoGrafica.Infraestrutura.csproj">
+    <ProjectReference Include="..\PUC.ComputacaoGrafica.Infraestrutura\PUC.ComputacaoGrafica.Infraestrutura.csproj">
       <Project>{3334620f-c8bc-4f99-9e84-605d9fe7876b}</Project>
       <Name>PUC.ComputacaoGrafica.Infraestrutura</Name>
     </ProjectReference>

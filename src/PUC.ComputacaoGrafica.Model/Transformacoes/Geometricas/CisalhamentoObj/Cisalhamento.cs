@@ -1,7 +1,7 @@
 ﻿using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Double;
-using PUC.ComputacaoGrafica.Infraestrutura.cs;
 using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
+using PUC.ComputacaoGrafica.Infraestrutura.Extensoes;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.DirecaoObj;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;

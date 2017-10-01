@@ -2,11 +2,10 @@
 using PUC.ComputacaoGrafica.Model.Interfaces.Tela;
 using System.Windows;
 using System;
-using System.Windows.Media.Media3D;
-using _3DTools;
-using System.Windows.Media;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
-using System.Windows.Controls;
+using System.Windows.Input;
+using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj;
+using PUC.ComputacaoGrafica.View.Adaptadores;
 
 namespace PUC.ComputacaoGrafica.View
 {
@@ -26,7 +25,7 @@ namespace PUC.ComputacaoGrafica.View
 
         private void Translade(object sender, RoutedEventArgs e)
         {
-            Controlador.Translade(0, 0, 0);
+            throw new NotImplementedException();
         }
 
         public void AtualizeTela()
@@ -36,8 +35,13 @@ namespace PUC.ComputacaoGrafica.View
 
         public void AdicionePonto(Ponto ponto)
         {
-            pontos.Items.Add(ponto);
-            pontosSecundarios.Items.Add(ponto);
+            pontosListBox.Items.Add(ponto);
+            pontosSecundariosListBox.Items.Add(ponto);
+        }
+
+        public void AdicioneAresta(Aresta aresta)
+        {
+            arestasListBox.Items.Add(aresta);
         }
 
         private void AdicionePonto(object sender, RoutedEventArgs e)
@@ -51,43 +55,24 @@ namespace PUC.ComputacaoGrafica.View
 
         private void AdicioneAresta(object sender, RoutedEventArgs e)
         {
-            var ponto = pontos.SelectedItem;
+            var primeiroPonto = (Ponto)pontosListBox.SelectedItem;
+            var ultimoPonto = (Ponto)pontosSecundariosListBox.SelectedItem;
 
-            var pontoSecudario = pontosSecundarios.SelectedItem;
-
-            Controlador.AdicioneAresta(ponto, pontoSecudario);
+            Controlador.AdicioneAresta(primeiroPonto, ultimoPonto);
         }
 
-        private void RemovePontoDaListBoxPontosSecundarios(object sender, SelectionChangedEventArgs e)
+        private void PlanoCartesianoClique(object sender, MouseEventArgs e)
         {
-            var ponto = pontos.SelectedItem;
-
-            var itens = Controlador.ObtenhaPonto();
-
-            pontosSecundarios.Items.Clear();
-
-            foreach (var item in itens)
-            {
-                pontosSecundarios.Items.Add(item);
-            }
-
-            pontos.Items.Remove(ponto);
+            var posicao = e.GetPosition(planoCartesiano);
         }
 
-        private void RemovePontoDaListBoxPontos(object sender, SelectionChangedEventArgs e)
+        private void ArestasListBoxDuploClique(object sender, MouseButtonEventArgs e)
         {
-            var ponto = pontosSecundarios.SelectedItem;
+            var aresta = (Aresta)arestasListBox.SelectedItem;
 
-            var itens = Controlador.ObtenhaPonto();
+            var linha = ScreenSpaceLines3DAdapter.Adapte(aresta);
 
-            pontos.Items.Clear();
-
-            foreach (var item in itens)
-            {
-                pontos.Items.Add(item);
-            }
-
-            pontos.Items.Remove(ponto);
+            planoCartesiano.Children.Add(linha);
         }
     }
 }
