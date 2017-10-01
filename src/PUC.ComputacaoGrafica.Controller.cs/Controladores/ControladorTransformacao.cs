@@ -4,6 +4,9 @@ using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.DirecaoO
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
 using PUC.ComputacaoGrafica.Model.Interfaces.Controladores;
 using PUC.ComputacaoGrafica.Model.Interfaces.Tela;
+using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
+using PUC.ComputacaoGrafica.Persistencia.Repositorio;
+using System.Collections.Generic;
 
 namespace PUC.ComputacaoGrafica.Controller.Controladores
 {
@@ -12,13 +15,17 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
         public ControladorTransformacao(ITelaTransformacao tela)
         {
             Tela = tela;
+
+            Poliedro = new Poliedro();
         }
+
+        public Poliedro Poliedro { get; private set; }
 
         public ITelaTransformacao Tela { get; private set; }
 
-        public void Desenhe(Poliedro poliedro)
+        public void Desenhe()
         {
-            throw new NotImplementedException();
+            Tela.AtualizeTela();
         }
 
         public Poliedro Cisalhe(Poliedro poliedro, Direcao direcao, EnumCoordenadas proporcao)
@@ -41,6 +48,11 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             throw new NotImplementedException();
         }
 
+        public void AdicioneAresta(object ponto, object pontoSecudario)
+        {
+            throw new NotImplementedException();
+        }
+
         public Poliedro ProjeteUmAxiomaIsometrico()
         {
             throw new NotImplementedException();
@@ -56,14 +68,30 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             throw new NotImplementedException();
         }
 
-        public void AdicionePonto(double d, double d1, double d2)
+        public void AdicionePonto(double x, double y, double z)
         {
-            throw new NotImplementedException();
+            using (var persistencia = RepositorioPonto.ObtenhaInstancia())
+            {
+                var ponto = new Ponto(x, y, z);
+
+                Poliedro.AdicionePonto(ponto);
+
+                persistencia.Cadastre(ponto);
+
+                Tela.AdicionePonto(ponto);
+            }
         }
 
-        public void AdicioneAresta()
+        public IList<Ponto> ObtenhaPonto()
         {
-            throw new NotImplementedException();
+            return Poliedro.Vertices;
+        }
+
+        public void RemovaPonto(double x, double y, double z)
+        {
+            var ponto = new Ponto(x, y, z);
+
+            Poliedro.RemovaPonto(ponto);
         }
     }
 }

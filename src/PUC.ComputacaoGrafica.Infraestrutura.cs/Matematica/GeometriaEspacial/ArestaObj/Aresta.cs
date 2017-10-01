@@ -18,5 +18,10 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Ares
         public Ponto PrimeiroPonto { get; private set; }
 
         public Ponto UltimoPonto { get; private set; }
+
+        public override int GetHashCode()
+        {
+            return PrimeiroPonto.GetHashCode() * 7993 + UltimoPonto.GetHashCode() * 6553;
+        }
     }
 }

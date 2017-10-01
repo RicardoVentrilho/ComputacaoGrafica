@@ -24,22 +24,12 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
         {
             var cisalhamento = Cisalhamento.ObtenhaInstancia(direcao, proporcao);
 
-            foreach (var vertice in poliedro.Vertices)
-            {
-                cisalhamento.Calcule(vertice);
-            }
-
             throw new NotImplementedException();
         }
 
         public Poliedro Rotacione(Poliedro poliedro, EnumCoordenadas eixo, double angulo)
         {
             var rotacionamento = Rotacionamento.ObtenhaInstancia(eixo, angulo);
-
-            foreach (var vertice in poliedro.Vertices)
-            {
-                rotacionamento.Calcule(vertice);
-            }
 
             throw new NotImplementedException();
         }

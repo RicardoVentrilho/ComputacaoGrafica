@@ -34,7 +34,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="3DTools, Version=1.0.2614.20437, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Debug\3DTools.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -55,18 +62,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Transformacoes\Geometricas\Cisalhamento.xaml.cs">
-      <DependentUpon>Cisalhamento.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Transformacoes\Geometricas\Escalonamento.xaml.cs">
-      <DependentUpon>Escalonamento.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Transformacoes\Geometricas\Rotacao.xaml.cs">
-      <DependentUpon>Rotacao.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Transformacoes\Geometricas\Translacao.xaml.cs">
-      <DependentUpon>Translacao.xaml</DependentUpon>
-    </Compile>
     <Page Include="Matematica\Aresta.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -87,22 +82,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Matematica\Ponto.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Transformacoes\Geometricas\Cisalhamento.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Transformacoes\Geometricas\Escalonamento.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Transformacoes\Geometricas\Rotacao.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Transformacoes\Geometricas\Translacao.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -137,19 +116,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PUC.ComputacaoGrafica.Controller.cs\PUC.ComputacaoGrafica.Controller.cs.csproj">
+    <ProjectReference Include="..\PUC.ComputacaoGrafica.Controller.cs\PUC.ComputacaoGrafica.Controller.csproj">
       <Project>{b5bf9517-93c2-4906-912c-f869f95dffa2}</Project>
-      <Name>PUC.ComputacaoGrafica.Controller.cs</Name>
+      <Name>PUC.ComputacaoGrafica.Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PUC.ComputacaoGrafica.Infraestrutura.cs\PUC.ComputacaoGrafica.Infraestrutura.cs.csproj">
+    <ProjectReference Include="..\PUC.ComputacaoGrafica.Infraestrutura.cs\PUC.ComputacaoGrafica.Infraestrutura.csproj">
       <Project>{3334620f-c8bc-4f99-9e84-605d9fe7876b}</Project>
-      <Name>PUC.ComputacaoGrafica.Infraestrutura.cs</Name>
+      <Name>PUC.ComputacaoGrafica.Infraestrutura</Name>
     </ProjectReference>
     <ProjectReference Include="..\PUC.ComputacaoGrafica.Model\PUC.ComputacaoGrafica.Model.csproj">
       <Project>{07170b28-dfcc-4796-9743-d79a683300be}</Project>
       <Name>PUC.ComputacaoGrafica.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="favicon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -38,7 +38,7 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Pont
 
         public override int GetHashCode()
         {
-            return (int)X * 6553 + (int)Y * 7993;
+            return (int)X * 6553 + (int)Y * 7993 + (int)Z * 6553;
         }
 
         public Matrix<double> ConvertaParaMatriz()
@@ -46,6 +46,11 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Pont
             var matriz = DenseMatrix.OfArray(new double[,] { { X, Y, Z } });
 
             return matriz;
+        }
+
+        public override string ToString()
+        {
+            return $"({X}; {Y}; {Z};)";
         }
     }
 }

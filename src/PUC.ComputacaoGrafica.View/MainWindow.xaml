@@ -3,28 +3,47 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:matematica="clr-namespace:PUC.ComputacaoGrafica.View.Matematica"
-        xmlns:geometricas="clr-namespace:PUC.ComputacaoGrafica.View.Transformacoes.Geometricas"
+        xmlns:tool3d="clr-namespace:_3DTools;assembly=3DTools"
         mc:Ignorable="d"
         Title="Transformacoes" 
         Height="500" 
         Width="500"
-        MaxHeight="500"
-        MinHeight="500"
+        MaxHeight="700"
+        MinHeight="700"
         MaxWidth="800"
         MinWidth="800">
-    <Grid Margin="0,0,2,0">
-        <Grid HorizontalAlignment="Left" Height="323" VerticalAlignment="Top" Width="625" RenderTransformOrigin="0.52,0.454"/>
-        <Grid HorizontalAlignment="Left" Height="147" Margin="0,323,0,0" VerticalAlignment="Top" Width="625" >
-            <geometricas:Translacao>
-                
-            </geometricas:Translacao>
+    <Grid Background="LightBlue" HorizontalAlignment="Left" Width="790">
+        <Grid Margin="10,10,246,210">
+                <Viewport3D x:Name="planoCartesiano" Margin="-1,-1,0,0">
+                    <Viewport3D.Camera>
+                        <PerspectiveCamera Position="20,20,20" LookDirection="-1,-1,-1" UpDirection="0,1,0"/>
+                    </Viewport3D.Camera>
+
+                    <tool3d:ScreenSpaceLines3D Points="0,0,0 15,0,0" Color="Red"/>
+                    <tool3d:ScreenSpaceLines3D Points="0,0,0 0,15,0" Color="Green"/>
+                    <tool3d:ScreenSpaceLines3D Points="0,0,0 0,0,15" Color="Blue"/>
+                    
+                    <tool3d:ScreenSpaceLines3D Points="15,10,5 0,0,10" Color="Black" Thickness="2"/>
+                </Viewport3D>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="460" Margin="625,0,0,0" VerticalAlignment="Top" Width="165">
-            <matematica:Ponto x:Name="PontoWindow"  Margin="10,10,10,329" Loaded="AdicionePonto">
-            </matematica:Ponto>
-            <matematica:Aresta Margin="18,126,10,20">
-            </matematica:Aresta>
+
+        <Grid HorizontalAlignment="Left" Height="449" Margin="549,10,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.351,0.489">
+            <TextBox x:Name="caixaDeTextoX" HorizontalAlignment="Left" Height="22" Margin="10,28,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94"/>
+            <TextBox x:Name="caixaDeTextoZ" HorizontalAlignment="Left" Height="22" Margin="10,0,0,345" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" Width="94"/>
+            <TextBox x:Name="caixaDeTextoY" HorizontalAlignment="Left" Height="22" Margin="10,55,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94"/>
+
+            <Button x:Name="botaoAdicionar" Content="Adicionar" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="94" Click="AdicionePonto"/>
+            <Label Content="Ponto&#xD;&#xA;" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
+
+            <ListBox x:Name="pontos" HorizontalAlignment="Left" Height="130" Margin="10,149,0,0" VerticalAlignment="Top" Width="94" SelectionChanged="RemovePontoDaListBoxPontosSecundarios"/>
+            <ListBox x:Name="pontosSecundarios" HorizontalAlignment="Left" Height="130" Margin="10,309,0,0" VerticalAlignment="Top" Width="94" SelectionChanged="RemovePontoDaListBoxPontos"/>
+            
+            <Button Content="Formar Aresta" HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="94" Click="AdicioneAresta"/>
+        </Grid>
+        
+        <Grid HorizontalAlignment="Left" Height="449" Margin="663,10,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.351,0.489">
+            <Label Content="Aresta&#xA;" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
+            <ListBox HorizontalAlignment="Left" Height="411" Margin="10,28,0,0" VerticalAlignment="Top" Width="94"/>
         </Grid>
     </Grid>
 </Window>

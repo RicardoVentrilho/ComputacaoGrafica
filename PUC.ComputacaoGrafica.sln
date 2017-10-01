@@ -7,13 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes", "Testes", "{BCA92E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.View", "src\PUC.ComputacaoGrafica.View\PUC.ComputacaoGrafica.View.csproj", "{DC470BD5-4770-4992-B162-CEF465B31702}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.Infraestrutura.cs", "src\PUC.ComputacaoGrafica.Infraestrutura.cs\PUC.ComputacaoGrafica.Infraestrutura.cs.csproj", "{3334620F-C8BC-4F99-9E84-605D9FE7876B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.Infraestrutura", "src\PUC.ComputacaoGrafica.Infraestrutura.cs\PUC.ComputacaoGrafica.Infraestrutura.csproj", "{3334620F-C8BC-4F99-9E84-605D9FE7876B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.Model", "src\PUC.ComputacaoGrafica.Model\PUC.ComputacaoGrafica.Model.csproj", "{07170B28-DFCC-4796-9743-D79A683300BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.Controller.cs", "src\PUC.ComputacaoGrafica.Controller.cs\PUC.ComputacaoGrafica.Controller.cs.csproj", "{B5BF9517-93C2-4906-912C-F869F95DFFA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.Controller", "src\PUC.ComputacaoGrafica.Controller.cs\PUC.ComputacaoGrafica.Controller.csproj", "{B5BF9517-93C2-4906-912C-F869F95DFFA2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.Testes.Unidade", "src\PUC.ComputacaoGrafica.Testes.Unidade\PUC.ComputacaoGrafica.Testes.Unidade.csproj", "{1E608F0D-BC78-4A4C-9177-B652BE7E1526}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.Persistencia", "PUC.ComputacaoGrafica.Persistencia\PUC.ComputacaoGrafica.Persistencia.csproj", "{8B78F481-BED9-413B-8ADB-0E375BD57619}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,6 +109,22 @@ Global
 		{1E608F0D-BC78-4A4C-9177-B652BE7E1526}.Release|x64.Build.0 = Release|Any CPU
 		{1E608F0D-BC78-4A4C-9177-B652BE7E1526}.Release|x86.ActiveCfg = Release|Any CPU
 		{1E608F0D-BC78-4A4C-9177-B652BE7E1526}.Release|x86.Build.0 = Release|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|ARM.Build.0 = Debug|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|x64.Build.0 = Debug|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|x86.Build.0 = Debug|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|ARM.ActiveCfg = Release|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|ARM.Build.0 = Release|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|x64.ActiveCfg = Release|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|x64.Build.0 = Release|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|x86.ActiveCfg = Release|Any CPU
+		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
