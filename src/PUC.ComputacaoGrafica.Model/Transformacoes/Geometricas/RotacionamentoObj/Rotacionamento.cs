@@ -39,7 +39,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.RotacionamentoO
 
             var resultado = MatrizParaRotacionamento * pontoComoMatriz;
 
-            var ponto = resultado.ConvertaHorizontalParaPonto();
+            var ponto = resultado.ConvertaVerticalParaPonto();
 
             return ponto;
         }

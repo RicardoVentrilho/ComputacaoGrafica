@@ -7,10 +7,10 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.Interfaces
     {
         void Translade(T poliedro, double deslocamentoX, double deslocamentoY, double deslocamentoZ);
 
-        T Escalone(T poliedro, int escalonamentoX, int escalonamentoY, int escalonamentoZ);
+        void Escalone(T poliedro, int escalonamentoX, int escalonamentoY, int escalonamentoZ);
 
-        T Rotacione(T poliedro, EnumCoordenadas eixo, double angulo);
+        void Rotacione(T poliedro, EnumCoordenadas eixo, double angulo);
 
-        T Cisalhe(T poliedro, Direcao direcao, EnumCoordenadas proporcao);
+        void Cisalhe(T poliedro, Direcao direcao, EnumCoordenadas proporcao);
     }
 }

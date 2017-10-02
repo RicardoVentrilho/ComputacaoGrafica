@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:tool3d="clr-namespace:_3DTools;assembly=3DTools"
-        mc:Ignorable="d"
         Title="Transformacoes" 
         Height="500" 
         Width="500"
@@ -91,10 +90,10 @@
                 <TextBox x:Name="anguloTextBox" HorizontalAlignment="Left" Height="22" Margin="66,43,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.253,-0.258"/>
 
                 <!-- EIXO -->
-                <ComboBox HorizontalAlignment="Left" Margin="5,73,0,0" VerticalAlignment="Top" Width="91"/>
+                <ComboBox x:Name="eixosComboBox" HorizontalAlignment="Left" Margin="5,73,0,0" VerticalAlignment="Top" Width="91"/>
 
                 <!-- BOTÃO CALCULAR -->
-                <Button Content="CALCULE" HorizontalAlignment="Left" Margin="10,164,0,0" VerticalAlignment="Top" Width="86" Height="20"/>
+                <Button Content="CALCULE" HorizontalAlignment="Left" Margin="10,164,0,0" VerticalAlignment="Top" Width="86" Height="20" Click="Rotacione"/>
             </Grid>
         </Grid>
     </Grid>

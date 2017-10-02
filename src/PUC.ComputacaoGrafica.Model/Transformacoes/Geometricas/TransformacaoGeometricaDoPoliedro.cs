@@ -4,6 +4,7 @@ using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.DirecaoO
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.Interfaces;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.RotacionamentoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj;
 using System;
 using System.Collections.Generic;
@@ -12,19 +13,44 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
 {
     public class TransformacaoGeometricaDoPoliedro : ITransformacaoGeometrica<Poliedro>
     {
-        public Poliedro Cisalhe(Poliedro poliedro, Direcao direcao, EnumCoordenadas proporcao)
+        public void Cisalhe(Poliedro poliedro, Direcao direcao, EnumCoordenadas proporcao)
         {
             throw new NotImplementedException();
         }
 
-        public Poliedro Escalone(Poliedro poliedro, int escalonamentoX, int escalonamentoY, int escalonamentoZ)
+        public void Escalone(Poliedro poliedro, int escalonamentoX, int escalonamentoY, int escalonamentoZ)
         {
             throw new NotImplementedException();
         }
 
-        public Poliedro Rotacione(Poliedro poliedro, EnumCoordenadas eixo, double angulo)
+        public void Rotacione(Poliedro poliedro, EnumCoordenadas eixo, double angulo)
         {
-            throw new NotImplementedException();
+            var rotacao = Rotacionamento.ObtenhaInstancia(eixo, angulo);
+
+            var arestas = new List<Aresta>();
+            var pontos = new List<Ponto>();
+
+            foreach (var aresta in poliedro.Arestas)
+            {
+                var primeiroPonto = rotacao.Calcule(aresta.PrimeiroPonto);
+                var ultimoPonto = rotacao.Calcule(aresta.UltimoPonto);
+
+                var arestaTransladada = new Aresta(primeiroPonto, ultimoPonto);
+
+                arestas.Add(arestaTransladada);
+            }
+
+            poliedro.LimpeArestas();
+            poliedro.Arestas = arestas;
+
+            foreach (var ponto in poliedro.Vertices)
+            {
+                var pontoTransladado = rotacao.Calcule(ponto);
+                pontos.Add(pontoTransladado);
+            }
+
+            poliedro.LimpeVertices();
+            poliedro.Vertices = pontos;
         }
 
         public void Translade(Poliedro poliedro, double deslocamentoX, double deslocamentoY, double deslocamentoZ)

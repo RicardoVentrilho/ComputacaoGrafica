@@ -35,9 +35,7 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
         {
             TransformacoesGeometricas.Translade(Poliedro, deslocamentoX, deslocamentoY, deslocamentoZ);
 
-            Tela.AtualizePlanoCartesiano(Poliedro);
-            Tela.AtualizePontos(Poliedro);
-            Tela.AtualizeArestas(Poliedro);
+            AtualizeTela();
         }
 
         public void AdicioneAresta(Ponto primeiroPonto, Ponto ultimoPonto)
@@ -82,6 +80,20 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             var ponto = new Ponto(x, y, z);
 
             Poliedro.RemovaPonto(ponto);
+        }
+
+        public void Rotacione(EnumCoordenadas eixo, double angulo)
+        {
+            TransformacoesGeometricas.Rotacione(Poliedro, eixo, angulo);
+
+            AtualizeTela();
+        }
+
+        private void AtualizeTela()
+        {
+            Tela.AtualizePlanoCartesiano(Poliedro);
+            Tela.AtualizePontos(Poliedro);
+            Tela.AtualizeArestas(Poliedro);
         }
     }
 }
