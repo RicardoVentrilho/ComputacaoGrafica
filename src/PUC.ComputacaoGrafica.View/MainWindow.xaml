@@ -1,9 +1,7 @@
 ﻿<Window x:Class="PUC.ComputacaoGrafica.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:tool3d="clr-namespace:_3DTools;assembly=3DTools"
+        xmlns:view="clr-namespace:PUC.ComputacaoGrafica.View"
         Title="Transformacoes" 
         Height="500" 
         Width="500"
@@ -12,27 +10,8 @@
         MaxWidth="850"
         MinWidth="850">
     <Grid Background="LightBlue" HorizontalAlignment="Left" Width="840">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="462*"/>
-            <RowDefinition Height="14*"/>
-            <RowDefinition Height="193*"/>
-        </Grid.RowDefinitions>
-
-        <!-- PLANO CARTESIANO -->
-        <Viewport3D x:Name="planoCartesiano" Margin="10,10,296,2.667">
-            <!-- CAMERA -->
-            <Viewport3D.Camera x:Uid="perspectivaCamera">
-                <PerspectiveCamera Position="20,20,20" LookDirection="-1,-1,-1" UpDirection="0,1,0"/>
-            </Viewport3D.Camera>
-
-            <!-- EIXOS -->
-            <tool3d:ScreenSpaceLines3D Points="0,0,0 15,0,0" Color="Red"/>
-            <tool3d:ScreenSpaceLines3D Points="0,0,0 0,15,0" Color="Green"/>
-            <tool3d:ScreenSpaceLines3D Points="0,0,0 0,0,15" Color="Blue"/>
-        </Viewport3D>
-
         <!-- PONTOS -->
-        <Grid HorizontalAlignment="Left" Height="449" Margin="549,10,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.351,0.489">
+        <Grid HorizontalAlignment="Left" Height="449" Margin="510,10,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.351,0.489">
             <!-- DESCRIÇÃO -->
             <Label Content="Ponto&#xD;&#xA;" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
 
@@ -51,6 +30,9 @@
             <!-- FORMAR ARESTA -->
             <Button Content="Formar Aresta" HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="94" Click="AdicioneAresta"/>
         </Grid>
+        
+        <!-- PLANO CARTESIANO -->
+        <view:PlanoCartesiano x:Name="_PlanoCartesiano" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MouseLeftButtonDown="planoCartesiano_MouseLeftButtonDown" />
 
         <!-- ARESTA -->
         <Grid HorizontalAlignment="Left" Height="449" Margin="663,10,0,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.351,0.489">
@@ -62,9 +44,9 @@
         </Grid>
 
         <!-- TRANSFORMAÇÕES -->
-        <Grid HorizontalAlignment="Left" Height="195" Margin="10,2.333,0,0" VerticalAlignment="Top" Width="820" Grid.RowSpan="2" Grid.Row="1">
+        <Grid HorizontalAlignment="Left" Height="149" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="820" Grid.Row="2">
             <!-- TRANSLAÇÃO -->
-            <Grid HorizontalAlignment="Left" Height="195" VerticalAlignment="Top" Width="106">
+            <Grid HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="106">
                 <!-- DESCRIÇÃO -->
                 <Label Content="TRANSLAÇÃO" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="86"/>
 
@@ -74,7 +56,7 @@
                 <TextBox x:Name="deslocamentoZTextBox" HorizontalAlignment="Left" Height="22" Margin="28,95,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="68"/>
 
                 <!-- BOTÃO CALCULAR -->
-                <Button Content="CALCULE" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="86" Click="Translade"/>
+                <Button Content="CALCULE" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="86" Click="Translade"/>
                 <Label Content="X" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
                 <Label Content="Y" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="18" Height="27"/>
                 <Label Content="Z" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="18" Height="27"/>
@@ -82,7 +64,7 @@
 
 
             <!-- ROTAÇÃO -->
-            <Grid HorizontalAlignment="Left" Height="194" VerticalAlignment="Top" Width="106" Margin="106,1,0,0" >
+            <Grid HorizontalAlignment="Left" Height="148" VerticalAlignment="Top" Width="106" Margin="106,1,0,0" >
                 <Label Content="ROTAÇÃO" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="86" Height="26"/>
 
                 <!-- ÂNGULO -->
@@ -93,7 +75,7 @@
                 <ComboBox x:Name="eixosComboBox" HorizontalAlignment="Left" Margin="5,73,0,0" VerticalAlignment="Top" Width="91"/>
 
                 <!-- BOTÃO CALCULAR -->
-                <Button Content="CALCULE" HorizontalAlignment="Left" Margin="10,164,0,0" VerticalAlignment="Top" Width="86" Height="20" Click="Rotacione"/>
+                <Button Content="CALCULE" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" Width="86" Height="20" Click="Rotacione"/>
             </Grid>
         </Grid>
     </Grid>

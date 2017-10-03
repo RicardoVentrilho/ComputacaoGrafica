@@ -7,6 +7,11 @@ using PUC.ComputacaoGrafica.View.Adaptadores;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
 using System;
 using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
+using System.Windows.Shapes;
+using System.Windows.Media;
+using System.Windows.Controls;
+using System.Windows.Media.Media3D;
+using System.Windows.Input;
 
 namespace PUC.ComputacaoGrafica.View
 {
@@ -41,14 +46,6 @@ namespace PUC.ComputacaoGrafica.View
 
         public void AtualizePlanoCartesiano(Poliedro poliedro)
         {
-            LimpaPlanoCartesiano();
-
-            var linhas = ScreenSpaceLines3DAdapter.Adapte(poliedro);
-
-            foreach (var linha in linhas)
-            {
-                planoCartesiano.Children.Add(linha);
-            }
         }
 
         public void AtualizePontos(Poliedro poliedro)
@@ -89,6 +86,8 @@ namespace PUC.ComputacaoGrafica.View
                 var y = double.Parse(caixaDeTextoY.Text);
                 var z = double.Parse(caixaDeTextoZ.Text);
 
+                _PlanoCartesiano.AdicionePonto(x, y, z);
+
                 Controlador.AdicionePonto(x, y, z);
             }
             catch(Exception erro)
@@ -104,7 +103,9 @@ namespace PUC.ComputacaoGrafica.View
                 var primeiroPonto = (Ponto)pontosListBox.SelectedItem;
                 var ultimoPonto = (Ponto)pontosSecundariosListBox.SelectedItem;
 
-                Controlador.AdicioneAresta(primeiroPonto, ultimoPonto);
+                _PlanoCartesiano.AdicioneLinha(primeiroPonto, ultimoPonto);
+
+                ///Controlador.AdicioneAresta(primeiroPonto, ultimoPonto);
             }
             catch(Exception erro)
             {
@@ -148,13 +149,16 @@ namespace PUC.ComputacaoGrafica.View
 
         #region "MÉTODOS PRIVADOS"
 
-        private void LimpaPlanoCartesiano()
-        {
-        }
-
         private void AtualizeComponentes()
         {
             eixosComboBox.ItemsSource = new []{ EnumCoordenadas.X, EnumCoordenadas.Y, EnumCoordenadas.Z };
+        }
+
+        private void planoCartesiano_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var posicao = e.GetPosition(this);
+
+            MessageBox.Show($"{posicao}");
         }
 
         #endregion
