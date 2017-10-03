@@ -3,6 +3,7 @@ using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaOb
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.DirecaoObj;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.EscalonamentoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.Interfaces;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.RotacionamentoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj;
@@ -18,9 +19,34 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
             throw new NotImplementedException();
         }
 
-        public void Escalone(Poliedro poliedro, int escalonamentoX, int escalonamentoY, int escalonamentoZ)
+        public void Escalone(Poliedro poliedro, double escalonamentoX, double escalonamentoY, double escalonamentoZ)
         {
-            throw new NotImplementedException();
+            var rotacao = Escalonamento.ObtenhaInstancia(escalonamentoX, escalonamentoY, escalonamentoZ);
+
+            var arestas = new List<Aresta>();
+            var pontos = new List<Ponto3d>();
+
+            foreach (var aresta in poliedro.Arestas)
+            {
+                var primeiroPonto = rotacao.Calcule(aresta.PrimeiroPonto);
+                var ultimoPonto = rotacao.Calcule(aresta.UltimoPonto);
+
+                var arestaEscalonada = new Aresta(primeiroPonto, ultimoPonto);
+
+                arestas.Add(arestaEscalonada);
+            }
+
+            poliedro.LimpeArestas();
+            poliedro.Arestas = arestas;
+
+            foreach (var ponto in poliedro.Vertices)
+            {
+                var pontoEscalonado = rotacao.Calcule(ponto);
+                pontos.Add(pontoEscalonado);
+            }
+
+            poliedro.LimpeVertices();
+            poliedro.Vertices = pontos;
         }
 
         public void Rotacione(Poliedro poliedro, EnumCoordenadas eixo, double angulo)

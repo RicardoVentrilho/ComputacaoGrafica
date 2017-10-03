@@ -7,7 +7,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.Interfaces
     {
         void Translade(T poliedro, double deslocamentoX, double deslocamentoY, double deslocamentoZ);
 
-        void Escalone(T poliedro, int escalonamentoX, int escalonamentoY, int escalonamentoZ);
+        void Escalone(T poliedro, double escalonamentoX, double escalonamentoY, double escalonamentoZ);
 
         void Rotacione(T poliedro, EnumCoordenadas eixo, double angulo);
 

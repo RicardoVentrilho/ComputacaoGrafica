@@ -17,15 +17,15 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.EscalonamentoOb
             EscalonamentoZ = escalonamentoZ;
         }
 
-        public int EscalonamentoX { get; private set; }
+        public double EscalonamentoX { get; private set; }
 
-        public int EscalonamentoY { get; private set; }
+        public double EscalonamentoY { get; private set; }
 
-        public int EscalonamentoZ { get; private set; }
+        public double EscalonamentoZ { get; private set; }
 
         public DenseMatrix MatrizParaEscalonamento { get; private set; }
 
-        public static Escalonamento ObtenhaInstancia(int escalonamentoX, int escalonamentoY, int escalonamentoZ)
+        public static Escalonamento ObtenhaInstancia(double escalonamentoX, double escalonamentoY, double escalonamentoZ)
         {
             _Instancia.EscalonamentoX = escalonamentoX;
             _Instancia.EscalonamentoY = escalonamentoY;
@@ -48,7 +48,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.EscalonamentoOb
 
             var resultado = MatrizParaEscalonamento * pontoComoMatriz;
 
-            var ponto = resultado.ConvertaHorizontalParaPonto();
+            var ponto = resultado.ConvertaVerticalParaPonto();
 
             return ponto;
         }

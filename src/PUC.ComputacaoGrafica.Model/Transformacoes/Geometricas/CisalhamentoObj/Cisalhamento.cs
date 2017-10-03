@@ -45,7 +45,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.CisalhamentoObj
 
             var resultado = MatrizParaCisalhamento * pontoComoMatriz;
 
-            var ponto = resultado.ConvertaHorizontalParaPonto();
+            var ponto = resultado.ConvertaVerticalParaPonto();
 
             return ponto;
         }

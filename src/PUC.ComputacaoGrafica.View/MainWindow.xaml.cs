@@ -116,6 +116,22 @@ namespace PUC.ComputacaoGrafica.View
             }
         }
 
+        private void Escalone(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var escalonamentoX = double.Parse(escalonamentoXTextBox.Text);
+                var escalonamentoY = double.Parse(escalonamentoYTextBox.Text);
+                var escalonamentoZ = double.Parse(escalonamentoZTextBox.Text);
+
+                Controlador.Escalone(escalonamentoX, escalonamentoY, escalonamentoZ);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
         private void CliqueBotaoEsquerdo(object sender, MouseButtonEventArgs e)
         {
             try

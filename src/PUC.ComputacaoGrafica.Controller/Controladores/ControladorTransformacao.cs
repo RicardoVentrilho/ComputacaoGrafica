@@ -87,6 +87,15 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             AtualizeTela();
         }
 
+        public void Escalone(double escalonamentoX, double escalonamentoY, double escalonamentoZ)
+        {
+            ValidePontoSelecionado();
+
+            TransformacoesGeometricas.Escalone(Poliedro, escalonamentoX, escalonamentoY, escalonamentoZ);
+
+            AtualizeTela();
+        }
+
         public void SelecionePonto(Point coordenada)
         {
             var pontos3d = Poliedro.Vertices;

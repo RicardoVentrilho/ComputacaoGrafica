@@ -23,7 +23,7 @@
             <!-- BOTÃO -->
             <Button x:Name="botaoAdicionar" Content="Adicionar" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="143" Click="AdicionePonto"/>
             <Label Content="Arestas&#xA;" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
-            
+
             <ListBox x:Name="arestasListBox" HorizontalAlignment="Left" Height="314" Margin="10,186,0,0" VerticalAlignment="Top" Width="143"/>
         </Grid>
 
@@ -31,7 +31,7 @@
         <view:PlanoCartesiano x:Name="_PlanoCartesiano" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MouseLeftButtonDown="CliqueBotaoEsquerdo" Grid.RowSpan="4"/>
 
         <!-- TRANSFORMAÇÕES -->
-        <Grid HorizontalAlignment="Left" Height="149" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="820" Grid.Row="3">
+        <Grid HorizontalAlignment="Left" Height="149" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="663">
             <!-- TRANSLAÇÃO -->
             <Grid HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="106">
                 <!-- DESCRIÇÃO -->
@@ -46,11 +46,30 @@
                 <Button Content="CALCULE" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="86" Click="Translade"/>
                 <Label Content="X" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
                 <Label Content="Y" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="18" Height="27"/>
-                <Label Content="Z" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="18" Height="27"/>
+                <Label Content="Z" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="18" Height="27"/>
+            </Grid>
+
+            <!-- ESCALONAMENTO -->
+            <Grid HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="132" Margin="262,0,0,0">
+                <!-- DESCRIÇÃO -->
+                <Label Content="ESCALONAMENTO" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="112"/>
+
+                <!-- DESCRIÇÃO -->
+                <Label Content="X" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
+                <Label Content="Y" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="18" Height="27"/>
+                <Label Content="Z" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="18" Height="27"/>
+
+                <!-- ESCALONAMENTO -->
+                <TextBox x:Name="escalonamentoXTextBox" HorizontalAlignment="Left" Height="22" Margin="28,41,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94"/>
+                <TextBox x:Name="escalonamentoYTextBox" HorizontalAlignment="Left" Height="22" Margin="28,68,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94"/>
+                <TextBox x:Name="escalonamentoZTextBox" HorizontalAlignment="Left" Height="22" Margin="28,95,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94"/>
+
+                <!-- BOTÃO CALCULAR -->
+                <Button Content="CALCULE" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="112" Click="Escalone"/>
             </Grid>
 
             <!-- ROTAÇÃO -->
-            <Grid HorizontalAlignment="Left" Height="148" VerticalAlignment="Top" Width="106" Margin="106,1,0,0" >
+            <Grid HorizontalAlignment="Left" Height="148" VerticalAlignment="Top" Width="106" Margin="134,0,0,0" >
                 <Label Content="ROTAÇÃO" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="86" Height="26"/>
 
                 <!-- ÂNGULO -->
@@ -62,6 +81,26 @@
 
                 <!-- BOTÃO CALCULAR -->
                 <Button Content="CALCULE" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" Width="86" Height="20" Click="Rotacione"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="233" Margin="420,0,0,0">
+                <!-- DESCRIÇÃO -->
+                <Label Content="CISALHAMENTO" HorizontalAlignment="Left" Margin="55,10,0,0" VerticalAlignment="Top" Width="112"/>
+
+                <!-- DESCRIÇÃO -->
+                <Label Content="X" HorizontalAlignment="Left" Margin="8,59,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
+                <Label Content="Y" HorizontalAlignment="Left" Margin="84,58,0,0" VerticalAlignment="Top" Width="18" Height="27"/>
+                <Label Content="Z" HorizontalAlignment="Left" Margin="157,57,0,0" VerticalAlignment="Top" Width="18" Height="27"/>
+
+                <!-- ESCALONAMENTO -->
+                <TextBox x:Name="escalonamentoXTextBox1" HorizontalAlignment="Left" Height="22" Margin="26,60,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="49"/>
+                <TextBox x:Name="escalonamentoYTextBox1" HorizontalAlignment="Left" Height="22" Margin="102,60,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="49"/>
+                <TextBox x:Name="escalonamentoZTextBox1" HorizontalAlignment="Left" Height="22" Margin="175,59,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="49"/>
+
+                <!-- BOTÃO CALCULAR -->
+                <Button Content="CALCULE" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="213" Click="Escalone"/>
+                <ComboBox x:Name="eixosComboBox_Copy" HorizontalAlignment="Left" Margin="71,93,0,0" VerticalAlignment="Top" Width="152"/>
+                <Label Content="DIREÇÃO" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="112"/>
+                <Label Content="PROPORÇÃO" HorizontalAlignment="Left" Margin="8,34,0,0" VerticalAlignment="Top" Width="112"/>
             </Grid>
         </Grid>
     </Grid>
