@@ -62,8 +62,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Adaptadores\Point3dAdapter.cs" />
-    <Compile Include="Adaptadores\ScreenSpaceLines3DAdapter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

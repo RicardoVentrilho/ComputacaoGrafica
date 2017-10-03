@@ -2,6 +2,9 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
+using System;
+using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj;
 
 namespace PUC.ComputacaoGrafica.View
 {
@@ -22,9 +25,14 @@ namespace PUC.ComputacaoGrafica.View
 
         public void Limpe()
         {
-            AdicioneOs3Eixos();
-
             Children.Clear();
+
+            AdicioneOs3Eixos();
+        }
+
+        public void AdicionePonto(Ponto ponto)
+        {
+            AdicionePonto(ponto.X, ponto.Y, ponto.Z);
         }
 
         public void AdicionePonto(double x, double y, double z)
@@ -43,6 +51,11 @@ namespace PUC.ComputacaoGrafica.View
             SetTop(ponto, (-1 * y + z * DIRECAO_EIXO_Z) * PROPORCAO + metadeDoPlano - margemDoPonto);
         }
 
+        private void AdicioneLinha(Aresta aresta)
+        {
+            AdicioneLinha(aresta.PrimeiroPonto, aresta.UltimoPonto);
+        }
+
         public void AdicioneLinha(Ponto primeiroPonto, Ponto ultimoPonto)
         {
             var linha = new Line();
@@ -57,6 +70,23 @@ namespace PUC.ComputacaoGrafica.View
             linha.Y2 = (-1 * ultimoPonto.Y + ultimoPonto.Z * 0.5) * PROPORCAO + metadeDoPlano;
 
             Children.Add(linha);
+        }
+
+        public void Desenhe(Poliedro poliedro)
+        {
+            var pontos = poliedro.Vertices;
+
+            foreach (var ponto in pontos)
+            {
+                AdicionePonto(ponto);
+            }
+
+            var arestas = poliedro.Arestas;
+
+            foreach (var aresta in arestas)
+            {
+                AdicioneLinha(aresta);
+            }
         }
 
         private void AdicioneEixoX()

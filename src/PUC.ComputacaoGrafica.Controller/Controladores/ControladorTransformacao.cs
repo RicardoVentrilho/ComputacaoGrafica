@@ -1,16 +1,15 @@
 ﻿using System;
 using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.DirecaoObj;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
 using PUC.ComputacaoGrafica.Model.Interfaces.Controladores;
 using PUC.ComputacaoGrafica.Model.Interfaces.Tela;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
-using PUC.ComputacaoGrafica.Persistencia.Repositorio;
 using System.Collections.Generic;
-using PUC.ComputacaoGrafica.Persistencia.Repositorios;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.Interfaces;
+using System.Windows;
+using System.Linq;
 
 namespace PUC.ComputacaoGrafica.Controller.Controladores
 {
@@ -23,7 +22,11 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             Poliedro = new Poliedro();
 
             TransformacoesGeometricas = new TransformacaoGeometricaDoPoliedro();
+
+            PontosSelecionados = new List<Point>();
         }
+
+        public List<Point> PontosSelecionados { get; private set; }
 
         public ITransformacaoGeometrica<Poliedro> TransformacoesGeometricas { get; private set; }
 
@@ -40,32 +43,22 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
 
         public void AdicioneAresta(Ponto primeiroPonto, Ponto ultimoPonto)
         {
-            using (var persistencia = RepositorioAresta.ObtenhaInstancia())
-            {
-                var aresta = new Aresta(primeiroPonto, ultimoPonto);
+            var aresta = new Aresta(primeiroPonto, ultimoPonto);
 
-                Poliedro.AdicioneAresta(aresta);
+            Poliedro.AdicioneAresta(aresta);
 
-                persistencia.Cadastre(aresta);
-
-                Tela.AdicioneAresta(aresta);
-            }
+            Tela.AdicioneAresta(aresta);
 
             Tela.AtualizePlanoCartesiano(Poliedro);
         }
 
         public void AdicionePonto(double x, double y, double z)
         {
-            using (var persistencia = RepositorioPonto.ObtenhaInstancia())
-            {
-                var ponto = new Ponto(x, y, z);
+            var ponto = new Ponto(x, y, z);
 
-                Poliedro.AdicionePonto(ponto);
+            Poliedro.AdicionePonto(ponto);
 
-                persistencia.Cadastre(ponto);
-
-                Tela.AdicionePonto(ponto);
-            }
+            Tela.AdicionePonto(ponto);
 
             Tela.AtualizePlanoCartesiano(Poliedro);
         }
@@ -94,6 +87,29 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             Tela.AtualizePlanoCartesiano(Poliedro);
             Tela.AtualizePontos(Poliedro);
             Tela.AtualizeArestas(Poliedro);
+        }
+
+        public void SelecionePonto(Point coordenada)
+        {
+            var pontos = Poliedro.ObtenhaVertices2d();
+
+            var selecionados = pontos.Where(ponto => ponto.Equals(coordenada));
+
+            if (selecionados.Any())
+            {
+                var selecionado = selecionados.First();
+
+                if (PontosSelecionados.Any())
+                {
+                    var primeiro = PontosSelecionados.First();
+
+                    Poliedro.AdicioneAresta(primeiro, selecionado);
+                }
+                else
+                {
+                    PontosSelecionados.Add(selecionado);
+                }
+            }
         }
     }
 }

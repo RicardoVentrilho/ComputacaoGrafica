@@ -3,14 +3,9 @@ using PUC.ComputacaoGrafica.Model.Interfaces.Tela;
 using System.Windows;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj;
-using PUC.ComputacaoGrafica.View.Adaptadores;
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
 using System;
 using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
-using System.Windows.Shapes;
-using System.Windows.Media;
-using System.Windows.Controls;
-using System.Windows.Media.Media3D;
 using System.Windows.Input;
 
 namespace PUC.ComputacaoGrafica.View
@@ -46,6 +41,8 @@ namespace PUC.ComputacaoGrafica.View
 
         public void AtualizePlanoCartesiano(Poliedro poliedro)
         {
+            _PlanoCartesiano.Limpe();
+            _PlanoCartesiano.Desenhe(poliedro);
         }
 
         public void AtualizePontos(Poliedro poliedro)
@@ -105,7 +102,7 @@ namespace PUC.ComputacaoGrafica.View
 
                 _PlanoCartesiano.AdicioneLinha(primeiroPonto, ultimoPonto);
 
-                ///Controlador.AdicioneAresta(primeiroPonto, ultimoPonto);
+                Controlador.AdicioneAresta(primeiroPonto, ultimoPonto);
             }
             catch(Exception erro)
             {
@@ -154,13 +151,13 @@ namespace PUC.ComputacaoGrafica.View
             eixosComboBox.ItemsSource = new []{ EnumCoordenadas.X, EnumCoordenadas.Y, EnumCoordenadas.Z };
         }
 
-        private void planoCartesiano_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            var posicao = e.GetPosition(this);
-
-            MessageBox.Show($"{posicao}");
-        }
-
         #endregion
+
+        private void CliqueBotaoEsquerdo(object sender, MouseButtonEventArgs e)
+        {
+            var coordenada = e.GetPosition(this);
+
+            Controlador.SelecionePonto(coordenada);
+        }
     }
 }

@@ -2,6 +2,7 @@
 using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using System.Collections.Generic;
 using System;
+using System.Windows;
 
 namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj
 {
@@ -52,6 +53,11 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Poli
         public void LimpeVertices()
         {
             Vertices.Clear();
+        }
+
+        public IList<Point> ObtenhaVertices2d()
+        {
+            throw new NotImplementedException();
         }
     }
 }

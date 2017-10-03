@@ -32,7 +32,7 @@
         </Grid>
         
         <!-- PLANO CARTESIANO -->
-        <view:PlanoCartesiano x:Name="_PlanoCartesiano" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MouseLeftButtonDown="planoCartesiano_MouseLeftButtonDown" />
+        <view:PlanoCartesiano x:Name="_PlanoCartesiano" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MouseLeftButtonDown="CliqueBotaoEsquerdo"/>
 
         <!-- ARESTA -->
         <Grid HorizontalAlignment="Left" Height="449" Margin="663,10,0,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.351,0.489">
@@ -61,7 +61,6 @@
                 <Label Content="Y" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="18" Height="27"/>
                 <Label Content="Z" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="18" Height="27"/>
             </Grid>
-
 
             <!-- ROTAÇÃO -->
             <Grid HorizontalAlignment="Left" Height="148" VerticalAlignment="Top" Width="106" Margin="106,1,0,0" >

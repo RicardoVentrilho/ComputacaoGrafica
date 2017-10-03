@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.Contr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.Testes.Unidade", "src\PUC.ComputacaoGrafica.Testes.Unidade\PUC.ComputacaoGrafica.Testes.Unidade.csproj", "{1E608F0D-BC78-4A4C-9177-B652BE7E1526}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.Persistencia", "src\PUC.ComputacaoGrafica.Persistencia\PUC.ComputacaoGrafica.Persistencia.csproj", "{8B78F481-BED9-413B-8ADB-0E375BD57619}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,22 +107,6 @@ Global
 		{1E608F0D-BC78-4A4C-9177-B652BE7E1526}.Release|x64.Build.0 = Release|Any CPU
 		{1E608F0D-BC78-4A4C-9177-B652BE7E1526}.Release|x86.ActiveCfg = Release|Any CPU
 		{1E608F0D-BC78-4A4C-9177-B652BE7E1526}.Release|x86.Build.0 = Release|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|ARM.Build.0 = Debug|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|x64.Build.0 = Debug|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Debug|x86.Build.0 = Debug|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|ARM.ActiveCfg = Release|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|ARM.Build.0 = Release|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|x64.ActiveCfg = Release|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|x64.Build.0 = Release|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|x86.ActiveCfg = Release|Any CPU
-		{8B78F481-BED9-413B-8ADB-0E375BD57619}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
