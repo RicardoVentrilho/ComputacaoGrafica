@@ -6,7 +6,7 @@ using System;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.EscalonamentoObj
 {
-    public class Escalonamento : ITransformacao<Ponto>
+    public class Escalonamento : ITransformacao<Ponto3d>
     {
         private static readonly Escalonamento _Instancia = new Escalonamento(0, 0, 0);
         
@@ -42,7 +42,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.EscalonamentoOb
             return _Instancia;
         }
 
-        public Ponto Calcule(Ponto elemento)
+        public Ponto3d Calcule(Ponto3d elemento)
         {
             var pontoComoMatriz = elemento.ConvertaParaMatrizVertical();
 

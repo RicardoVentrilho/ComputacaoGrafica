@@ -9,7 +9,7 @@ using static PUC.ComputacaoGrafica.Infraestrutura.Enumeradores.EnumCoordenadas;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.CisalhamentoObj
 {
-    public class Cisalhamento : ITransformacao<Ponto>
+    public class Cisalhamento : ITransformacao<Ponto3d>
     {
         private static readonly Cisalhamento _Instancia = new Cisalhamento(default(Direcao), EnumCoordenadas.X);
 
@@ -39,7 +39,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.CisalhamentoObj
             return _Instancia;
         }
 
-        public Ponto Calcule(Ponto elemento)
+        public Ponto3d Calcule(Ponto3d elemento)
         {
             var pontoComoMatriz = elemento.ConvertaParaMatrizVertical();
 

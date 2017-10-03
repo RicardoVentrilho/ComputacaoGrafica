@@ -23,10 +23,10 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
 
             TransformacoesGeometricas = new TransformacaoGeometricaDoPoliedro();
 
-            PontosSelecionados = new List<Point>();
+            PontosSelecionados = new List<Ponto3d>();
         }
 
-        public List<Point> PontosSelecionados { get; private set; }
+        public List<Ponto3d> PontosSelecionados { get; private set; }
 
         public ITransformacaoGeometrica<Poliedro> TransformacoesGeometricas { get; private set; }
 
@@ -41,7 +41,7 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             AtualizeTela();
         }
 
-        public void AdicioneAresta(Ponto primeiroPonto, Ponto ultimoPonto)
+        public void AdicioneAresta(Ponto3d primeiroPonto, Ponto3d ultimoPonto)
         {
             var aresta = new Aresta(primeiroPonto, ultimoPonto);
 
@@ -54,7 +54,7 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
 
         public void AdicionePonto(double x, double y, double z)
         {
-            var ponto = new Ponto(x, y, z);
+            var ponto = new Ponto3d(x, y, z);
 
             Poliedro.AdicionePonto(ponto);
 
@@ -63,14 +63,14 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             Tela.AtualizePlanoCartesiano(Poliedro);
         }
 
-        public IList<Ponto> ObtenhaPontos()
+        public IList<Ponto3d> ObtenhaPontos()
         {
             return Poliedro.Vertices;
         }
 
         public void RemovaPonto(double x, double y, double z)
         {
-            var ponto = new Ponto(x, y, z);
+            var ponto = new Ponto3d(x, y, z);
 
             Poliedro.RemovaPonto(ponto);
         }
@@ -82,33 +82,50 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             AtualizeTela();
         }
 
+
+        public void SelecionePonto(Point coordenada)
+        {
+            var pontos3d = Poliedro.Vertices;
+
+            foreach (var ponto3d in pontos3d)
+            {
+                var ponto2d = Tela.ConvertaPonto3dPara2d(ponto3d);
+
+                if (PontoEstaNaMargem(coordenada, ponto2d))
+                {
+                    if (PontosSelecionados.Any())
+                    {
+                        var ponto3dSelecionado = PontosSelecionados.First();
+
+                        Poliedro.AdicioneAresta(ponto3dSelecionado, ponto3d);
+
+                        PontosSelecionados.Clear();
+                    }
+                    else
+                    {
+                        PontosSelecionados.Add(ponto3d);
+                    }
+                }
+            }
+
+            AtualizeTela();
+        }
+
+        private bool PontoEstaNaMargem(Point coordenada, Point ponto)
+            => ((coordenada.X - 2.5) <= ponto.X && ponto.X <= (coordenada.X + 2.5))
+                && ((coordenada.X - 2.5) <= ponto.Y && ponto.Y <= (coordenada.X + 2.5));
+
         private void AtualizeTela()
         {
             Tela.AtualizePlanoCartesiano(Poliedro);
             Tela.AtualizePontos(Poliedro);
             Tela.AtualizeArestas(Poliedro);
-        }
 
-        public void SelecionePonto(Point coordenada)
-        {
-            var pontos = Poliedro.ObtenhaVertices2d();
-
-            var selecionados = pontos.Where(ponto => ponto.Equals(coordenada));
-
-            if (selecionados.Any())
+            if (PontosSelecionados.Any())
             {
-                var selecionado = selecionados.First();
+                var ponto = PontosSelecionados.First();
 
-                if (PontosSelecionados.Any())
-                {
-                    var primeiro = PontosSelecionados.First();
-
-                    Poliedro.AdicioneAresta(primeiro, selecionado);
-                }
-                else
-                {
-                    PontosSelecionados.Add(selecionado);
-                }
+                Tela.AtualizePontoSelecionado(ponto);
             }
         }
     }

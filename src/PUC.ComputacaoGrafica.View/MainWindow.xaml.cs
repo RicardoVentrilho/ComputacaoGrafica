@@ -7,6 +7,7 @@ using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Poliedro
 using System;
 using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace PUC.ComputacaoGrafica.View
 {
@@ -28,7 +29,17 @@ namespace PUC.ComputacaoGrafica.View
 
         #region "MÉTODOS PÚBLICOS"
 
-        public void AdicionePonto(Ponto ponto)
+        public void AtualizePontoSelecionado(Ponto3d ponto)
+        {
+            _PlanoCartesiano.AdicionePonto(ponto, Brushes.Red);
+        }
+
+        public Point ConvertaPonto3dPara2d(Ponto3d ponto3d)
+        {
+            return _PlanoCartesiano.ConvertaPonto3dPara2d(ponto3d);
+        }
+
+        public void AdicionePonto(Ponto3d ponto)
         {
             pontosListBox.Items.Add(ponto);
             pontosSecundariosListBox.Items.Add(ponto);
@@ -97,8 +108,8 @@ namespace PUC.ComputacaoGrafica.View
         {
             try
             {
-                var primeiroPonto = (Ponto)pontosListBox.SelectedItem;
-                var ultimoPonto = (Ponto)pontosSecundariosListBox.SelectedItem;
+                var primeiroPonto = (Ponto3d)pontosListBox.SelectedItem;
+                var ultimoPonto = (Ponto3d)pontosSecundariosListBox.SelectedItem;
 
                 _PlanoCartesiano.AdicioneLinha(primeiroPonto, ultimoPonto);
 
@@ -156,8 +167,9 @@ namespace PUC.ComputacaoGrafica.View
         private void CliqueBotaoEsquerdo(object sender, MouseButtonEventArgs e)
         {
             var coordenada = e.GetPosition(this);
+            var ponto = _PlanoCartesiano.CorvertaCoordenadaParaPonto2d(coordenada);
 
-            Controlador.SelecionePonto(coordenada);
+            Controlador.SelecionePonto(ponto);
         }
     }
 }

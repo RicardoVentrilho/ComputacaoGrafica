@@ -11,7 +11,7 @@
         MinWidth="850">
     <Grid Background="LightBlue" HorizontalAlignment="Left" Width="840">
         <!-- PONTOS -->
-        <Grid HorizontalAlignment="Left" Height="449" Margin="510,10,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.351,0.489">
+        <Grid HorizontalAlignment="Left" Height="449" Margin="510,10,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.351,0.489" Grid.RowSpan="4">
             <!-- DESCRIÇÃO -->
             <Label Content="Ponto&#xD;&#xA;" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
 
@@ -30,12 +30,12 @@
             <!-- FORMAR ARESTA -->
             <Button Content="Formar Aresta" HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="94" Click="AdicioneAresta"/>
         </Grid>
-        
+
         <!-- PLANO CARTESIANO -->
-        <view:PlanoCartesiano x:Name="_PlanoCartesiano" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MouseLeftButtonDown="CliqueBotaoEsquerdo"/>
+        <view:PlanoCartesiano x:Name="_PlanoCartesiano" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MouseLeftButtonDown="CliqueBotaoEsquerdo" Grid.RowSpan="4"/>
 
         <!-- ARESTA -->
-        <Grid HorizontalAlignment="Left" Height="449" Margin="663,10,0,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.351,0.489">
+        <Grid HorizontalAlignment="Left" Height="449" Margin="663,10,0,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.351,0.489" Grid.RowSpan="4">
             <!-- DESCRIÇÃO -->
             <Label Content="Arestas&#xA;" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
 
@@ -44,7 +44,7 @@
         </Grid>
 
         <!-- TRANSFORMAÇÕES -->
-        <Grid HorizontalAlignment="Left" Height="149" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="820" Grid.Row="2">
+        <Grid HorizontalAlignment="Left" Height="149" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="820" Grid.Row="3">
             <!-- TRANSLAÇÃO -->
             <Grid HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="106">
                 <!-- DESCRIÇÃO -->

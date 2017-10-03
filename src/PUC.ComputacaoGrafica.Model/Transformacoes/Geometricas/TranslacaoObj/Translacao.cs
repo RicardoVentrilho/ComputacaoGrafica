@@ -6,7 +6,7 @@ using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj
 {
-    public class Translacao : ITransformacao<Ponto>
+    public class Translacao : ITransformacao<Ponto3d>
     {
         private static readonly Translacao _Instancia = new Translacao(0, 0, 0);
 
@@ -42,7 +42,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj
             return _Instancia;
         }
 
-        public Ponto Calcule(Ponto elemento)
+        public Ponto3d Calcule(Ponto3d elemento)
         {
             var pontoComoMatriz = elemento.ConvertaParaMatrizVertical();
 

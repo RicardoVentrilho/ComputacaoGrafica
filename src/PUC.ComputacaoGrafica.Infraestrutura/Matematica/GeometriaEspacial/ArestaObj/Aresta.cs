@@ -6,19 +6,19 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Ares
 {
     public sealed class Aresta : ObjetoAbstratoComCodigo
     {
-        private readonly Tuple<Ponto, Ponto> _Aresta;
+        private readonly Tuple<Ponto3d, Ponto3d> _Aresta;
         
-        public Aresta(Ponto primeiroPonto, Ponto ultimoPonto)
+        public Aresta(Ponto3d primeiroPonto, Ponto3d ultimoPonto)
         {
             PrimeiroPonto = primeiroPonto;
             UltimoPonto = ultimoPonto;
 
-            _Aresta = new Tuple<Ponto, Ponto>(PrimeiroPonto, UltimoPonto);
+            _Aresta = new Tuple<Ponto3d, Ponto3d>(PrimeiroPonto, UltimoPonto);
         }
 
-        public Ponto PrimeiroPonto { get; private set; }
+        public Ponto3d PrimeiroPonto { get; private set; }
 
-        public Ponto UltimoPonto { get; private set; }
+        public Ponto3d UltimoPonto { get; private set; }
 
         public override int GetHashCode()
         {

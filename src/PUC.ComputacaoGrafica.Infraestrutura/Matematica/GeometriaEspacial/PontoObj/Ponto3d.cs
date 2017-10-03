@@ -4,7 +4,7 @@ using PUC.ComputacaoGrafica.Infraestrutura.Basicos;
 
 namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj
 {
-    public sealed class Ponto : ObjetoAbstratoComCodigo
+    public sealed class Ponto3d : ObjetoAbstratoComCodigo
     {
         public double X { get; set; }
 
@@ -12,24 +12,24 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Pont
 
         public double Z { get; set; }
 
-        public Ponto(double x, double y, double z)
+        public Ponto3d(double x, double y, double z)
         {
             X = x;
             Y = y;
             Z = z;
         }
 
-        public static bool operator ==(Ponto primeiroPonto, Ponto segundoPonto) =>
+        public static bool operator ==(Ponto3d primeiroPonto, Ponto3d segundoPonto) =>
             primeiroPonto.Equals(segundoPonto);
 
-        public static bool operator !=(Ponto primeiroPonto, Ponto segundoPonto) => 
+        public static bool operator !=(Ponto3d primeiroPonto, Ponto3d segundoPonto) => 
             !primeiroPonto.Equals(segundoPonto);
 
         public override bool Equals(object obj)
         {
-            if (obj is Ponto)
+            if (obj is Ponto3d)
             {
-                var ponto = (Ponto)obj;
+                var ponto = (Ponto3d)obj;
 
                 return ponto.X == X && ponto.Y == Y && ponto.Z == Z;
             }

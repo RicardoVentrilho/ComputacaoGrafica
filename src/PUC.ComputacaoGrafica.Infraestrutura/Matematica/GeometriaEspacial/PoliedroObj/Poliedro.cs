@@ -14,26 +14,26 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Poli
         {
             Validacoes = new ValidacoesPoliedro();
 
-            Vertices = new List<Ponto>();
+            Vertices = new List<Ponto3d>();
 
             Arestas = new List<Aresta>();
         }
 
-        public IList<Ponto> Vertices { get; set; }
+        public IList<Ponto3d> Vertices { get; set; }
 
         public IList<Aresta> Arestas { get; set; }
 
-        public void AdicionePonto(Ponto ponto)
+        public void AdicionePonto(Ponto3d ponto)
         {
             Vertices.Add(ponto);
         }
 
-        public void RemovaPonto(Ponto ponto)
+        public void RemovaPonto(Ponto3d ponto)
         {
             throw new NotImplementedException();
         }
 
-        public void AdicioneAresta(Ponto primeiroPonto, Ponto ultimoPonto)
+        public void AdicioneAresta(Ponto3d primeiroPonto, Ponto3d ultimoPonto)
         {
             var aresta = new Aresta(primeiroPonto, ultimoPonto);
 

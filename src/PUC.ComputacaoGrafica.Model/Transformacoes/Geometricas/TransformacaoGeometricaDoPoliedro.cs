@@ -28,7 +28,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
             var rotacao = Rotacionamento.ObtenhaInstancia(eixo, angulo);
 
             var arestas = new List<Aresta>();
-            var pontos = new List<Ponto>();
+            var pontos = new List<Ponto3d>();
 
             foreach (var aresta in poliedro.Arestas)
             {
@@ -58,7 +58,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
             var translacao = Translacao.ObtenhaInstancia(deslocamentoX, deslocamentoY, deslocamentoZ);
 
             var arestas = new List<Aresta>();
-            var pontos = new List<Ponto>();
+            var pontos = new List<Ponto3d>();
 
             foreach (var aresta in poliedro.Arestas)
             {

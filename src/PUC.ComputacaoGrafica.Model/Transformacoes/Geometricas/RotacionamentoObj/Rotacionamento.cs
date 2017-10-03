@@ -7,7 +7,7 @@ using static PUC.ComputacaoGrafica.Infraestrutura.Enumeradores.EnumCoordenadas;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.RotacionamentoObj
 {
-    public class Rotacionamento : ITransformacao<Ponto>
+    public class Rotacionamento : ITransformacao<Ponto3d>
     {
         private static Rotacionamento _Instancia = new Rotacionamento(X, 0);
 
@@ -33,7 +33,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.RotacionamentoO
             return _Instancia;
         }
 
-        public Ponto Calcule(Ponto elemento)
+        public Ponto3d Calcule(Ponto3d elemento)
         {
             var pontoComoMatriz = elemento.ConvertaParaMatrizVertical();
 

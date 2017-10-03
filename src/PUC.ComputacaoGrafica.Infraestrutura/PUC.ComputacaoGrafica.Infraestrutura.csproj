@@ -50,7 +50,7 @@
     <Compile Include="Matematica\GeometriaEspacial\DirecaoObj\Direcao.cs" />
     <Compile Include="Matematica\GeometriaEspacial\PoliedroObj\Poliedro.cs" />
     <Compile Include="Matematica\GeometriaEspacial\PoliedroObj\ValidacoesPoliedro.cs" />
-    <Compile Include="Matematica\GeometriaEspacial\PontoObj\Ponto.cs" />
+    <Compile Include="Matematica\GeometriaEspacial\PontoObj\Ponto3d.cs" />
     <Compile Include="Extensoes\MatrixExtensao.cs" />
     <Compile Include="Basicos\ObjetoAbstratoComCodigo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
