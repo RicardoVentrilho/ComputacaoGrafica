@@ -7,13 +7,9 @@ namespace PUC.ComputacaoGrafica.Model.Interfaces.Tela
 {
     public interface ITelaTransformacao
     {
-        void AdicionePonto(Ponto3d ponto);
-
         void AdicioneAresta(Aresta aresta);
 
         void AtualizePlanoCartesiano(Poliedro poliedro);
-
-        void AtualizePontos(Poliedro poliedro);
 
         void AtualizeArestas(Poliedro poliedro);
 

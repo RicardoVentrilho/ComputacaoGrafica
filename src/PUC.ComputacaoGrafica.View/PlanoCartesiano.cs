@@ -70,8 +70,8 @@ namespace PUC.ComputacaoGrafica.View
 
         public Point ConvertaPonto3dPara2d(Ponto3d ponto3d)
         {
-            var x = (ponto3d.X - ponto3d.Z * DIRECAO_EIXO_Z) * PROPORCAO;
-            var y = (-1 * ponto3d.Y - ponto3d.Z * DIRECAO_EIXO_Z) * PROPORCAO;
+            var x = (ponto3d.X - ponto3d.Z * DIRECAO_EIXO_Z);
+            var y = (ponto3d.Y - ponto3d.Z * DIRECAO_EIXO_Z);
 
             var ponto2d = new Point(x, y);
 
@@ -167,7 +167,7 @@ namespace PUC.ComputacaoGrafica.View
             var x = (coordenada.X - Width/2) - Margin.Left;
             var y = ((-1 * coordenada.Y) + Height/2) + Margin.Top;
 
-            var ponto = new Point(x, y);
+            var ponto = new Point(x / PROPORCAO, y / PROPORCAO);
 
             return ponto;
         }

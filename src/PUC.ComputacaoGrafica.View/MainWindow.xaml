@@ -11,37 +11,24 @@
         MinWidth="850">
     <Grid Background="LightBlue" HorizontalAlignment="Left" Width="840">
         <!-- PONTOS -->
-        <Grid HorizontalAlignment="Left" Height="449" Margin="510,10,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.351,0.489" Grid.RowSpan="4">
+        <Grid HorizontalAlignment="Left" Height="500" Margin="510,10,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.351,0.489">
             <!-- DESCRIÇÃO -->
             <Label Content="Ponto&#xD;&#xA;" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
 
             <!-- COORDENADAS -->
-            <TextBox x:Name="caixaDeTextoX" HorizontalAlignment="Left" Height="22" Margin="10,28,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94"/>
-            <TextBox x:Name="caixaDeTextoY" HorizontalAlignment="Left" Height="22" Margin="10,55,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94"/>
-            <TextBox x:Name="caixaDeTextoZ" HorizontalAlignment="Left" Height="22" Margin="10,0,0,345" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" Width="94"/>
+            <TextBox x:Name="caixaDeTextoX" HorizontalAlignment="Left" Height="22" Margin="10,28,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="143"/>
+            <TextBox x:Name="caixaDeTextoY" HorizontalAlignment="Left" Height="22" Margin="10,55,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="143"/>
+            <TextBox x:Name="caixaDeTextoZ" HorizontalAlignment="Left" Height="22" Margin="10,0,0,396" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" Width="143"/>
 
             <!-- BOTÃO -->
-            <Button x:Name="botaoAdicionar" Content="Adicionar" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="94" Click="AdicionePonto"/>
-
-            <!-- LIST BOX -->
-            <ListBox x:Name="pontosListBox" HorizontalAlignment="Left" Height="130" Margin="10,149,0,0" VerticalAlignment="Top" Width="94" />
-            <ListBox x:Name="pontosSecundariosListBox" HorizontalAlignment="Left" Height="130" Margin="10,309,0,0" VerticalAlignment="Top" Width="94" />
-
-            <!-- FORMAR ARESTA -->
-            <Button Content="Formar Aresta" HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="94" Click="AdicioneAresta"/>
+            <Button x:Name="botaoAdicionar" Content="Adicionar" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="143" Click="AdicionePonto"/>
+            <Label Content="Arestas&#xA;" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
+            
+            <ListBox x:Name="arestasListBox" HorizontalAlignment="Left" Height="314" Margin="10,186,0,0" VerticalAlignment="Top" Width="143"/>
         </Grid>
 
         <!-- PLANO CARTESIANO -->
         <view:PlanoCartesiano x:Name="_PlanoCartesiano" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MouseLeftButtonDown="CliqueBotaoEsquerdo" Grid.RowSpan="4"/>
-
-        <!-- ARESTA -->
-        <Grid HorizontalAlignment="Left" Height="449" Margin="663,10,0,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.351,0.489" Grid.RowSpan="4">
-            <!-- DESCRIÇÃO -->
-            <Label Content="Arestas&#xA;" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
-
-            <!-- LIST BOX -->
-            <ListBox x:Name="arestasListBox" HorizontalAlignment="Left" Height="411" Margin="10,28,0,0" VerticalAlignment="Top" Width="147"/>
-        </Grid>
 
         <!-- TRANSFORMAÇÕES -->
         <Grid HorizontalAlignment="Left" Height="149" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="820" Grid.Row="3">

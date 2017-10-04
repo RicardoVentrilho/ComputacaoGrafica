@@ -1,8 +1,8 @@
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\bin\Debug\PUC.ComputacaoGrafica.Infraestrutura.cs.dll
-C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\bin\Debug\PUC.ComputacaoGrafica.Infraestrutura.cs.pdb
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\src\PUC.ComputacaoGrafica.Infraestrutura.cs\obj\Debug\PUC.ComputacaoGrafica.Infraestrutura.cs.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\src\PUC.ComputacaoGrafica.Infraestrutura.cs\obj\Debug\PUC.ComputacaoGrafica.Infraestrutura.cs.pdb
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\src\PUC.ComputacaoGrafica.Infraestrutura.cs\obj\Debug\PUC.ComputacaoGrafica.Infraestrutura.csprojResolveAssemblyReference.cache
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\bin\Debug\PUC.ComputacaoGrafica.Infraestrutura.cs.dll
+C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\bin\Debug\PUC.ComputacaoGrafica.Infraestrutura.cs.pdb
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\src\PUC.ComputacaoGrafica.Infraestrutura\obj\Debug\PUC.ComputacaoGrafica.Infraestrutura.csprojResolveAssemblyReference.cache
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\src\PUC.ComputacaoGrafica.Infraestrutura\obj\Debug\PUC.ComputacaoGrafica.Infraestrutura.cs.dll
 C:\Users\RICARDO\Documents\Visual Studio 2017\Projects\ComputacaoGrafica\src\PUC.ComputacaoGrafica.Infraestrutura\obj\Debug\PUC.ComputacaoGrafica.Infraestrutura.cs.pdb

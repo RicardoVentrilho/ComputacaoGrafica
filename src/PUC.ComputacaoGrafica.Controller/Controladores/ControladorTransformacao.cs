@@ -15,6 +15,8 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
 {
     public class ControladorTransformacao : IControladorTransformacao
     {
+        #region "CONSTRUTOR"
+
         public ControladorTransformacao(ITelaTransformacao tela)
         {
             Tela = tela;
@@ -26,6 +28,10 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             PontosSelecionados = new List<Ponto3d>();
         }
 
+        #endregion
+
+        #region "PROPRIEDADES"
+
         public List<Ponto3d> PontosSelecionados { get; private set; }
 
         public ITransformacaoGeometrica<Poliedro> TransformacoesGeometricas { get; private set; }
@@ -34,8 +40,12 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
 
         public ITelaTransformacao Tela { get; private set; }
 
+        #endregion
+
         public void Translade(double deslocamentoX, double deslocamentoY, double deslocamentoZ)
         {
+            ValidePontoSelecionado();
+
             TransformacoesGeometricas.Translade(Poliedro, deslocamentoX, deslocamentoY, deslocamentoZ);
 
             AtualizeTela();
@@ -47,9 +57,7 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
 
             Poliedro.AdicioneAresta(aresta);
 
-            Tela.AdicioneAresta(aresta);
-
-            Tela.AtualizePlanoCartesiano(Poliedro);
+            AtualizeTela();
         }
 
         public void AdicionePonto(double x, double y, double z)
@@ -58,14 +66,7 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
 
             Poliedro.AdicionePonto(ponto);
 
-            Tela.AdicionePonto(ponto);
-
-            Tela.AtualizePlanoCartesiano(Poliedro);
-        }
-
-        public IList<Ponto3d> ObtenhaPontos()
-        {
-            return Poliedro.Vertices;
+            AtualizeTela();
         }
 
         public void RemovaPonto(double x, double y, double z)
@@ -73,15 +74,18 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             var ponto = new Ponto3d(x, y, z);
 
             Poliedro.RemovaPonto(ponto);
-        }
-
-        public void Rotacione(EnumCoordenadas eixo, double angulo)
-        {
-            TransformacoesGeometricas.Rotacione(Poliedro, eixo, angulo);
 
             AtualizeTela();
         }
 
+        public void Rotacione(EnumCoordenadas eixo, double angulo)
+        {
+            ValidePontoSelecionado();
+
+            TransformacoesGeometricas.Rotacione(Poliedro, eixo, angulo);
+
+            AtualizeTela();
+        }
 
         public void SelecionePonto(Point coordenada)
         {
@@ -97,7 +101,10 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
                     {
                         var ponto3dSelecionado = PontosSelecionados.First();
 
-                        Poliedro.AdicioneAresta(ponto3dSelecionado, ponto3d);
+                        if (!ponto3dSelecionado.Equals(ponto3d))
+                        {
+                            Poliedro.AdicioneAresta(ponto3dSelecionado, ponto3d);
+                        }
 
                         PontosSelecionados.Clear();
                     }
@@ -111,14 +118,15 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             AtualizeTela();
         }
 
+        #region "MÉTODOS DE APOIO"
+
         private bool PontoEstaNaMargem(Point coordenada, Point ponto)
-            => ((coordenada.X - 2.5) <= ponto.X && ponto.X <= (coordenada.X + 2.5))
-                && ((coordenada.X - 2.5) <= ponto.Y && ponto.Y <= (coordenada.X + 2.5));
+            => ((coordenada.X - 0.25) <= ponto.X && ponto.X <= (coordenada.X + 0.25))
+                && ((coordenada.Y - 0.25) <= ponto.Y && ponto.Y <= (coordenada.Y + 0.25));
 
         private void AtualizeTela()
         {
             Tela.AtualizePlanoCartesiano(Poliedro);
-            Tela.AtualizePontos(Poliedro);
             Tela.AtualizeArestas(Poliedro);
 
             if (PontosSelecionados.Any())
@@ -128,5 +136,15 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
                 Tela.AtualizePontoSelecionado(ponto);
             }
         }
+
+        private void ValidePontoSelecionado()
+        {
+            if (PontosSelecionados.Any())
+            {
+                throw new Exception("Existe ponto selecionado!");
+            }
+        }
+
+        #endregion
     }
 }

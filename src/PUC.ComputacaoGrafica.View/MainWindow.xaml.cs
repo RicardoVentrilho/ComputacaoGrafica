@@ -39,12 +39,6 @@ namespace PUC.ComputacaoGrafica.View
             return _PlanoCartesiano.ConvertaPonto3dPara2d(ponto3d);
         }
 
-        public void AdicionePonto(Ponto3d ponto)
-        {
-            pontosListBox.Items.Add(ponto);
-            pontosSecundariosListBox.Items.Add(ponto);
-        }
-
         public void AdicioneAresta(Aresta aresta)
         {
             arestasListBox.Items.Add(aresta);
@@ -54,20 +48,6 @@ namespace PUC.ComputacaoGrafica.View
         {
             _PlanoCartesiano.Limpe();
             _PlanoCartesiano.Desenhe(poliedro);
-        }
-
-        public void AtualizePontos(Poliedro poliedro)
-        {
-            var pontos = poliedro.Vertices;
-
-            pontosListBox.Items.Clear();
-            pontosSecundariosListBox.Items.Clear();
-
-            foreach (var ponto in pontos)
-            {
-                pontosListBox.Items.Add(ponto);
-                pontosSecundariosListBox.Items.Add(ponto);
-            }
         }
 
         public void AtualizeArestas(Poliedro poliedro)
@@ -97,23 +77,6 @@ namespace PUC.ComputacaoGrafica.View
                 _PlanoCartesiano.AdicionePonto(x, y, z);
 
                 Controlador.AdicionePonto(x, y, z);
-            }
-            catch(Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
-        }
-
-        private void AdicioneAresta(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var primeiroPonto = (Ponto3d)pontosListBox.SelectedItem;
-                var ultimoPonto = (Ponto3d)pontosSecundariosListBox.SelectedItem;
-
-                _PlanoCartesiano.AdicioneLinha(primeiroPonto, ultimoPonto);
-
-                Controlador.AdicioneAresta(primeiroPonto, ultimoPonto);
             }
             catch(Exception erro)
             {
@@ -153,6 +116,21 @@ namespace PUC.ComputacaoGrafica.View
             }
         }
 
+        private void CliqueBotaoEsquerdo(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                var coordenada = e.GetPosition(this);
+                var ponto = _PlanoCartesiano.CorvertaCoordenadaParaPonto2d(coordenada);
+
+                Controlador.SelecionePonto(ponto);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
         #endregion
 
         #region "MÉTODOS PRIVADOS"
@@ -163,13 +141,5 @@ namespace PUC.ComputacaoGrafica.View
         }
 
         #endregion
-
-        private void CliqueBotaoEsquerdo(object sender, MouseButtonEventArgs e)
-        {
-            var coordenada = e.GetPosition(this);
-            var ponto = _PlanoCartesiano.CorvertaCoordenadaParaPonto2d(coordenada);
-
-            Controlador.SelecionePonto(ponto);
-        }
     }
 }
