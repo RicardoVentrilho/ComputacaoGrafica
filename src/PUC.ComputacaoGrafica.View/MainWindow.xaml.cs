@@ -1,13 +1,13 @@
 ﻿using PUC.ComputacaoGrafica.Controller.Controladores;
 using PUC.ComputacaoGrafica.Model.Interfaces.Tela;
 using System.Windows;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
 using System;
-using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
 using System.Windows.Input;
 using System.Windows.Media;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj;
+using PUC.ComputacaoGrafica.Model.Enumeradores;
 
 namespace PUC.ComputacaoGrafica.View
 {
@@ -132,6 +132,24 @@ namespace PUC.ComputacaoGrafica.View
             }
         }
 
+        private void Cisalhe(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var proporcaoX = double.Parse(proporcaoXTextBox.Text);
+                var proporcaoY = double.Parse(proporcaoYTextBox.Text);
+                var proporcaoZ = double.Parse(proporcaoZTextBox.Text);
+
+                var direcao = (EnumCoordenadas)proporcaoComboBox.SelectedItem;
+
+                Controlador.Cisalhe(proporcaoX, proporcaoY, proporcaoZ, direcao);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
         private void CliqueBotaoEsquerdo(object sender, MouseButtonEventArgs e)
         {
             try
@@ -147,6 +165,18 @@ namespace PUC.ComputacaoGrafica.View
             }
         }
 
+        private void Desfaca(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Controlador.Desfaca();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
         #endregion
 
         #region "MÉTODOS PRIVADOS"
@@ -154,6 +184,8 @@ namespace PUC.ComputacaoGrafica.View
         private void AtualizeComponentes()
         {
             eixosComboBox.ItemsSource = new []{ EnumCoordenadas.X, EnumCoordenadas.Y, EnumCoordenadas.Z };
+
+            proporcaoComboBox.ItemsSource = new[] { EnumCoordenadas.X, EnumCoordenadas.Y, EnumCoordenadas.Z };
         }
 
         #endregion

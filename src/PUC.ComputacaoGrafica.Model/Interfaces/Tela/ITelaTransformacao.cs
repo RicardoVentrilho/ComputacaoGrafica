@@ -1,6 +1,6 @@
-﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
+﻿using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
 using System.Windows;
 
 namespace PUC.ComputacaoGrafica.Model.Interfaces.Tela

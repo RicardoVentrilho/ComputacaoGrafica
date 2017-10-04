@@ -1,7 +1,8 @@
-﻿using MathNet.Numerics.LinearAlgebra;
+﻿using System;
+using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Double;
 
-namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj
+namespace PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj
 {
     public sealed class Ponto3d
     {
@@ -41,15 +42,29 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Pont
             return (int)X * 6553 + (int)Y * 7993 + (int)Z * 6553;
         }
 
-        public Matrix<double> ConvertaParaMatrizVertical()
+        public Matrix<double> ConvertaParaMatrizVertical(int tamanho = 4)
         {
-            var matriz = DenseMatrix.OfArray(new double[,] 
+            Matrix<double> matriz;
+
+            if (tamanho == 4)
             {
-                { X },
-                { Y },
-                { Z },
-                { 1 }
-            });
+                matriz = DenseMatrix.OfArray(new double[,]
+                {
+                    { X },
+                    { Y },
+                    { Z },
+                    { 1 }
+                });
+            }
+            else
+            {
+                matriz = DenseMatrix.OfArray(new double[,]
+               {
+                    { X },
+                    { Y },
+                    { Z }
+               });
+            }
 
             return matriz;
         }

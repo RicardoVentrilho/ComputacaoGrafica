@@ -46,10 +46,6 @@
     <Compile Include="Controladores\ControladorTransformacao.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PUC.ComputacaoGrafica.Infraestrutura\PUC.ComputacaoGrafica.Infraestrutura.csproj">
-      <Project>{3334620f-c8bc-4f99-9e84-605d9fe7876b}</Project>
-      <Name>PUC.ComputacaoGrafica.Infraestrutura</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PUC.ComputacaoGrafica.Model\PUC.ComputacaoGrafica.Model.csproj">
       <Project>{07170b28-dfcc-4796-9743-d79a683300be}</Project>
       <Name>PUC.ComputacaoGrafica.Model</Name>

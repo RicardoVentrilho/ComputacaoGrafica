@@ -1,15 +1,16 @@
 ﻿using System;
-using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
 using PUC.ComputacaoGrafica.Model.Interfaces.Controladores;
 using PUC.ComputacaoGrafica.Model.Interfaces.Tela;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using System.Collections.Generic;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.Interfaces;
 using System.Windows;
 using System.Linq;
+using PUC.ComputacaoGrafica.Model.Enumeradores;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ProporcaoObj;
 
 namespace PUC.ComputacaoGrafica.Controller.Controladores
 {
@@ -26,6 +27,8 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             TransformacoesGeometricas = new TransformacaoGeometricaDoPoliedro();
 
             PontosSelecionados = new List<Ponto3d>();
+
+            PilhaDePoliedros = new Stack<Poliedro>();
         }
 
         #endregion
@@ -40,11 +43,15 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
 
         public ITelaTransformacao Tela { get; private set; }
 
+        public Stack<Poliedro> PilhaDePoliedros { get; private set; }
+
         #endregion
 
         public void Translade(double deslocamentoX, double deslocamentoY, double deslocamentoZ)
         {
             ValidePontoSelecionado();
+
+            PilhaDePoliedros.Push(Poliedro.Clone());
 
             TransformacoesGeometricas.Translade(Poliedro, deslocamentoX, deslocamentoY, deslocamentoZ);
 
@@ -82,6 +89,8 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
         {
             ValidePontoSelecionado();
 
+            PilhaDePoliedros.Push(Poliedro.Clone());
+
             TransformacoesGeometricas.Rotacione(Poliedro, eixo, angulo);
 
             AtualizeTela();
@@ -91,7 +100,31 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
         {
             ValidePontoSelecionado();
 
+            PilhaDePoliedros.Push(Poliedro.Clone());
+
             TransformacoesGeometricas.Escalone(Poliedro, escalonamentoX, escalonamentoY, escalonamentoZ);
+
+            AtualizeTela();
+        }
+
+        public void Cisalhe(double proporcaoX, double proporcaoY, double proporcaoZ, EnumCoordenadas direcao)
+        {
+            ValidePontoSelecionado();
+
+            PilhaDePoliedros.Push(Poliedro.Clone());
+
+            var proporcao = new Proporcao(proporcaoX, proporcaoY, proporcaoZ);
+
+            TransformacoesGeometricas.Cisalhe(Poliedro, proporcao, direcao);
+
+            AtualizeTela();
+        }
+
+        public void Desfaca()
+        {
+            ValidePontoSelecionado();
+
+            Poliedro = PilhaDePoliedros.Pop();
 
             AtualizeTela();
         }

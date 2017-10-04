@@ -1,7 +1,7 @@
-﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
+﻿using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
 using System;
 
-namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj
+namespace PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj
 {
     public sealed class Aresta
     {

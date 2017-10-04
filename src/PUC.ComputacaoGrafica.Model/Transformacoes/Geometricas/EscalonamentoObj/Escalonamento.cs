@@ -1,8 +1,7 @@
 ﻿using MathNet.Numerics.LinearAlgebra.Double;
-using PUC.ComputacaoGrafica.Infraestrutura.Extensoes;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
+using PUC.ComputacaoGrafica.Model.Extensoes;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
-using System;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.EscalonamentoObj
 {

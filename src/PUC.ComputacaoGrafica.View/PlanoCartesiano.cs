@@ -1,11 +1,10 @@
-﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
-using System;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj;
 using System.Windows;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj;
 
 namespace PUC.ComputacaoGrafica.View
 {
@@ -85,8 +84,10 @@ namespace PUC.ComputacaoGrafica.View
 
         public void AdicioneLinha(Ponto3d primeiroPonto, Ponto3d ultimoPonto)
         {
-            var linha = new Line();
-            linha.Stroke = Brushes.Black;
+            var linha = new Line()
+            {
+                Stroke = Brushes.Black
+            };
 
             var metadeDoPlano = Width / 2;
 
@@ -149,16 +150,16 @@ namespace PUC.ComputacaoGrafica.View
 
         private void AdicioneLinha(Ponto3d primeiroPonto, Ponto3d ultimoPonto, Brush estilo)
         {
-            var linha = new Line();
+            var linha = new Line()
+            {
+                Stroke = estilo,
 
-            linha.Stroke = estilo;
+                X1 = primeiroPonto.X - primeiroPonto.Z * 0.5 + 250,
+                X2 = ultimoPonto.X - ultimoPonto.Z * 0.5 + 250,
 
-            linha.X1 = primeiroPonto.X - primeiroPonto.Z * 0.5 + 250;
-            linha.X2 = ultimoPonto.X - ultimoPonto.Z * 0.5 + 250;
-
-            linha.Y1 = -1 * primeiroPonto.Y + primeiroPonto.Z * 0.5 + 250;
-            linha.Y2 = -1 * ultimoPonto.Y + ultimoPonto.Z * 0.5 + 250;
-
+                Y1 = -1 * primeiroPonto.Y + primeiroPonto.Z * 0.5 + 250,
+                Y2 = -1 * ultimoPonto.Y + ultimoPonto.Z * 0.5 + 250
+            };
             Children.Add(linha);
         }
 

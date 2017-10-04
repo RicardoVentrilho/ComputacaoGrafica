@@ -1,35 +1,60 @@
-﻿using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.DirecaoObj;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
+﻿using PUC.ComputacaoGrafica.Model.Enumeradores;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ProporcaoObj;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.CisalhamentoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.EscalonamentoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.Interfaces;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.RotacionamentoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.TranslacaoObj;
-using System;
 using System.Collections.Generic;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
 {
     public class TransformacaoGeometricaDoPoliedro : ITransformacaoGeometrica<Poliedro>
     {
-        public void Cisalhe(Poliedro poliedro, Direcao direcao, EnumCoordenadas proporcao)
+        public void Cisalhe(Poliedro poliedro, Proporcao proporcao, EnumCoordenadas direcao)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Escalone(Poliedro poliedro, double escalonamentoX, double escalonamentoY, double escalonamentoZ)
-        {
-            var rotacao = Escalonamento.ObtenhaInstancia(escalonamentoX, escalonamentoY, escalonamentoZ);
+            var cisalhamento = Cisalhamento.ObtenhaInstancia(proporcao, direcao);
 
             var arestas = new List<Aresta>();
             var pontos = new List<Ponto3d>();
 
             foreach (var aresta in poliedro.Arestas)
             {
-                var primeiroPonto = rotacao.Calcule(aresta.PrimeiroPonto);
-                var ultimoPonto = rotacao.Calcule(aresta.UltimoPonto);
+                var primeiroPonto = cisalhamento.Calcule(aresta.PrimeiroPonto);
+                var ultimoPonto = cisalhamento.Calcule(aresta.UltimoPonto);
+
+                var arestaCisalhada = new Aresta(primeiroPonto, ultimoPonto);
+
+                arestas.Add(arestaCisalhada);
+            }
+
+            poliedro.LimpeArestas();
+            poliedro.Arestas = arestas;
+
+            foreach (var ponto in poliedro.Vertices)
+            {
+                var pontoCisalhado = cisalhamento.Calcule(ponto);
+                pontos.Add(pontoCisalhado);
+            }
+
+            poliedro.LimpeVertices();
+            poliedro.Vertices = pontos;
+        }
+
+        public void Escalone(Poliedro poliedro, double escalonamentoX, double escalonamentoY, double escalonamentoZ)
+        {
+            var escalonamento = Escalonamento.ObtenhaInstancia(escalonamentoX, escalonamentoY, escalonamentoZ);
+
+            var arestas = new List<Aresta>();
+            var pontos = new List<Ponto3d>();
+
+            foreach (var aresta in poliedro.Arestas)
+            {
+                var primeiroPonto = escalonamento.Calcule(aresta.PrimeiroPonto);
+                var ultimoPonto = escalonamento.Calcule(aresta.UltimoPonto);
 
                 var arestaEscalonada = new Aresta(primeiroPonto, ultimoPonto);
 
@@ -41,7 +66,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
 
             foreach (var ponto in poliedro.Vertices)
             {
-                var pontoEscalonado = rotacao.Calcule(ponto);
+                var pontoEscalonado = escalonamento.Calcule(ponto);
                 pontos.Add(pontoEscalonado);
             }
 
@@ -61,9 +86,9 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
                 var primeiroPonto = rotacao.Calcule(aresta.PrimeiroPonto);
                 var ultimoPonto = rotacao.Calcule(aresta.UltimoPonto);
 
-                var arestaTransladada = new Aresta(primeiroPonto, ultimoPonto);
+                var arestaRotacionada = new Aresta(primeiroPonto, ultimoPonto);
 
-                arestas.Add(arestaTransladada);
+                arestas.Add(arestaRotacionada);
             }
 
             poliedro.LimpeArestas();
@@ -71,8 +96,8 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
 
             foreach (var ponto in poliedro.Vertices)
             {
-                var pontoTransladado = rotacao.Calcule(ponto);
-                pontos.Add(pontoTransladado);
+                var pontoRotacionado = rotacao.Calcule(ponto);
+                pontos.Add(pontoRotacionado);
             }
 
             poliedro.LimpeVertices();

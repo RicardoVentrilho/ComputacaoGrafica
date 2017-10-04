@@ -1,4 +1,4 @@
-﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj;
+﻿using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.Interfaces;
 using System;
 

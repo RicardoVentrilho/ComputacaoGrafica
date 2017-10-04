@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.View", "src\PUC.ComputacaoGrafica.View\PUC.ComputacaoGrafica.View.csproj", "{DC470BD5-4770-4992-B162-CEF465B31702}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.Infraestrutura", "src\PUC.ComputacaoGrafica.Infraestrutura\PUC.ComputacaoGrafica.Infraestrutura.csproj", "{3334620F-C8BC-4F99-9E84-605D9FE7876B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.Model", "src\PUC.ComputacaoGrafica.Model\PUC.ComputacaoGrafica.Model.csproj", "{07170B28-DFCC-4796-9743-D79A683300BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUC.ComputacaoGrafica.Controller", "src\PUC.ComputacaoGrafica.Controller\PUC.ComputacaoGrafica.Controller.csproj", "{B5BF9517-93C2-4906-912C-F869F95DFFA2}"
@@ -39,22 +37,6 @@ Global
 		{DC470BD5-4770-4992-B162-CEF465B31702}.Release|x64.Build.0 = Release|Any CPU
 		{DC470BD5-4770-4992-B162-CEF465B31702}.Release|x86.ActiveCfg = Release|Any CPU
 		{DC470BD5-4770-4992-B162-CEF465B31702}.Release|x86.Build.0 = Release|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Debug|ARM.Build.0 = Debug|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Debug|x64.Build.0 = Debug|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Debug|x86.Build.0 = Debug|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Release|ARM.ActiveCfg = Release|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Release|ARM.Build.0 = Release|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Release|x64.ActiveCfg = Release|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Release|x64.Build.0 = Release|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Release|x86.ActiveCfg = Release|Any CPU
-		{3334620F-C8BC-4F99-9E84-605D9FE7876B}.Release|x86.Build.0 = Release|Any CPU
 		{07170B28-DFCC-4796-9743-D79A683300BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{07170B28-DFCC-4796-9743-D79A683300BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07170B28-DFCC-4796-9743-D79A683300BE}.Debug|ARM.ActiveCfg = Debug|Any CPU

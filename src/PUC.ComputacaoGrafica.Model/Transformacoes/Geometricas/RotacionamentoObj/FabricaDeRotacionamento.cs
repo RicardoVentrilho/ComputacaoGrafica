@@ -1,8 +1,8 @@
 ﻿using System;
 using MathNet.Numerics.LinearAlgebra;
-using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
-using static PUC.ComputacaoGrafica.Infraestrutura.Enumeradores.EnumCoordenadas;
 using MathNet.Numerics.LinearAlgebra.Double;
+using static PUC.ComputacaoGrafica.Model.Enumeradores.EnumCoordenadas;
+using PUC.ComputacaoGrafica.Model.Enumeradores;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.RotacionamentoObj
 {
@@ -17,23 +17,23 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.RotacionamentoO
                 case Z:
                     matriz = DenseMatrix.OfArray(new double[,]
                     {
-                        { Math.Cos(angulo), -1 * Math.Sin(angulo), 0, 0 },
-                        { Math.Sin(angulo), Math.Cos(angulo), 0, 0 },
+                        { Math.Cos(angulo), Math.Sin(angulo), 0, 0 },
+                        { -1 * Math.Sin(angulo), Math.Cos(angulo), 0, 0 },
                         { 0, 0, 1, 0 },
                         { 0, 0, 0, 1 },
                     });
                     break;
-                case Y:
+                case X:
                     matriz = DenseMatrix.OfArray(new double[,]
                     {
                         { 1, 0, 0, 0 },
-                        { 0, Math.Cos(angulo), -1 * Math.Sin(angulo), 0},
-                        { 0, Math.Sin(angulo), Math.Cos(angulo), 0},
+                        { 0, Math.Cos(angulo), Math.Sin(angulo), 0},
+                        { 0, -1 * Math.Sin(angulo), Math.Cos(angulo), 0},
                         { 0, 0, 0, 1 },
                     });
 
                     break;
-                case X:
+                case Y:
                     matriz = DenseMatrix.OfArray(new double[,]
                     {
                         { Math.Cos(angulo), 0, Math.Sin(angulo), 0 },

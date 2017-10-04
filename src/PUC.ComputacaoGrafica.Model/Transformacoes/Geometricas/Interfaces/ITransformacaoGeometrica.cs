@@ -1,5 +1,5 @@
-﻿using PUC.ComputacaoGrafica.Infraestrutura.Enumeradores;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.DirecaoObj;
+﻿using PUC.ComputacaoGrafica.Model.Enumeradores;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ProporcaoObj;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.Interfaces
 {
@@ -11,6 +11,6 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.Interfaces
 
         void Rotacione(T poliedro, EnumCoordenadas eixo, double angulo);
 
-        void Cisalhe(T poliedro, Direcao direcao, EnumCoordenadas proporcao);
+        void Cisalhe(T poliedro, Proporcao proporcao, EnumCoordenadas direcao);
     }
 }

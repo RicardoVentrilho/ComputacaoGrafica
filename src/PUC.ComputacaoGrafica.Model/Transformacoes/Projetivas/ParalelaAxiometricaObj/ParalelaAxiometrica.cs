@@ -1,6 +1,6 @@
 ﻿using System;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.ParalelaAxiometricaObj
 {

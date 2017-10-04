@@ -1,10 +1,11 @@
-﻿using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.ArestaObj;
-using PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PontoObj;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System;
 using System.Windows;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj;
+using System.Linq;
 
-namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.PoliedroObj
+namespace PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj
 {
     public class Poliedro
     {
@@ -54,6 +55,17 @@ namespace PUC.ComputacaoGrafica.Infraestrutura.Matematica.GeometriaEspacial.Poli
         public IList<Point> ObtenhaVertices2d()
         {
             throw new NotImplementedException();
+        }
+
+        public Poliedro Clone()
+        {
+            var poliedro = new Poliedro
+            {
+                Arestas = Arestas.ToList(),
+                Vertices = Vertices.ToList()
+            };
+
+            return poliedro;
         }
     }
 }
