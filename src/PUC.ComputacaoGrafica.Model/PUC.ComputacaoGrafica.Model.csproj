@@ -67,6 +67,7 @@
     <Compile Include="Transformacoes\Geometricas\TranslacaoObj\Translacao.cs" />
     <Compile Include="Transformacoes\Interfaces\ITransformacao.cs" />
     <Compile Include="Transformacoes\Projetivas\Interfaces\ITransformacaoProjetiva.cs" />
+    <Compile Include="Transformacoes\Projetivas\ParalelaAxiometricaObj\FabricaDeAxiometricoIsometrico.cs" />
     <Compile Include="Transformacoes\Projetivas\ParalelaAxiometricaObj\ParalelaAxiometrica.cs" />
     <Compile Include="Transformacoes\Projetivas\PlanarPerspectivoObj\FabricaDePlanarPespectivo.cs" />
     <Compile Include="Transformacoes\Projetivas\PlanarPerspectivoObj\PlanarPerspectivo.cs" />

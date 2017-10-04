@@ -140,6 +140,19 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             AtualizeTela();
         }
 
+        public void ProjeteAxometrica(double x, double y, double z, EnumPlano plano)
+        {
+            ValidePontoSelecionado();
+
+            PilhaDePoliedros.Push(Poliedro.Clone());
+
+            var ponto = new Ponto3d(x, y, z);
+
+            PoliedroProjetado = TransformacoesProjetivas.ProjeteUmAxiomaIsometrico(Poliedro.Clone(), ponto, plano);
+
+            AtualizeTela();
+        }
+
         public void Desfaca()
         {
             ValidePontoSelecionado();

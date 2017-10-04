@@ -198,6 +198,24 @@ namespace PUC.ComputacaoGrafica.View
             }
         }
 
+        private void ProjeteAxometrica(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var x = double.Parse(pontoXAxometricaTextBox.Text);
+                var y = double.Parse(pontoYAxometricaTextBox.Text);
+                var z = double.Parse(pontoZAxometricaTextBox.Text);
+
+                var plano = (EnumPlano)planosAxometricoComboBox.SelectedIndex;
+
+                Controlador.ProjeteAxometrica(x, y, z, plano);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
         private void DesprojetePlanar(object sender, MouseEventArgs e)
         {
             try
@@ -221,6 +239,8 @@ namespace PUC.ComputacaoGrafica.View
             proporcaoComboBox.ItemsSource = new[] { EnumCoordenadas.X, EnumCoordenadas.Y, EnumCoordenadas.Z };
 
             planosComboBox.ItemsSource = new[] { EnumPlano.XY, EnumPlano.XZ, EnumPlano.YZ };
+
+            planosAxometricoComboBox.ItemsSource = new[] { EnumPlano.XY, EnumPlano.XZ, EnumPlano.YZ };
         }
 
         #endregion
