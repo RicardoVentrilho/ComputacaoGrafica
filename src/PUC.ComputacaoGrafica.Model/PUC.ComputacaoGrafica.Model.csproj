@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumeradores\EnumCoordenadas.cs" />
+    <Compile Include="Enumeradores\EnumPlano.cs" />
     <Compile Include="Extensoes\MatrixExtensao.cs" />
     <Compile Include="Interfaces\Controladores\IControladorTransformacao.cs" />
     <Compile Include="Interfaces\Tela\ITelaTransformacao.cs" />
@@ -67,6 +68,8 @@
     <Compile Include="Transformacoes\Interfaces\ITransformacao.cs" />
     <Compile Include="Transformacoes\Projetivas\Interfaces\ITransformacaoProjetiva.cs" />
     <Compile Include="Transformacoes\Projetivas\ParalelaAxiometricaObj\ParalelaAxiometrica.cs" />
+    <Compile Include="Transformacoes\Projetivas\PlanarPerspectivoObj\FabricaDePlanarPespectivo.cs" />
+    <Compile Include="Transformacoes\Projetivas\PlanarPerspectivoObj\PlanarPerspectivo.cs" />
     <Compile Include="Transformacoes\Projetivas\TransformacaoProjetivaDoPoliedro.cs" />
   </ItemGroup>
   <ItemGroup>

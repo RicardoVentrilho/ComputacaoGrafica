@@ -11,6 +11,8 @@ using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ProporcaoObj;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.Interfaces;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas;
 
 namespace PUC.ComputacaoGrafica.Controller.Controladores
 {
@@ -23,8 +25,10 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             Tela = tela;
 
             Poliedro = new Poliedro();
+            PoliedroProjetado = new Poliedro();
 
             TransformacoesGeometricas = new TransformacaoGeometricaDoPoliedro();
+            TransformacoesProjetivas = new TransformacaoProjetivaDoPoliedro();
 
             PontosSelecionados = new List<Ponto3d>();
 
@@ -41,9 +45,14 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
 
         public Poliedro Poliedro { get; private set; }
 
+        public Poliedro PoliedroProjetado { get; private set; }
+
         public ITelaTransformacao Tela { get; private set; }
 
         public Stack<Poliedro> PilhaDePoliedros { get; private set; }
+
+        public ITransformacaoProjetiva<Poliedro> TransformacoesProjetivas { get; private set; }
+
 
         #endregion
 
@@ -120,11 +129,29 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             AtualizeTela();
         }
 
+        public void ProjetePlanarPerspectivo(double dPonto, EnumPlano plano)
+        {
+            ValidePontoSelecionado();
+
+            PilhaDePoliedros.Push(Poliedro.Clone());
+
+            PoliedroProjetado = TransformacoesProjetivas.ProjeteUmPlanarPerspectivo(Poliedro.Clone(), dPonto, plano);
+
+            AtualizeTela();
+        }
+
         public void Desfaca()
         {
             ValidePontoSelecionado();
 
             Poliedro = PilhaDePoliedros.Pop();
+
+            AtualizeTela();
+        }
+
+        public void DesprojetePlanar()
+        {
+            PoliedroProjetado = null;
 
             AtualizeTela();
         }
@@ -176,6 +203,11 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
                 var ponto = PontosSelecionados.First();
 
                 Tela.AtualizePontoSelecionado(ponto);
+            }
+
+            if (PoliedroProjetado != null)
+            {
+                Tela.AdicionePoliedro(PoliedroProjetado);
             }
         }
 

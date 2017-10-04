@@ -85,7 +85,7 @@
                 <!-- BOTÃO CALCULAR -->
                 <Button Content="CALCULE" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" Width="86" Height="20" Click="Rotacione"/>
             </Grid>
-            
+
             <!-- CISALHAMENTO -->
             <Grid HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="233" Margin="420,0,0,0">
                 <!-- DESCRIÇÃO -->
@@ -105,26 +105,51 @@
                 <!-- DIREÇÃO -->
                 <Label Content="DIREÇÃO" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="112"/>
                 <ComboBox x:Name="proporcaoComboBox" HorizontalAlignment="Left" Margin="71,93,0,0" VerticalAlignment="Top" Width="152"/>
-                
+
                 <!-- BOTÃO CALCULAR -->
                 <Button Content="CALCULE" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="213" Click="Cisalhe"/>
             </Grid>
         </Grid>
-        
+
         <Grid HorizontalAlignment="Left" Height="649" Margin="673,10,0,0" VerticalAlignment="Top" Width="157">
-            <Grid HorizontalAlignment="Left" Height="105" VerticalAlignment="Top" Width="157" >
+            <Grid HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="157" >
                 <Label Content="PLANAR PERSPECTIVA" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="26"/>
 
                 <!-- ÂNGULO -->
-                <Label Content="PLANOS" HorizontalAlignment="Left" Margin="5,41,0,0" VerticalAlignment="Top" Width="61" Height="27"/>
+                <Label Content="PLANOS" HorizontalAlignment="Left" Margin="5,69,0,0" VerticalAlignment="Top" Width="61" Height="27"/>
 
                 <!-- EIXO -->
-                <ComboBox x:Name="eixosComboBox1" HorizontalAlignment="Left" Margin="66,42,0,0" VerticalAlignment="Top" Width="81"/>
+                <ComboBox x:Name="planosComboBox" HorizontalAlignment="Left" Margin="66,70,0,0" VerticalAlignment="Top" Width="81"/>
 
                 <!-- BOTÃO CALCULAR -->
-                <Button Content="PROJETE" HorizontalAlignment="Left" Margin="5,73,0,0" VerticalAlignment="Top" Width="142" Height="20" Click="Rotacione"/>
+                <Button Content="PROJETE" HorizontalAlignment="Left" Margin="5,110,0,0" VerticalAlignment="Top" Width="142" Height="20" GotMouseCapture="ProjetePlanar" MouseLeave="DesprojetePlanar"/>
+                <TextBox x:Name="pontoPlanoTextBox" HorizontalAlignment="Left" Height="22" Margin="5,36,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="142"/>
             </Grid>
             <Button Content="DESFAZER" HorizontalAlignment="Left" Margin="10,619,0,0" VerticalAlignment="Top" Width="137" Click="Desfaca"/>
+            <Grid HorizontalAlignment="Left" Height="234" VerticalAlignment="Top" Width="157" Margin="0,145,0,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="116*"/>
+                    <ColumnDefinition Width="41*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="AXOMÉTRICA&#xD;&#xA;ISOMÉTRICA" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="41" Grid.ColumnSpan="2"/>
+
+                <!-- ÂNGULO -->
+                <Label Content="PLANOS" HorizontalAlignment="Left" Margin="5,154,0,0" VerticalAlignment="Top" Width="61" Height="27"/>
+
+                <!-- EIXO -->
+                <ComboBox x:Name="planosComboBox1" HorizontalAlignment="Left" Margin="66,155,0,0" VerticalAlignment="Top" Width="81" Grid.ColumnSpan="2"/>
+
+                <!-- BOTÃO CALCULAR -->
+                <Button Content="PROJETE" HorizontalAlignment="Left" Margin="5,195,0,0" VerticalAlignment="Top" Width="142" Height="20" GotMouseCapture="ProjetePlanar" MouseLeave="DesprojetePlanar" Grid.ColumnSpan="2"/>
+                
+                <TextBox x:Name="caixaDeTextoX_Copy" HorizontalAlignment="Left" Height="22" Margin="28,63,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="caixaDeTextoY_Copy" HorizontalAlignment="Left" Height="22" Margin="28,90,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="caixaDeTextoZ_Copy" HorizontalAlignment="Left" Height="22" Margin="28,0,0,95" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" Width="120" Grid.ColumnSpan="2"/>
+                
+                <Label Content="X" HorizontalAlignment="Left" Margin="5,60,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
+                <Label Content="Y" HorizontalAlignment="Left" Margin="5,88,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
+                <Label Content="Z" HorizontalAlignment="Left" Margin="5,114,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

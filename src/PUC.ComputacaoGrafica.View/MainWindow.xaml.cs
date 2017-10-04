@@ -62,6 +62,11 @@ namespace PUC.ComputacaoGrafica.View
             }
         }
 
+        public void AdicionePoliedro(Poliedro poliedroProjetado)
+        {
+            _PlanoCartesiano.Desenhe(poliedroProjetado);
+        }
+
         #endregion
 
         #region "EVENTOS"
@@ -177,6 +182,34 @@ namespace PUC.ComputacaoGrafica.View
             }
         }
 
+        private void ProjetePlanar(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var dPonto = double.Parse(pontoPlanoTextBox.Text);
+
+                var plano = (EnumPlano)planosComboBox.SelectedIndex;
+
+                Controlador.ProjetePlanarPerspectivo(dPonto, plano);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        private void DesprojetePlanar(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                Controlador.DesprojetePlanar();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
         #endregion
 
         #region "MÉTODOS PRIVADOS"
@@ -186,6 +219,8 @@ namespace PUC.ComputacaoGrafica.View
             eixosComboBox.ItemsSource = new []{ EnumCoordenadas.X, EnumCoordenadas.Y, EnumCoordenadas.Z };
 
             proporcaoComboBox.ItemsSource = new[] { EnumCoordenadas.X, EnumCoordenadas.Y, EnumCoordenadas.Z };
+
+            planosComboBox.ItemsSource = new[] { EnumPlano.XY, EnumPlano.XZ, EnumPlano.YZ };
         }
 
         #endregion

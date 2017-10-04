@@ -13,7 +13,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.CisalhamentoObj
     {
         private static readonly Cisalhamento _Instancia = new Cisalhamento(default(Proporcao), X);
 
-        public Cisalhamento(Proporcao direcao, EnumCoordenadas proporcao)
+        private Cisalhamento(Proporcao direcao, EnumCoordenadas proporcao)
         {
             Direcao = direcao;
             Proporcao = proporcao;

@@ -16,5 +16,7 @@ namespace PUC.ComputacaoGrafica.Model.Interfaces.Tela
         Point ConvertaPonto3dPara2d(Ponto3d ponto3d);
 
         void AtualizePontoSelecionado(Ponto3d ponto);
+
+        void AdicionePoliedro(Poliedro poliedroProjetado);
     }
 }
