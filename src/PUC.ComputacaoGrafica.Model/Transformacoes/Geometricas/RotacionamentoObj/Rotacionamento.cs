@@ -1,9 +1,8 @@
-﻿using System;
-using MathNet.Numerics.LinearAlgebra;
+﻿using MathNet.Numerics.LinearAlgebra;
 using PUC.ComputacaoGrafica.Model.Enumeradores;
+using PUC.ComputacaoGrafica.Model.Extensoes;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
-using PUC.ComputacaoGrafica.Model.Extensoes;
 using static PUC.ComputacaoGrafica.Model.Enumeradores.EnumCoordenadas;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.RotacionamentoObj
