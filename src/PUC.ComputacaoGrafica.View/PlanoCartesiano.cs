@@ -1,27 +1,48 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using System.Windows;
-using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
-using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
 
 namespace PUC.ComputacaoGrafica.View
 {
     public class PlanoCartesiano : Canvas
     {
-        private const double PROPORCAO = 10;
+        #region "CAMPOS"
 
-        private const double DIRECAO_EIXO_Z = 0.5;
+        private double _Proporcao;
 
-        public PlanoCartesiano()
+        private double _DirecaoEixoZ;
+
+        #endregion
+
+        #region "PROPRIEDADES"
+
+        public double Proporcao
         {
-            Background = Brushes.White;
-            Height = 500;
-            Width = 500;
-
-            AdicioneOs3Eixos();
+            set { _Proporcao = value; }
         }
+
+        public double DirecaoEixoZ
+        {
+            set { _DirecaoEixoZ = value; }
+        }
+
+        public double Tamanho
+        {
+            get { return Height; }
+            set
+            {
+                Height = value;
+                Width = value;
+
+                AdicioneOs3Eixos();
+            }
+        }
+
+        #endregion
 
         public void Limpe()
         {
@@ -47,8 +68,8 @@ namespace PUC.ComputacaoGrafica.View
 
             Children.Add(ponto);
 
-            SetLeft(ponto, (x - z * DIRECAO_EIXO_Z ) * PROPORCAO + metadeDoPlano - margemDoPonto);
-            SetTop(ponto, (-1 * y + z * DIRECAO_EIXO_Z) * PROPORCAO + metadeDoPlano - margemDoPonto);
+            SetLeft(ponto, (x - z * _DirecaoEixoZ) * _Proporcao + metadeDoPlano - margemDoPonto);
+            SetTop(ponto, (-1 * y + z * _DirecaoEixoZ) * _Proporcao + metadeDoPlano - margemDoPonto);
         }
 
         public void AdicionePonto(Ponto3d ponto3d, SolidColorBrush darkRed)
@@ -63,24 +84,21 @@ namespace PUC.ComputacaoGrafica.View
 
             Children.Add(ponto);
 
-            SetLeft(ponto, (ponto3d.X - ponto3d.Z * DIRECAO_EIXO_Z) * PROPORCAO + metadeDoPlano - margemDoPonto);
-            SetTop(ponto, (-1 * ponto3d.Y + ponto3d.Z * DIRECAO_EIXO_Z) * PROPORCAO + metadeDoPlano - margemDoPonto);
+            SetLeft(ponto, (ponto3d.X - ponto3d.Z * _DirecaoEixoZ) * _Proporcao + metadeDoPlano - margemDoPonto);
+            SetTop(ponto, (-1 * ponto3d.Y + ponto3d.Z * _DirecaoEixoZ) * _Proporcao + metadeDoPlano - margemDoPonto);
         }
 
         public Point ConvertaPonto3dPara2d(Ponto3d ponto3d)
         {
-            var x = (ponto3d.X - ponto3d.Z * DIRECAO_EIXO_Z);
-            var y = (ponto3d.Y - ponto3d.Z * DIRECAO_EIXO_Z);
+            var x = (ponto3d.X - ponto3d.Z * _DirecaoEixoZ);
+            var y = (ponto3d.Y - ponto3d.Z * _DirecaoEixoZ);
 
             var ponto2d = new Point(x, y);
 
             return ponto2d;
         }
 
-        private void AdicioneLinha(Aresta aresta)
-        {
-            AdicioneLinha(aresta.PrimeiroPonto, aresta.UltimoPonto);
-        }
+
 
         public void AdicioneLinha(Ponto3d primeiroPonto, Ponto3d ultimoPonto)
         {
@@ -91,16 +109,26 @@ namespace PUC.ComputacaoGrafica.View
 
             var metadeDoPlano = Width / 2;
 
-            linha.X1 = (primeiroPonto.X - primeiroPonto.Z * DIRECAO_EIXO_Z) * PROPORCAO + metadeDoPlano;
-            linha.X2 = (ultimoPonto.X - ultimoPonto.Z * DIRECAO_EIXO_Z) * PROPORCAO + metadeDoPlano;
+            linha.X1 = (primeiroPonto.X - primeiroPonto.Z * _DirecaoEixoZ) * _Proporcao + metadeDoPlano;
+            linha.X2 = (ultimoPonto.X - ultimoPonto.Z * _DirecaoEixoZ) * _Proporcao + metadeDoPlano;
 
-            linha.Y1 = (-1 * primeiroPonto.Y + primeiroPonto.Z * DIRECAO_EIXO_Z) * PROPORCAO + metadeDoPlano;
-            linha.Y2 = (-1 * ultimoPonto.Y + ultimoPonto.Z * DIRECAO_EIXO_Z) * PROPORCAO + metadeDoPlano;
+            linha.Y1 = (-1 * primeiroPonto.Y + primeiroPonto.Z * _DirecaoEixoZ) * _Proporcao + metadeDoPlano;
+            linha.Y2 = (-1 * ultimoPonto.Y + ultimoPonto.Z * _DirecaoEixoZ) * _Proporcao + metadeDoPlano;
 
             Children.Add(linha);
         }
 
-        public void Desenhe(Poliedro poliedro)
+        public Point CorvertaParaPonto2D(Point coordenada)
+        {
+            var x = (coordenada.X - Width / 2) - Margin.Left;
+            var y = ((-1 * coordenada.Y) + Height / 2) + Margin.Top;
+
+            var ponto = new Point(x / _Proporcao, y / _Proporcao);
+
+            return ponto;
+        }
+
+        public void Desenhe(PoliedroProxy poliedro)
         {
             var pontos = poliedro.Vertices;
 
@@ -117,10 +145,17 @@ namespace PUC.ComputacaoGrafica.View
             }
         }
 
+        #region "MÉTODO PRIVADOS"
+
+        private void AdicioneLinha(Aresta aresta)
+        {
+            AdicioneLinha(aresta.PrimeiroPonto, aresta.UltimoPonto);
+        }
+
         private void AdicioneEixoX()
         {
             var origem = new Ponto3d(0, 0, 0);
-            var limiteX = new Ponto3d(Width/2, 0, 0);
+            var limiteX = new Ponto3d(Width / 2, 0, 0);
 
             AdicioneLinha(origem, limiteX, Brushes.Red);
         }
@@ -136,7 +171,7 @@ namespace PUC.ComputacaoGrafica.View
         private void AdicioneEixoZ()
         {
             var origem = new Ponto3d(0, 0, 0);
-            var limiteY = new Ponto3d(-1 * (Width / 2), - 1 * (Height / 2), 0);
+            var limiteY = new Ponto3d(-1 * (Width / 2), -1 * (Height / 2), 0);
 
             AdicioneLinha(origem, limiteY, Brushes.Blue);
         }
@@ -150,7 +185,7 @@ namespace PUC.ComputacaoGrafica.View
 
         private void AdicioneLinha(Ponto3d primeiroPonto, Ponto3d ultimoPonto, Brush estilo)
         {
-            var linha = new Line()
+            var linha = new Line
             {
                 Stroke = estilo,
 
@@ -163,14 +198,6 @@ namespace PUC.ComputacaoGrafica.View
             Children.Add(linha);
         }
 
-        public Point CorvertaCoordenadaParaPonto2d(Point coordenada)
-        {
-            var x = (coordenada.X - Width/2) - Margin.Left;
-            var y = ((-1 * coordenada.Y) + Height/2) + Margin.Top;
-
-            var ponto = new Point(x / PROPORCAO, y / PROPORCAO);
-
-            return ponto;
-        }
+        #endregion
     }
 }

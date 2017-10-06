@@ -1,18 +1,17 @@
-﻿using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj;
-using PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.Interfaces;
-using System;
+﻿using System.Collections.Generic;
 using PUC.ComputacaoGrafica.Model.Enumeradores;
-using PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.PlanarPerspectivoObj;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
-using System.Collections.Generic;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.Interfaces;
 using PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.ParalelaAxiometricaObj;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.PlanarPerspectivoObj;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas
 {
-    public class TransformacaoProjetivaDoPoliedro : ITransformacaoProjetiva<Poliedro>
+    public class TransformacaoProjetivaDoPoliedro : ITransformacaoProjetiva<PoliedroProxy>
     {
-        public Poliedro ProjeteUmAxiomaIsometrico(Poliedro poliedro, Ponto3d ponto3d, EnumPlano plano)
+        public PoliedroProxy ProjeteUmAxiomaIsometrico(PoliedroProxy poliedro, Ponto3d ponto3d, EnumPlano plano)
         {
             var planarPerspectivo = ParalelaAxiometricaIsometrica.ObtenhaInstancia(ponto3d, plano);
 
@@ -44,7 +43,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas
             return poliedro;
         }
 
-        public Poliedro ProjeteUmPlanarPerspectivo(Poliedro poliedro, double dPonto, EnumPlano plano)
+        public PoliedroProxy ProjeteUmPlanarPerspectivo(PoliedroProxy poliedro, double dPonto, EnumPlano plano)
         {
             var planarPerspectivo = PlanarPerspectivo.ObtenhaInstancia(dPonto, plano);
 

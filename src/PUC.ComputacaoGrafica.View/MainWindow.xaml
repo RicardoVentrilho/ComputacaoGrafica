@@ -31,7 +31,17 @@
         </Grid>
 
         <!-- PLANO CARTESIANO -->
-        <view:PlanoCartesiano x:Name="_PlanoCartesiano" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MouseLeftButtonDown="CliqueBotaoEsquerdo" Grid.RowSpan="4"/>
+        <view:PlanoCartesiano 
+            x:Name="_PlanoCartesiano" 
+            HorizontalAlignment="Left" 
+            Margin="10,10,0,0" 
+            Tamanho="500" 
+            Proporcao="10"
+            DirecaoEixoZ="0.5"
+            VerticalAlignment="Top" 
+            MouseLeftButtonDown="CliqueBotaoEsquerdo" 
+            Background="White"
+            />
 
         <!-- TRANSFORMAÇÕES -->
         <Grid HorizontalAlignment="Left" Height="149" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="663">

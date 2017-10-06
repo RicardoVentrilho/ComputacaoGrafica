@@ -12,9 +12,9 @@ using System.Collections.Generic;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
 {
-    public class TransformacaoGeometricaDoPoliedro : ITransformacaoGeometrica<Poliedro>
+    public class TransformacaoGeometricaDoPoliedro : ITransformacaoGeometrica<PoliedroProxy>
     {
-        public void Cisalhe(Poliedro poliedro, Proporcao proporcao, EnumCoordenadas direcao)
+        public void Cisalhe(PoliedroProxy poliedro, Proporcao proporcao, EnumCoordenadas direcao)
         {
             var cisalhamento = Cisalhamento.ObtenhaInstancia(proporcao, direcao);
 
@@ -44,7 +44,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
             poliedro.Vertices = pontos;
         }
 
-        public void Escalone(Poliedro poliedro, double escalonamentoX, double escalonamentoY, double escalonamentoZ)
+        public void Escalone(PoliedroProxy poliedro, double escalonamentoX, double escalonamentoY, double escalonamentoZ)
         {
             var escalonamento = Escalonamento.ObtenhaInstancia(escalonamentoX, escalonamentoY, escalonamentoZ);
 
@@ -74,7 +74,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
             poliedro.Vertices = pontos;
         }
 
-        public void Rotacione(Poliedro poliedro, EnumCoordenadas eixo, double angulo)
+        public void Rotacione(PoliedroProxy poliedro, EnumCoordenadas eixo, double angulo)
         {
             var rotacao = Rotacionamento.ObtenhaInstancia(eixo, angulo);
 
@@ -104,7 +104,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
             poliedro.Vertices = pontos;
         }
 
-        public void Translade(Poliedro poliedro, double deslocamentoX, double deslocamentoY, double deslocamentoZ)
+        public void Translade(PoliedroProxy poliedro, double deslocamentoX, double deslocamentoY, double deslocamentoZ)
         {
             var translacao = Translacao.ObtenhaInstancia(deslocamentoX, deslocamentoY, deslocamentoZ);
 

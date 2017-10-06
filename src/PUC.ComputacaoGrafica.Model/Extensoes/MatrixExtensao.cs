@@ -1,4 +1,10 @@
-﻿using MathNet.Numerics.LinearAlgebra;
+﻿// -----------------------------------------------------------------------
+// <copyright file="MatrixExtensao.cs" company="PUC GO">
+// DIREITOS RESERVADOS - PUC GOIÁS.
+// </copyright>
+// -----------------------------------------------------------------------
+
+using MathNet.Numerics.LinearAlgebra;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
 using static PUC.ComputacaoGrafica.Model.Enumeradores.EnumCoordenadas;
 

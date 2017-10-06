@@ -54,6 +54,7 @@
     <Compile Include="Interfaces\Controladores\IControladorTransformacao.cs" />
     <Compile Include="Interfaces\Tela\ITelaTransformacao.cs" />
     <Compile Include="Matematica\GeometriaEspacial\ArestaObj\Aresta.cs" />
+    <Compile Include="Matematica\GeometriaEspacial\PoliedroObj\PoliedroProxy.cs" />
     <Compile Include="Matematica\GeometriaEspacial\ProporcaoObj\Proporcao.cs" />
     <Compile Include="Matematica\GeometriaEspacial\PoliedroObj\Poliedro.cs" />
     <Compile Include="Matematica\GeometriaEspacial\PontoObj\Ponto3d.cs" />

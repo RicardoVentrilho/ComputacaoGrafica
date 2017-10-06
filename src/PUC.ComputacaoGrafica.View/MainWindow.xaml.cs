@@ -1,13 +1,13 @@
-﻿using PUC.ComputacaoGrafica.Controller.Controladores;
-using PUC.ComputacaoGrafica.Model.Interfaces.Tela;
+﻿using System;
 using System.Windows;
-using System;
 using System.Windows.Input;
 using System.Windows.Media;
+using PUC.ComputacaoGrafica.Controller.Controladores;
+using PUC.ComputacaoGrafica.Model.Enumeradores;
+using PUC.ComputacaoGrafica.Model.Interfaces.Tela;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
-using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj;
-using PUC.ComputacaoGrafica.Model.Enumeradores;
 
 namespace PUC.ComputacaoGrafica.View
 {
@@ -44,13 +44,13 @@ namespace PUC.ComputacaoGrafica.View
             arestasListBox.Items.Add(aresta);
         }
 
-        public void AtualizePlanoCartesiano(Poliedro poliedro)
+        public void AtualizePlanoCartesiano(PoliedroProxy poliedro)
         {
             _PlanoCartesiano.Limpe();
             _PlanoCartesiano.Desenhe(poliedro);
         }
 
-        public void AtualizeArestas(Poliedro poliedro)
+        public void AtualizeArestas(PoliedroProxy poliedro)
         {
             var arestas = poliedro.Arestas;
 
@@ -62,7 +62,7 @@ namespace PUC.ComputacaoGrafica.View
             }
         }
 
-        public void AdicionePoliedro(Poliedro poliedroProjetado)
+        public void AdicionePoliedro(PoliedroProxy poliedroProjetado)
         {
             _PlanoCartesiano.Desenhe(poliedroProjetado);
         }
@@ -73,7 +73,7 @@ namespace PUC.ComputacaoGrafica.View
 
         private void AdicionePonto(object sender, RoutedEventArgs e)
         {
-            try
+            MetodoProxy(() =>
             {
                 var x = double.Parse(caixaDeTextoX.Text);
                 var y = double.Parse(caixaDeTextoY.Text);
@@ -82,64 +82,48 @@ namespace PUC.ComputacaoGrafica.View
                 _PlanoCartesiano.AdicionePonto(x, y, z);
 
                 Controlador.AdicionePonto(x, y, z);
-            }
-            catch(Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
+            });
         }
 
         private void Translade(object sender, RoutedEventArgs e)
         {
-            try
+            MetodoProxy(() =>
             {
                 var deslocamentoX = double.Parse(deslocamentoXTextBox.Text);
                 var deslocamentoY = double.Parse(deslocamentoYTextBox.Text);
                 var deslocamentoZ = double.Parse(deslocamentoZTextBox.Text);
 
                 Controlador.Translade(deslocamentoX, deslocamentoY, deslocamentoZ);
-            }
-            catch(Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
+            });
         }
 
         private void Rotacione(object sender, RoutedEventArgs e)
         {
-            try
+            MetodoProxy(() =>
             {
                 var angulo = double.Parse(anguloTextBox.Text);
 
                 var eixo = (EnumCoordenadas)eixosComboBox.SelectedItem;
 
                 Controlador.Rotacione(eixo, angulo);
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
+            });
         }
 
         private void Escalone(object sender, RoutedEventArgs e)
         {
-            try
+            MetodoProxy(() =>
             {
                 var escalonamentoX = double.Parse(escalonamentoXTextBox.Text);
                 var escalonamentoY = double.Parse(escalonamentoYTextBox.Text);
                 var escalonamentoZ = double.Parse(escalonamentoZTextBox.Text);
 
                 Controlador.Escalone(escalonamentoX, escalonamentoY, escalonamentoZ);
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
+            });
         }
 
         private void Cisalhe(object sender, RoutedEventArgs e)
         {
-            try
+            MetodoProxy(() =>
             {
                 var proporcaoX = double.Parse(proporcaoXTextBox.Text);
                 var proporcaoY = double.Parse(proporcaoYTextBox.Text);
@@ -148,59 +132,43 @@ namespace PUC.ComputacaoGrafica.View
                 var direcao = (EnumCoordenadas)proporcaoComboBox.SelectedItem;
 
                 Controlador.Cisalhe(proporcaoX, proporcaoY, proporcaoZ, direcao);
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
+            });
         }
 
         private void CliqueBotaoEsquerdo(object sender, MouseButtonEventArgs e)
         {
-            try
+            MetodoProxy(() =>
             {
                 var coordenada = e.GetPosition(this);
-                var ponto = _PlanoCartesiano.CorvertaCoordenadaParaPonto2d(coordenada);
+                var ponto = _PlanoCartesiano.CorvertaParaPonto2D(coordenada);
 
                 Controlador.SelecionePonto(ponto);
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
+            });
         }
 
         private void Desfaca(object sender, RoutedEventArgs e)
         {
-            try
+            MetodoProxy(() =>
             {
                 Controlador.Desfaca();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
+            });
         }
 
         private void ProjetePlanar(object sender, RoutedEventArgs e)
         {
-            try
+            MetodoProxy(() =>
             {
                 var dPonto = double.Parse(pontoPlanoTextBox.Text);
 
                 var plano = (EnumPlano)planosComboBox.SelectedIndex;
 
                 Controlador.ProjetePlanarPerspectivo(dPonto, plano);
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
+            });
         }
 
         private void ProjeteAxometrica(object sender, RoutedEventArgs e)
         {
-            try
+            MetodoProxy(() =>
             {
                 var x = double.Parse(pontoXAxometricaTextBox.Text);
                 var y = double.Parse(pontoYAxometricaTextBox.Text);
@@ -209,23 +177,15 @@ namespace PUC.ComputacaoGrafica.View
                 var plano = (EnumPlano)planosAxometricoComboBox.SelectedIndex;
 
                 Controlador.ProjeteAxometrica(x, y, z, plano);
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
+            });
         }
 
         private void DesprojetePlanar(object sender, MouseEventArgs e)
         {
-            try
+            MetodoProxy(() =>
             {
                 Controlador.DesprojetePlanar();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
+            });
         }
 
         #endregion
@@ -234,13 +194,25 @@ namespace PUC.ComputacaoGrafica.View
 
         private void AtualizeComponentes()
         {
-            eixosComboBox.ItemsSource = new []{ EnumCoordenadas.X, EnumCoordenadas.Y, EnumCoordenadas.Z };
+            eixosComboBox.ItemsSource = new[] { EnumCoordenadas.X, EnumCoordenadas.Y, EnumCoordenadas.Z };
 
             proporcaoComboBox.ItemsSource = new[] { EnumCoordenadas.X, EnumCoordenadas.Y, EnumCoordenadas.Z };
 
             planosComboBox.ItemsSource = new[] { EnumPlano.XY, EnumPlano.XZ, EnumPlano.YZ };
 
             planosAxometricoComboBox.ItemsSource = new[] { EnumPlano.XY, EnumPlano.XZ, EnumPlano.YZ };
+        }
+
+        private void MetodoProxy(Action acao)
+        {
+            try
+            {
+                acao.Invoke();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
         }
 
         #endregion

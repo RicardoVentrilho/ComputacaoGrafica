@@ -1,7 +1,7 @@
-﻿using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj;
+﻿using System.Windows;
+using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
-using System.Windows;
 
 namespace PUC.ComputacaoGrafica.Model.Interfaces.Tela
 {
@@ -9,14 +9,14 @@ namespace PUC.ComputacaoGrafica.Model.Interfaces.Tela
     {
         void AdicioneAresta(Aresta aresta);
 
-        void AtualizePlanoCartesiano(Poliedro poliedro);
+        void AtualizePlanoCartesiano(PoliedroProxy poliedro);
 
-        void AtualizeArestas(Poliedro poliedro);
+        void AtualizeArestas(PoliedroProxy poliedro);
 
         Point ConvertaPonto3dPara2d(Ponto3d ponto3d);
 
         void AtualizePontoSelecionado(Ponto3d ponto);
 
-        void AdicionePoliedro(Poliedro poliedroProjetado);
+        void AdicionePoliedro(PoliedroProxy poliedroProjetado);
     }
 }
