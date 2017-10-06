@@ -4,27 +4,38 @@
         xmlns:view="clr-namespace:PUC.ComputacaoGrafica.View"
         Title="Transformacoes" 
         Height="500" 
-        Width="500"
-        MaxHeight="700"
-        MinHeight="700"
+        Width="850.5"
+        MaxHeight="730"
+        MinHeight="730"
         MaxWidth="850"
         MinWidth="850">
-    <Grid Background="LightBlue" HorizontalAlignment="Left" Width="840">
+    <Grid Background="WhiteSmoke" HorizontalAlignment="Left" Width="850">
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" Height="20">
+                <MenuItem Header="Editar">
+                    <MenuItem Header="Excluir Ponto" Click="RemovaPonto"/>
+                    <MenuItem Header="Excluir Aresta" Click="RemovaAresta"/>
+                    <MenuItem Header="Desfazer" Click="Desfaca"/>
+                </MenuItem>
+            </Menu>
+            <StackPanel></StackPanel>
+        </DockPanel>
+
         <!-- PONTOS -->
-        <Grid HorizontalAlignment="Left" Height="500" Margin="510,10,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.351,0.489">
+        <Grid HorizontalAlignment="Left" Height="507" Margin="669,25,0,0" VerticalAlignment="Top" Width="163" RenderTransformOrigin="0.351,0.489">
             <!-- DESCRIÇÃO -->
             <Label Content="PONTO" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
 
             <!-- COORDENADAS -->
             <TextBox x:Name="caixaDeTextoX" HorizontalAlignment="Left" Height="22" Margin="33,28,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
             <TextBox x:Name="caixaDeTextoY" HorizontalAlignment="Left" Height="22" Margin="33,55,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="caixaDeTextoZ" HorizontalAlignment="Left" Height="22" Margin="33,0,0,396" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" Width="120"/>
+            <TextBox x:Name="caixaDeTextoZ" HorizontalAlignment="Left" Height="22" Margin="33,0,0,400" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" Width="120"/>
 
             <!-- BOTÃO -->
             <Button x:Name="botaoAdicionar" Content="ADICIONE" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="143" Click="AdicionePonto"/>
             <Label Content="ARESTAS" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="95" Height="28"/>
 
-            <ListBox x:Name="arestasListBox" HorizontalAlignment="Left" Height="314" Margin="10,186,0,0" VerticalAlignment="Top" Width="143"/>
+            <ListBox x:Name="arestasListBox" HorizontalAlignment="Left" Height="304" Margin="10,186,0,0" VerticalAlignment="Top" Width="143"/>
             <Label Content="X" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
             <Label Content="Y" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
             <Label Content="Z" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
@@ -34,7 +45,7 @@
         <view:PlanoCartesiano 
             x:Name="_PlanoCartesiano" 
             HorizontalAlignment="Left" 
-            Margin="10,10,0,0" 
+            Margin="167,25,0,0" 
             Tamanho="500" 
             Proporcao="10"
             DirecaoEixoZ="0.5"
@@ -44,7 +55,7 @@
             />
 
         <!-- TRANSFORMAÇÕES -->
-        <Grid HorizontalAlignment="Left" Height="149" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="663">
+        <Grid HorizontalAlignment="Left" Height="147" Margin="167,0,0,14" VerticalAlignment="Bottom" Width="683">
             <!-- TRANSLAÇÃO -->
             <Grid HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="106">
                 <!-- DESCRIÇÃO -->
@@ -97,7 +108,7 @@
             </Grid>
 
             <!-- CISALHAMENTO -->
-            <Grid HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="233" Margin="420,0,0,0">
+            <Grid HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="233" Margin="399,0,0,0">
                 <!-- DESCRIÇÃO -->
                 <Label Content="CISALHAMENTO" HorizontalAlignment="Left" Margin="55,10,0,0" VerticalAlignment="Top" Width="112"/>
 
@@ -121,7 +132,11 @@
             </Grid>
         </Grid>
 
-        <Grid HorizontalAlignment="Left" Height="649" Margin="673,10,0,0" VerticalAlignment="Top" Width="157">
+        <Grid HorizontalAlignment="Left" Height="684" VerticalAlignment="Top" Width="157" Margin="10,15,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="195*"/>
+                <RowDefinition Height="23*"/>
+            </Grid.RowDefinitions>
             <Grid HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="157" >
                 <Label Content="PLANAR PERSPECTIVA" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="26"/>
 
@@ -135,7 +150,6 @@
                 <Button Content="PROJETE" HorizontalAlignment="Left" Margin="5,110,0,0" VerticalAlignment="Top" Width="142" Height="20" GotMouseCapture="ProjetePlanar" MouseLeave="DesprojetePlanar"/>
                 <TextBox x:Name="pontoPlanoTextBox" HorizontalAlignment="Left" Height="22" Margin="5,36,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="142"/>
             </Grid>
-            <Button Content="DESFAZER" HorizontalAlignment="Left" Margin="10,619,0,0" VerticalAlignment="Top" Width="137" Click="Desfaca"/>
             <Grid HorizontalAlignment="Left" Height="234" VerticalAlignment="Top" Width="157" Margin="0,145,0,0" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="116*"/>
@@ -151,11 +165,11 @@
 
                 <!-- BOTÃO CALCULAR -->
                 <Button Content="PROJETE" HorizontalAlignment="Left" Margin="5,195,0,0" VerticalAlignment="Top" Width="142" Height="20" Grid.ColumnSpan="2" GotMouseCapture="ProjeteAxometrica"  MouseLeave="DesprojetePlanar"/>
-                
+
                 <TextBox x:Name="pontoXAxometricaTextBox" HorizontalAlignment="Left" Height="22" Margin="28,63,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
                 <TextBox x:Name="pontoYAxometricaTextBox" HorizontalAlignment="Left" Height="22" Margin="28,90,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
                 <TextBox x:Name="pontoZAxometricaTextBox" HorizontalAlignment="Left" Height="22" Margin="28,0,0,95" TextWrapping="Wrap" Text="0" VerticalAlignment="Bottom" Width="120" Grid.ColumnSpan="2"/>
-                
+
                 <Label Content="X" HorizontalAlignment="Left" Margin="5,60,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
                 <Label Content="Y" HorizontalAlignment="Left" Margin="5,88,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
                 <Label Content="Z" HorizontalAlignment="Left" Margin="5,114,0,0" VerticalAlignment="Top" Width="18" Height="25"/>

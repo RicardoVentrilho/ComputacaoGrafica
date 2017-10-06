@@ -28,5 +28,16 @@ namespace PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj
         {
             return $"{PrimeiroPonto} -> {UltimoPonto}";
         }
+
+        public override bool Equals(object obj)
+        {
+            if(obj is Aresta)
+            {
+                return ((Aresta)obj).PrimeiroPonto.Equals(PrimeiroPonto)
+                       && ((Aresta)obj).UltimoPonto.Equals(UltimoPonto);
+            }
+
+            return false;
+        }
     }
 }

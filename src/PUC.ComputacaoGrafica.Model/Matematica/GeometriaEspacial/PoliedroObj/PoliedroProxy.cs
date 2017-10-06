@@ -4,6 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.ArestaObj;
@@ -91,6 +92,13 @@ namespace PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj
             };
 
             return poliedro;
+        }
+
+        public void RemovaAresta(Aresta aresta)
+        {
+            AdicionaNaPilha();
+
+            _Poliedro.RemovaAresta(aresta);
         }
 
         public void Desfaca()

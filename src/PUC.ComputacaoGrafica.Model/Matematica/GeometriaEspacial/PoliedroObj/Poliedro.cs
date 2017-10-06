@@ -24,9 +24,11 @@ namespace PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj
             Vertices.Add(ponto);
         }
 
-        public void RemovaPonto(Ponto3d ponto)
+        public void RemovaPonto(Ponto3d pontoSelecionado)
         {
-            throw new NotImplementedException();
+            Vertices = Vertices.Where(ponto => !ponto.Equals(pontoSelecionado)).ToList();
+            Arestas = Arestas.Where(aresta => !aresta.PrimeiroPonto.Equals(pontoSelecionado)
+                                              && !aresta.UltimoPonto.Equals(pontoSelecionado)).ToList();
         }
 
         public void AdicioneAresta(Ponto3d primeiroPonto, Ponto3d ultimoPonto)
@@ -60,6 +62,11 @@ namespace PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj
             };
 
             return poliedro;
+        }
+
+        public void RemovaAresta(Aresta arestaSelecionada)
+        {
+            Arestas = Arestas.Where(aresta => !aresta.Equals(arestaSelecionada)).ToList();
         }
     }
 }

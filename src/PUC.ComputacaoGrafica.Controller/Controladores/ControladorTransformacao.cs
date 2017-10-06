@@ -60,11 +60,36 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             AtualizeTela();
         }
 
+        public void RemovaPontoSelecionado()
+        {
+            if (PontosSelecionados.Any())
+            {
+                var ponto = PontosSelecionados.First();
+
+                Poliedro.RemovaPonto(ponto);
+
+                PontosSelecionados.Clear();
+            }
+            else
+            {
+                throw new Exception("Nenhum ponto selecionado");
+            }
+
+            AtualizeTela();
+        }
+
         public void AdicioneAresta(Ponto3d primeiroPonto, Ponto3d ultimoPonto)
         {
             var aresta = new Aresta(primeiroPonto, ultimoPonto);
 
             Poliedro.AdicioneAresta(aresta);
+
+            AtualizeTela();
+        }
+
+        public void RemovaAresta(Aresta aresta)
+        {
+            Poliedro.RemovaAresta(aresta);
 
             AtualizeTela();
         }
@@ -128,8 +153,6 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
         public void ProjeteAxometrica(double x, double y, double z, EnumPlano plano)
         {
             ValidePontoSelecionado();
-
-            ///PilhaDePoliedros.Push(Poliedro.Clone());
 
             var ponto = new Ponto3d(x, y, z);
 

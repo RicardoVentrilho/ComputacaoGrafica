@@ -71,6 +71,24 @@ namespace PUC.ComputacaoGrafica.View
 
         #region "EVENTOS"
 
+        private void RemovaPonto(object sender, RoutedEventArgs e)
+        {
+            MetodoProxy(() => 
+            {
+                Controlador.RemovaPontoSelecionado();
+            });
+        }
+
+        private void RemovaAresta(object sender, RoutedEventArgs e)
+        {
+            MetodoProxy(() => 
+            {
+                var aresta = (Aresta)arestasListBox.SelectedItem;
+
+                Controlador.RemovaAresta(aresta);
+            });
+        }
+
         private void AdicionePonto(object sender, RoutedEventArgs e)
         {
             MetodoProxy(() =>

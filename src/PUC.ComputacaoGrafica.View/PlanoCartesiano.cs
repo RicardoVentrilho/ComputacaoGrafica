@@ -23,11 +23,13 @@ namespace PUC.ComputacaoGrafica.View
         public double Proporcao
         {
             set { _Proporcao = value; }
+            get { return _Proporcao; }
         }
 
         public double DirecaoEixoZ
         {
             set { _DirecaoEixoZ = value; }
+            get { return _DirecaoEixoZ; }
         }
 
         public double Tamanho
