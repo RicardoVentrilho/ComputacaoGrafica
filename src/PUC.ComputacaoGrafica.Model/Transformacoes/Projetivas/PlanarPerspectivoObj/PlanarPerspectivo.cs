@@ -1,35 +1,35 @@
-﻿using System;
+﻿using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
-using PUC.ComputacaoGrafica.Model.Transformacoes.Interfaces;
-using MathNet.Numerics.LinearAlgebra;
 using PUC.ComputacaoGrafica.Model.Enumeradores;
-using static PUC.ComputacaoGrafica.Model.Enumeradores.EnumPlano;
+using MathNet.Numerics.LinearAlgebra;
 using PUC.ComputacaoGrafica.Model.Extensoes;
+using PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.PlanarPerspectivoObj;
+using static PUC.ComputacaoGrafica.Model.Enumeradores.EnumPlano;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.PlanarPerspectivoObj
 {
     public class PlanarPerspectivo : ITransformacao<Ponto3d>
     {
-        private static readonly PlanarPerspectivo _Instancia = new PlanarPerspectivo(0, XY);
+        private static readonly PlanarPerspectivo _Instancia = new PlanarPerspectivo(null, XY);
 
-        private PlanarPerspectivo(double dPonto, EnumPlano plano)
+        private PlanarPerspectivo(Ponto3d ponto, EnumPlano plano)
         {
-            DPonto = dPonto;
+            Ponto = ponto;
             Plano = plano;
         }
 
-        public Matrix<double> MatrizParaPlanarPerspectivo { get; private set; }
-
-        public double DPonto { get; private set; }
+        public Matrix<double> MatrizParaParalelaAxometrixaIsometrica { get; private set; }
 
         public EnumPlano Plano { get; private set; }
 
-        public static PlanarPerspectivo ObtenhaInstancia(double dPonto, EnumPlano plano)
+        public Ponto3d Ponto { get; private set; }
+
+        public static PlanarPerspectivo ObtenhaInstancia(Ponto3d ponto, EnumPlano plano)
         {
-            _Instancia.DPonto = dPonto;
+            _Instancia.Ponto = ponto;
             _Instancia.Plano = plano;
 
-            _Instancia.MatrizParaPlanarPerspectivo = FabricaDePlanarPespectivo.Crie(plano, dPonto);
+            _Instancia.MatrizParaParalelaAxometrixaIsometrica = FabricaDePlanarPerspectivo.Crie(ponto, plano);
 
             return _Instancia;
         }
@@ -38,7 +38,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.PlanarPerspectiv
         {
             var pontoComoMatriz = elemento.ConvertaParaMatrizHorizontal();
 
-            var resultado = pontoComoMatriz * MatrizParaPlanarPerspectivo ;
+            var resultado = pontoComoMatriz * MatrizParaParalelaAxometrixaIsometrica;
 
             var ponto = resultado.ConvertaHorizontalParaPonto();
 

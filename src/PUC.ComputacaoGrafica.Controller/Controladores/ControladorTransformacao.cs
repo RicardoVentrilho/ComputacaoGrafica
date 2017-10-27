@@ -141,22 +141,13 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
             AtualizeTela();
         }
 
-        public void ProjetePlanarPerspectivo(double dPonto, EnumPlano plano)
-        {
-            ValidePontoSelecionado();
-
-            PoliedroProjetado = TransformacoesProjetivas.ProjeteUmPlanarPerspectivo(Poliedro.Clone(), dPonto, plano);
-
-            AtualizeTela();
-        }
-
-        public void ProjeteAxometrica(double x, double y, double z, EnumPlano plano)
+        public void ProjetePlanarPerspectivo(double x, double y, double z, EnumPlano plano)
         {
             ValidePontoSelecionado();
 
             var ponto = new Ponto3d(x, y, z);
 
-            PoliedroProjetado = TransformacoesProjetivas.ProjeteUmAxiomaIsometrico(Poliedro.Clone(), ponto, plano);
+            PoliedroProjetado = TransformacoesProjetivas.ProjeteUmPlanarPerspectivo(Poliedro.Clone(), ponto, plano);
 
             AtualizeTela();
         }
@@ -204,6 +195,53 @@ namespace PUC.ComputacaoGrafica.Controller.Controladores
                     }
                 }
             }
+
+            AtualizeTela();
+        }
+
+        public void CalculeAxometrica()
+        {
+            ValidePontoSelecionado();
+
+            TransformacoesProjetivas.CalculeUmAxiomaIsometrico(Poliedro);
+
+            AtualizeTela();
+        }
+
+        public void DesenheCubo()
+        {
+            ValidePontoSelecionado();
+
+            Poliedro = new PoliedroProxy();
+            Poliedro.AdicionaNaPilha();
+
+            Poliedro.Vertices = new List<Ponto3d>
+            {
+                new Ponto3d(0, 0, 0),
+                new Ponto3d(0, 0, 5),
+                new Ponto3d(0, 5, 5),
+                new Ponto3d(5, 5, 5),
+                new Ponto3d(5, 5, 0),
+                new Ponto3d(5, 0, 0),
+                new Ponto3d(5, 0, 5),
+                new Ponto3d(0, 5, 0),
+            };
+
+            Poliedro.Arestas = new List<Aresta>
+            {
+                new Aresta(new Ponto3d(0, 0, 0), new Ponto3d(0, 0, 5)),
+                new Aresta(new Ponto3d(0, 0, 0), new Ponto3d(0, 5, 0)),
+                new Aresta(new Ponto3d(0, 0, 0), new Ponto3d(5, 0, 0)),
+                new Aresta(new Ponto3d(0, 5, 0), new Ponto3d(0, 5, 5)),
+                new Aresta(new Ponto3d(0, 5, 0), new Ponto3d(5, 5, 0)),
+                new Aresta(new Ponto3d(5, 0, 5), new Ponto3d(5, 0, 0)),
+                new Aresta(new Ponto3d(5, 5, 0), new Ponto3d(5, 0, 0)),
+                new Aresta(new Ponto3d(5, 5, 5), new Ponto3d(5, 5, 0)),
+                new Aresta(new Ponto3d(0, 0, 5), new Ponto3d(5, 0, 5)),
+                new Aresta(new Ponto3d(5, 5, 5), new Ponto3d(0, 5, 5)),
+                new Aresta(new Ponto3d(0, 0, 5), new Ponto3d(0, 5, 5)),
+                new Aresta(new Ponto3d(5, 5, 5), new Ponto3d(5, 0, 5)),
+            };
 
             AtualizeTela();
         }

@@ -68,14 +68,20 @@
     <Compile Include="Transformacoes\Geometricas\TranslacaoObj\Translacao.cs" />
     <Compile Include="Transformacoes\Interfaces\ITransformacao.cs" />
     <Compile Include="Transformacoes\Projetivas\Interfaces\ITransformacaoProjetiva.cs" />
-    <Compile Include="Transformacoes\Projetivas\ParalelaAxiometricaObj\FabricaDeAxiometricoIsometrico.cs" />
-    <Compile Include="Transformacoes\Projetivas\ParalelaAxiometricaObj\ParalelaAxiometrica.cs" />
-    <Compile Include="Transformacoes\Projetivas\PlanarPerspectivoObj\FabricaDePlanarPespectivo.cs" />
+    <Compile Include="Transformacoes\Projetivas\ParalelaAxiometricaObj\ParalelaAxometrica.cs" />
+    <Compile Include="Transformacoes\Projetivas\PlanarPerspectivoObj\FabricaDePlanarPerspectivo.cs" />
     <Compile Include="Transformacoes\Projetivas\PlanarPerspectivoObj\PlanarPerspectivo.cs" />
+    <Compile Include="Transformacoes\Projetivas\PlanarPerspectivoObj\FabricaDePlanarPespectivoNoEixo.cs" />
+    <Compile Include="Transformacoes\Projetivas\PlanarPerspectivoObj\PlanarPerspectivoNoEixo.cs" />
     <Compile Include="Transformacoes\Projetivas\TransformacaoProjetivaDoPoliedro.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>

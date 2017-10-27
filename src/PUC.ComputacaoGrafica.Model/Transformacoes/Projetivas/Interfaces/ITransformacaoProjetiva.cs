@@ -5,8 +5,8 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.Interfaces
 {
     public interface ITransformacaoProjetiva<T>
     {
-        T ProjeteUmPlanarPerspectivo(T poliedro, double dPonto, EnumPlano plano);
+        T ProjeteUmPlanarPerspectivo(T poliedro, Ponto3d ponto, EnumPlano plano);
 
-        T ProjeteUmAxiomaIsometrico(T poliedro, Ponto3d ponto, EnumPlano plano);
+        T CalculeUmAxiomaIsometrico(T poliedro);
     }
 }

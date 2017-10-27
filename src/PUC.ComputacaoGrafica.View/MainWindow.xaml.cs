@@ -176,25 +176,21 @@ namespace PUC.ComputacaoGrafica.View
         {
             MetodoProxy(() =>
             {
-                var dPonto = double.Parse(pontoPlanoTextBox.Text);
-
-                var plano = (EnumPlano)planosComboBox.SelectedIndex;
-
-                Controlador.ProjetePlanarPerspectivo(dPonto, plano);
-            });
-        }
-
-        private void ProjeteAxometrica(object sender, RoutedEventArgs e)
-        {
-            MetodoProxy(() =>
-            {
                 var x = double.Parse(pontoXAxometricaTextBox.Text);
                 var y = double.Parse(pontoYAxometricaTextBox.Text);
                 var z = double.Parse(pontoZAxometricaTextBox.Text);
 
-                var plano = (EnumPlano)planosAxometricoComboBox.SelectedIndex;
+                var plano = (EnumPlano)planosComboBox.SelectedIndex;
 
-                Controlador.ProjeteAxometrica(x, y, z, plano);
+                Controlador.ProjetePlanarPerspectivo(x, y, z, plano);
+            });
+        }
+
+        private void CalculeAxometrica(object sender, RoutedEventArgs e)
+        {
+            MetodoProxy(() =>
+            {
+                Controlador.CalculeAxometrica();
             });
         }
 
@@ -203,6 +199,14 @@ namespace PUC.ComputacaoGrafica.View
             MetodoProxy(() =>
             {
                 Controlador.DesprojetePlanar();
+            });
+        }
+
+        private void DesenheCubo(object sender, RoutedEventArgs e)
+        {
+            MetodoProxy(() =>
+            {
+                Controlador.DesenheCubo();
             });
         }
 
@@ -217,8 +221,6 @@ namespace PUC.ComputacaoGrafica.View
             proporcaoComboBox.ItemsSource = new[] { EnumCoordenadas.X, EnumCoordenadas.Y, EnumCoordenadas.Z };
 
             planosComboBox.ItemsSource = new[] { EnumPlano.XY, EnumPlano.XZ, EnumPlano.YZ };
-
-            planosAxometricoComboBox.ItemsSource = new[] { EnumPlano.XY, EnumPlano.XZ, EnumPlano.YZ };
         }
 
         private void MetodoProxy(Action acao)

@@ -16,6 +16,8 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
     {
         public void Cisalhe(PoliedroProxy poliedro, Proporcao proporcao, EnumCoordenadas direcao)
         {
+            poliedro.AdicionaNaPilha();
+
             var cisalhamento = Cisalhamento.ObtenhaInstancia(proporcao, direcao);
 
             var arestas = new List<Aresta>();
@@ -46,6 +48,8 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
 
         public void Escalone(PoliedroProxy poliedro, double escalonamentoX, double escalonamentoY, double escalonamentoZ)
         {
+            poliedro.AdicionaNaPilha();
+
             var escalonamento = Escalonamento.ObtenhaInstancia(escalonamentoX, escalonamentoY, escalonamentoZ);
 
             var arestas = new List<Aresta>();
@@ -76,6 +80,8 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
 
         public void Rotacione(PoliedroProxy poliedro, EnumCoordenadas eixo, double angulo)
         {
+            poliedro.AdicionaNaPilha();
+
             var rotacao = Rotacionamento.ObtenhaInstancia(eixo, angulo);
 
             var arestas = new List<Aresta>();
@@ -106,6 +112,8 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas
 
         public void Translade(PoliedroProxy poliedro, double deslocamentoX, double deslocamentoY, double deslocamentoZ)
         {
+            poliedro.AdicionaNaPilha();
+
             var translacao = Translacao.ObtenhaInstancia(deslocamentoX, deslocamentoY, deslocamentoZ);
 
             var arestas = new List<Aresta>();

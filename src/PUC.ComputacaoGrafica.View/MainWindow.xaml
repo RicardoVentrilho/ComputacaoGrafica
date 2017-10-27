@@ -13,6 +13,7 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top" Height="20">
                 <MenuItem Header="Editar">
+                    <MenuItem Header="Desenhe Cubo" Click="DesenheCubo"/>
                     <MenuItem Header="Excluir Ponto" Click="RemovaPonto"/>
                     <MenuItem Header="Excluir Aresta" Click="RemovaAresta"/>
                     <MenuItem Header="Desfazer" Click="Desfaca"/>
@@ -133,38 +134,28 @@
         </Grid>
 
         <Grid HorizontalAlignment="Left" Height="684" VerticalAlignment="Top" Width="157" Margin="10,15,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="73*"/>
+                <ColumnDefinition Width="84*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="195*"/>
                 <RowDefinition Height="23*"/>
             </Grid.RowDefinitions>
-            <Grid HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="157" >
-                <Label Content="PLANAR PERSPECTIVA" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="26"/>
-
-                <!-- ÂNGULO -->
-                <Label Content="PLANOS" HorizontalAlignment="Left" Margin="5,69,0,0" VerticalAlignment="Top" Width="61" Height="27"/>
-
-                <!-- EIXO -->
-                <ComboBox x:Name="planosComboBox" HorizontalAlignment="Left" Margin="66,70,0,0" VerticalAlignment="Top" Width="81"/>
-
-                <!-- BOTÃO CALCULAR -->
-                <Button Content="PROJETE" HorizontalAlignment="Left" Margin="5,110,0,0" VerticalAlignment="Top" Width="142" Height="20" GotMouseCapture="ProjetePlanar" MouseLeave="DesprojetePlanar"/>
-                <TextBox x:Name="pontoPlanoTextBox" HorizontalAlignment="Left" Height="22" Margin="5,36,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="142"/>
-            </Grid>
-            <Grid HorizontalAlignment="Left" Height="234" VerticalAlignment="Top" Width="157" Margin="0,145,0,0" >
+            <Grid HorizontalAlignment="Left" Height="234" VerticalAlignment="Top" Width="157" Grid.ColumnSpan="2" Margin="0,10,0,0" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="116*"/>
                     <ColumnDefinition Width="41*"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="AXOMÉTRICA&#xD;&#xA;ISOMÉTRICA" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="41" Grid.ColumnSpan="2"/>
 
                 <!-- ÂNGULO -->
                 <Label Content="PLANOS" HorizontalAlignment="Left" Margin="5,154,0,0" VerticalAlignment="Top" Width="61" Height="27"/>
 
                 <!-- EIXO -->
-                <ComboBox x:Name="planosAxometricoComboBox" HorizontalAlignment="Left" Margin="66,155,0,0" VerticalAlignment="Top" Width="81" Grid.ColumnSpan="2"/>
+                <ComboBox x:Name="planosComboBox" HorizontalAlignment="Left" Margin="66,155,0,0" VerticalAlignment="Top" Width="81" Grid.ColumnSpan="2"/>
 
                 <!-- BOTÃO CALCULAR -->
-                <Button Content="PROJETE" HorizontalAlignment="Left" Margin="5,195,0,0" VerticalAlignment="Top" Width="142" Height="20" Grid.ColumnSpan="2" GotMouseCapture="ProjeteAxometrica"  MouseLeave="DesprojetePlanar"/>
+                <Button Content="PROJETE" HorizontalAlignment="Left" Margin="5,195,0,0" VerticalAlignment="Top" Width="142" Height="20" Grid.ColumnSpan="2" GotMouseCapture="ProjetePlanar"  MouseLeave="DesprojetePlanar"/>
 
                 <TextBox x:Name="pontoXAxometricaTextBox" HorizontalAlignment="Left" Height="22" Margin="28,63,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
                 <TextBox x:Name="pontoYAxometricaTextBox" HorizontalAlignment="Left" Height="22" Margin="28,90,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
@@ -173,6 +164,11 @@
                 <Label Content="X" HorizontalAlignment="Left" Margin="5,60,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
                 <Label Content="Y" HorizontalAlignment="Left" Margin="5,88,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
                 <Label Content="Z" HorizontalAlignment="Left" Margin="5,114,0,0" VerticalAlignment="Top" Width="18" Height="25"/>
+                <Label Content="PLANO &#xD;&#xA;PERSPERCTIVO" HorizontalAlignment="Left" VerticalAlignment="Top" Width="137" Height="42" Margin="10,0,0,0" Grid.ColumnSpan="2"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="71" Margin="0,244,0,0" VerticalAlignment="Top" Width="157" Grid.ColumnSpan="2">
+                <Label Content="AXOMÉTRICA&#xD;&#xA;ISOMÉTRICA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="127" Height="42" Margin="10,0,0,0"/>
+                <Button Content="CALCULE" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="137" Height="20" Click="CalculeAxometrica"/>
             </Grid>
         </Grid>
     </Grid>

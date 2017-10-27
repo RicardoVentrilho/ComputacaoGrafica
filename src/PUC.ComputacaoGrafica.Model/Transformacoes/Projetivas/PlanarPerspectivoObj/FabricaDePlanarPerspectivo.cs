@@ -4,11 +4,10 @@ using PUC.ComputacaoGrafica.Model.Enumeradores;
 using PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PontoObj;
 using static PUC.ComputacaoGrafica.Model.Enumeradores.EnumPlano;
 using MathNet.Numerics.LinearAlgebra.Double;
-using PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.PlanarPerspectivoObj;
 
-namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.ParalelaAxiometricaObj
+namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.PlanarPerspectivoObj
 {
-    public static class FabricaDeAxiometricoIsometrico
+    public static class FabricaDePlanarPerspectivo
     {
         public static Matrix<double> Crie(Ponto3d ponto, EnumPlano plano)
         {
@@ -17,7 +16,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.ParalelaAxiometr
             switch (plano)
             {
                 case XY:
-                    matriz = FabricaDePlanarPespectivo.Crie(plano, ponto.Z);
+                    matriz = FabricaDePlanarPespectivoNoEixo.Crie(plano, ponto.Z);
 
                     var primeiraMultiplicacao = DenseMatrix.OfArray(new double[,]
                     {
@@ -42,7 +41,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.ParalelaAxiometr
                     break;
 
                 case XZ:
-                    matriz = FabricaDePlanarPespectivo.Crie(plano, ponto.Y);
+                    matriz = FabricaDePlanarPespectivoNoEixo.Crie(plano, ponto.Y);
 
                     var primeiraMultiplicacaoXZ = DenseMatrix.OfArray(new double[,]
                     {
@@ -67,7 +66,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.ParalelaAxiometr
                     break;
 
                 case YZ:
-                    matriz = FabricaDePlanarPespectivo.Crie(plano, ponto.X);
+                    matriz = FabricaDePlanarPespectivoNoEixo.Crie(plano, ponto.X);
 
                     var primeiraMultiplicacaoYZ = DenseMatrix.OfArray(new double[,]
                     {

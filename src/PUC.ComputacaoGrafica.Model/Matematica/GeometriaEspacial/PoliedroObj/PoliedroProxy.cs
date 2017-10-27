@@ -71,15 +71,11 @@ namespace PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj
 
         public void LimpeArestas()
         {
-            AdicionaNaPilha();
-
             _Poliedro.LimpeArestas();
         }
 
         public void LimpeVertices()
         {
-            AdicionaNaPilha();
-
             _Poliedro.LimpeVertices();
         }
 
@@ -106,7 +102,7 @@ namespace PUC.ComputacaoGrafica.Model.Matematica.GeometriaEspacial.PoliedroObj
             _Poliedro = _PilhaDePoliedros.Pop();
         }
 
-        private void AdicionaNaPilha()
+        public void AdicionaNaPilha()
         {
             _PilhaDePoliedros.Push(_Poliedro.Clone());
         }

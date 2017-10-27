@@ -17,8 +17,8 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.RotacionamentoO
                 case Z:
                     matriz = DenseMatrix.OfArray(new[,]
                     {
-                        { Math.Cos(angulo), Math.Sin(angulo), 0, 0 },
-                        { -1 * Math.Sin(angulo), Math.Cos(angulo), 0, 0 },
+                        { Math.Cos(angulo), -1 * Math.Sin(angulo), 0, 0 },
+                        { Math.Sin(angulo), Math.Cos(angulo), 0, 0 },
                         { 0, 0, 1, 0 },
                         { 0, 0, 0, 1 },
                     });
@@ -27,8 +27,8 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Geometricas.RotacionamentoO
                     matriz = DenseMatrix.OfArray(new[,]
                     {
                         { 1, 0, 0, 0 },
-                        { 0, Math.Cos(angulo), Math.Sin(angulo), 0},
-                        { 0, -1 * Math.Sin(angulo), Math.Cos(angulo), 0},
+                        { 0, Math.Cos(angulo), -1 * Math.Sin(angulo), 0},
+                        { 0, Math.Sin(angulo), Math.Cos(angulo), 0},
                         { 0, 0, 0, 1 },
                     });
 

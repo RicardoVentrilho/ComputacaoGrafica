@@ -6,7 +6,7 @@ using MathNet.Numerics.LinearAlgebra.Double;
 
 namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.PlanarPerspectivoObj
 {
-    public class FabricaDePlanarPespectivo
+    public class FabricaDePlanarPespectivoNoEixo
     {
         public static Matrix<double> Crie(EnumPlano plano, double dPonto)
         {
@@ -24,7 +24,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.PlanarPerspectiv
                     });
                     break;
 
-                case XZ:
+                case YZ:
                     matriz = DenseMatrix.OfArray(new double[,]
                     {
                         { 0, 0, 0, 1 / dPonto },
@@ -34,7 +34,7 @@ namespace PUC.ComputacaoGrafica.Model.Transformacoes.Projetivas.PlanarPerspectiv
                     });
                     break;
 
-                case YZ:
+                case XZ:
                     matriz = DenseMatrix.OfArray(new double[,]
                     {
                         { 1, 0, 0, 0 },
